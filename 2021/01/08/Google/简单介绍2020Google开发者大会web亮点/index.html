@@ -1,0 +1,383 @@
+<!DOCTYPE html><html class="appearance-auto" lang="zh-cn"><head><meta charset="UTF-8"><title>简单介绍2020Google开发者大会web亮点</title><meta name="description" content="完善自己"><meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, initial-scale=1"><link rel="icon"><link rel="stylesheet" href="/My-Blogs/style/bulma.css"><link rel="stylesheet" href="/My-Blogs/style/base.css"><link rel="stylesheet" href="/My-Blogs/style/helper.css"><script src="/My-Blogs/js/main.js"></script><link rel="stylesheet" href="/My-Blogs/style/post.css"><link rel="stylesheet" href="/My-Blogs/style/highlight-theme-light.css"><script src="/My-Blogs/jslib/highlight.pack.js"></script><meta name="generator" content="Hexo 5.2.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/My-Blogs/atom.xml" title="John Doe's blog" type="application/atom+xml">
+</head><body class="is-flex is-flex-direction-column"><header class="is-flex header-widget is-flex-shrink-0 is-align-items-center is-justify-content-space-between is-hidden-mobile"><section class="is-hidden-mobile"><h2><a href="/My-Blogs/">Lucas's blog</a></h2></section><h3 class="is-hidden-mobile"></h3><aside><h3 class="is-inline-block"><a href="/My-Blogs/">Home</a></h3><h3 class="is-inline-block"><a href="/My-Blogs/about">About</a></h3><h3 class="is-inline-block"><a href="/My-Blogs/archives">Archives</a></h3></aside></header><header class="is-flex header-widget is-flex-shrink-0 is-align-items-center is-justify-content-center is-hidden-tablet"><h3 class="is-inline-block"><a href="/My-Blogs/">Home</a></h3><h3 class="is-inline-block"><a href="/My-Blogs/about">About</a></h3><h3 class="is-inline-block"><a href="/My-Blogs/archives">Archives</a></h3></header><main><main class="container is-max-widescreen content section post-page pt-4 px-4"><div class="columns is-flex-desktop is-justify-content-center is-flex-direction-row-reverse"><div class="column is-3 is-hidden-mobile"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C"><span class="toc-text">网络</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#sameSite"><span class="toc-text">sameSite</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#User-Agent-Client-Hints-UA-CH"><span class="toc-text">User-Agent Client Hints(UA-CH)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JavaScript-API"><span class="toc-text">JavaScript API</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CSS%E5%B8%83%E5%B1%80"><span class="toc-text">CSS布局</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%BA%E5%B1%85%E4%B8%AD"><span class="toc-text">强居中</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%89%E6%AE%B5%E5%BC%8F%E5%B8%83%E5%B1%80"><span class="toc-text">三段式布局</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%8F%E5%85%B8%E5%B8%83%E5%B1%80"><span class="toc-text">经典布局</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%90%9C%E7%B4%A2%EF%BC%88%E9%AB%98%E7%BA%A7SEO%EF%BC%89"><span class="toc-text">搜索（高级SEO）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9E%84%E5%BB%BA%E5%AF%8C%E5%AA%92%E4%BD%93%E6%90%9C%E7%B4%A2%E6%95%B0%E6%8D%AE%EF%BC%8C%E5%8A%A9%E5%8A%9BBigo%E6%B5%B7%E5%A4%96%E7%94%B5%E5%95%86%EF%BC%8C%E7%9B%B4%E6%92%AD%EF%BC%8CimoJobs%E7%AD%89%E4%B8%9A%E5%8A%A1"><span class="toc-text">构建富媒体搜索数据，助力Bigo海外电商，直播，imoJobs等业务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%8B%E9%9D%A2%E6%98%AF%E4%B8%80%E4%B8%AA%E8%B4%AD%E7%89%A9%E4%BF%A1%E6%81%AF%E6%B1%87%E6%80%BB%E7%BD%91%E7%AB%99%E9%A1%B5%E9%9D%A2%E7%A4%BA%E4%BE%8B"><span class="toc-text">下面是一个购物信息汇总网站页面示例</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95"><span class="toc-text">自动化测试</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#PageSpeed-Insights-PSI"><span class="toc-text"> PageSpeed Insights(PSI)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Puppeteer"><span class="toc-text">Puppeteer</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Web-Vitals"><span class="toc-text">Web Vitals</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%89%E5%A4%A7%E6%8C%87%E6%A0%87"><span class="toc-text">三大指标</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Chrome%E7%9B%B8%E5%85%B3%EF%BC%88DevTools%EF%BC%8CLighthouse%EF%BC%89"><span class="toc-text">Chrome相关（DevTools，Lighthouse）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%94%AF%E6%8C%81CSS-in-JS%E6%A1%86%E6%9E%B6%E7%9A%84%E6%A0%B7%E5%BC%8F%E7%BC%96%E8%BE%91"><span class="toc-text">支持CSS-in-JS框架的样式编辑</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A8%A1%E6%8B%9F%E6%97%B6%E5%8C%BA"><span class="toc-text">模拟时区</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AA%92%E4%BD%93%E9%9D%A2%E6%9D%BF"><span class="toc-text">媒体面板</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80%E9%94%AE%E4%BF%AE%E5%A4%8D%E6%96%87%E5%AD%97%E7%9A%84%E8%89%B2%E5%BD%A9%E5%AF%B9%E6%AF%94"><span class="toc-text">一键修复文字的色彩对比</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%A9%E7%94%A8Lighthouse-%E7%94%9F%E6%88%90%E6%80%A7%E8%83%BD%E6%8A%A5%E5%91%8A"><span class="toc-text">利用Lighthouse 生成性能报告</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#PWA%E4%B8%8EWebPush"><span class="toc-text">PWA与WebPush</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%A9%E7%94%A8PWA%E8%A7%A3%E5%86%B3%E4%BB%A5%E4%B8%8B%E9%97%AE%E9%A2%98"><span class="toc-text">利用PWA解决以下问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#WebPush%E6%B5%81%E7%A8%8B%E5%9B%BE"><span class="toc-text">WebPush流程图</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#TensorFlow-js"><span class="toc-text">TensorFlow.js</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9D%A5%E5%88%86%E4%BA%AB%E4%B8%80%E4%B8%AA%E6%9C%89%E6%84%8F%E6%80%9D%E7%9A%84%E5%9C%BA%E6%99%AF"><span class="toc-text">来分享一个有意思的场景</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%A9%E7%94%A8TensorFlow-Privacy-%E6%A3%80%E6%9F%A5%E9%9A%90%E7%A7%81%E4%BF%9D%E6%8A%A4%E6%8E%AA%E6%96%BD"><span class="toc-text">利用TensorFlow Privacy 检查隐私保护措施</span></a></li></ol></li></ol></div><div class="column is-9"><header class="my-4"><a href="/My-Blogs/tags/Google"><i class="tag post-item-tag">Google</i></a></header><h1 class="mt-0 mb-1 is-family-serif">简单介绍2020Google开发者大会web亮点</h1><time class="has-text-grey" datetime="2021-01-08T16:05:04.000Z">2021-01-08</time><article class="mt-2 post-content"><a id="more"></a>
+<h2 id="网络"><a href="#网络" class="headerlink" title="网络"></a>网络</h2><h3 id="sameSite"><a href="#sameSite" class="headerlink" title="sameSite"></a>sameSite</h3><blockquote>
+<p>Chrome 51 开始，浏览器的 Cookie 新增加了一个SameSite属性，用来防止 CSRF 攻击和用户追踪，分为Strict ，Lax，None</p>
+</blockquote>
+<ul>
+<li><code>Strict</code>最为严格，完全禁止第三方 Cookie，跨站点时，任何情况下都不会发送 Cookie。换言之，只有当前网页的 URL 与请求目标一致，才会带上 Cookie</li>
+</ul>
+<p><strong>这个规则过于严格，可能造成非常不好的用户体验。比如，当前网页有一个 GitHub 链接，用户点击跳转就不会带有 GitHub 的 Cookie，跳转过去总是未登陆状态</strong></p>
+<ul>
+<li><code>Lax</code>规则稍稍放宽，允许同站请求发送Cookie，但大多数情况也是不发送第三方 Cookie，但是导航到目标网址的 Get 请求除外。</li>
+<li><code>None</code>允许跨站请求，前提是必须同时设置Secure属性（Cookie 只能通过 HTTPS 协议发送），否则无效</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>sameSite</th>
+<th>HTTP → HTTPS</th>
+<th>HTTPS → HTTP</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>SameSite=Strict</td>
+<td>⛔ Blocked</td>
+<td>⛔ Blocked</td>
+</tr>
+<tr>
+<td>SameSite=Lax</td>
+<td>✓ Allowed</td>
+<td>✓ Allowed</td>
+</tr>
+<tr>
+<td>SameSite=None; Secure</td>
+<td>✓ Allowed</td>
+<td>⛔ Blocked</td>
+</tr>
+</tbody></table>
+<p><a target="_blank" rel="noopener" href="https://web.dev/schemeful-samesite/">查看更多信息</a></p>
+<h3 id="User-Agent-Client-Hints-UA-CH"><a href="#User-Agent-Client-Hints-UA-CH" class="headerlink" title="User-Agent Client Hints(UA-CH)"></a>User-Agent Client Hints(UA-CH)</h3><blockquote>
+<p>从Chrome 85开始，正式发布</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>⬇️ ResponseAccept-CH</th>
+<th>⬆️ Requestheader</th>
+<th>⬆️ RequestExample value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>UA</td>
+<td>Sec-CH-UA</td>
+<td>“Chromium”; v=”84”, “Google Chrome”; v=”84”</td>
+<td>List of browser brands and their significant version.</td>
+</tr>
+<tr>
+<td>UA-Mobile</td>
+<td>Sec-CH-UA-Mobile</td>
+<td>?1</td>
+<td>Boolean indicating if the browser is on a mobile device (?1&nbsp;for true) or not (?0&nbsp;for false).</td>
+</tr>
+<tr>
+<td>UA-Full-Version</td>
+<td>Sec-CH-UA-Full-Version</td>
+<td>“84.0.4143.2”</td>
+<td>The complete version for the browser.</td>
+</tr>
+<tr>
+<td>UA-Platform</td>
+<td>Sec-CH-UA-Platform</td>
+<td>“Android”</td>
+<td>The platform for the device, usually the operating system (OS).</td>
+</tr>
+<tr>
+<td>UA-Platform-Version</td>
+<td>Sec-CH-UA-Platform-Version</td>
+<td>“10”</td>
+<td>The version for the platform or OS.</td>
+</tr>
+<tr>
+<td>UA-Arch</td>
+<td>Sec-CH-UA-Arch</td>
+<td>“ARM64”</td>
+<td>The underlying architecture for the device. While this may not be relevant to displaying the page, the site may want to offer a download which defaults to the right format.</td>
+</tr>
+<tr>
+<td>UA-Model</td>
+<td>Sec-CH-UA-Model</td>
+<td>“Pixel 3”</td>
+<td>The device model.</td>
+</tr>
+</tbody></table>
+<h3 id="JavaScript-API"><a href="#JavaScript-API" class="headerlink" title="JavaScript API"></a>JavaScript API</h3><p>Alongside the headers, the User-Agent can also be accessed in JavaScript via navigator.userAgentData. The default Sec-CH-UA and Sec-CH-UA-Mobile header information can be accessed via the brands and mobile properties, respectively:</p>
+<pre><code class="JavaScript">// Log the brand data
+console.log(navigator.userAgentData.brands);
+
+// output
+[{
+    brand: 'Chromium',
+    version: '84',
+  },
+  {
+    brand: 'Google Chrome',
+    version: '84',
+  },
+];
+
+// Log the mobile indicator
+console.log(navigator.userAgentData.mobile);
+
+// output
+false;</code></pre>
+<p><a target="_blank" rel="noopener" href="https://web.dev/user-agent-client-hints/">查看更多信息</a></p>
+<h2 id="CSS布局"><a href="#CSS布局" class="headerlink" title="CSS布局"></a>CSS布局</h2><blockquote>
+<p>介绍了一些grid新特性</p>
+</blockquote>
+<h3 id="强居中"><a href="#强居中" class="headerlink" title="强居中"></a>强居中</h3><img src="https://user-images.githubusercontent.com/5030910/100298195-71db5c00-2fcb-11eb-89a2-f4e5ed8a4e8d.png" align="center">
+
+<h3 id="三段式布局"><a href="#三段式布局" class="headerlink" title="三段式布局"></a>三段式布局</h3><img src="https://user-images.githubusercontent.com/5030910/100298209-7a339700-2fcb-11eb-95df-49fff7c11a46.png" align="center">
+
+<h3 id="经典布局"><a href="#经典布局" class="headerlink" title="经典布局"></a>经典布局</h3><img src="https://user-images.githubusercontent.com/5030910/100298312-c8e13100-2fcb-11eb-8631-d0aba105fa86.png" align="center">
+
+<p><a target="_blank" rel="noopener" href="http://1linelayouts.glitch.me/">查看更多实例</a></p>
+<p><strong>思考：优化运营后台页面，自适应布局？</strong></p>
+<h2 id="搜索（高级SEO）"><a href="#搜索（高级SEO）" class="headerlink" title="搜索（高级SEO）"></a>搜索（高级SEO）</h2><blockquote>
+<p>利用结构化数据获取 Google 搜索的自然流量</p>
+</blockquote>
+<h3 id="构建富媒体搜索数据，助力Bigo海外电商，直播，imoJobs等业务"><a href="#构建富媒体搜索数据，助力Bigo海外电商，直播，imoJobs等业务" class="headerlink" title="构建富媒体搜索数据，助力Bigo海外电商，直播，imoJobs等业务"></a>构建富媒体搜索数据，助力Bigo海外电商，直播，imoJobs等业务</h3><ul>
+<li><p><strong><a target="_blank" rel="noopener" href="https://developers.google.com/search/docs/data-types/product">电商</a></strong></p>
+<img src="https://user-images.githubusercontent.com/5030910/100297927-bfa39480-2fca-11eb-8df7-99606a72f2cf.png" align="center">
+</li>
+<li><p><strong><a target="_blank" rel="noopener" href="https://developers.google.com/search/docs/data-types/video">直播</a></strong></p>
+</li>
+</ul>
+<p><img src="https://user-images.githubusercontent.com/5030910/100444919-3a61d200-30e7-11eb-9fdb-bcf3f609608b.png" alt="image"></p>
+<ul>
+<li><p><strong><a target="_blank" rel="noopener" href="https://developers.google.com/search/docs/data-types/job-posting">imojobs</a></strong></p>
+<img src="https://user-images.githubusercontent.com/5030910/100225858-cfcf5b80-2f59-11eb-81fd-ecb766bfc198.png" align="center">
+
+</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://search.google.com/test/rich-results">测试地址</a></p>
+<h3 id="下面是一个购物信息汇总网站页面示例"><a href="#下面是一个购物信息汇总网站页面示例" class="headerlink" title="下面是一个购物信息汇总网站页面示例"></a>下面是一个购物信息汇总网站页面示例</h3><pre><code class="html"> &lt;html&gt;
+
+ &lt;head&gt;
+   &lt;title&gt;Executive Anvil&lt;/title&gt;
+ &lt;/head&gt;
+
+ &lt;body&gt;
+   &lt;div&gt;
+     &lt;div itemtype="http://schema.org/Product" itemscope&gt;
+       &lt;meta itemprop="mpn" content="925872" /&gt;
+       &lt;meta itemprop="name" content="Executive Anvil" /&gt;
+       &lt;link itemprop="image" href="https://example.com/photos/16x9/photo.jpg" /&gt;
+       &lt;link itemprop="image" href="https://example.com/photos/4x3/photo.jpg" /&gt;
+       &lt;link itemprop="image" href="https://example.com/photos/1x1/photo.jpg" /&gt;
+       &lt;meta itemprop="description" content="Sleeker than ACME's Classic Anvil, the Executive Anvil is perfect for the business traveler looking for something to drop from a height." /&gt;
+       &lt;div itemprop="offers" itemtype="http://schema.org/AggregateOffer" itemscope&gt;
+         &lt;meta itemprop="lowPrice" content="119.99" /&gt;
+         &lt;meta itemprop="highPrice" content="199.99" /&gt;
+         &lt;meta itemprop="offerCount" content="6" /&gt;
+         &lt;meta itemprop="priceCurrency" content="USD" /&gt;
+       &lt;/div&gt;
+       &lt;div itemprop="aggregateRating" itemtype="http://schema.org/AggregateRating" itemscope&gt;
+         &lt;meta itemprop="reviewCount" content="89" /&gt;
+         &lt;meta itemprop="ratingValue" content="4.4" /&gt;
+       &lt;/div&gt;
+       &lt;div itemprop="review" itemtype="http://schema.org/Review" itemscope&gt;
+         &lt;div itemprop="author" itemtype="http://schema.org/Person" itemscope&gt;
+           &lt;meta itemprop="name" content="Fred Benson" /&gt;
+         &lt;/div&gt;
+         &lt;div itemprop="reviewRating" itemtype="http://schema.org/Rating" itemscope&gt;
+           &lt;meta itemprop="ratingValue" content="4" /&gt;
+           &lt;meta itemprop="bestRating" content="5" /&gt;
+         &lt;/div&gt;
+       &lt;/div&gt;
+       &lt;meta itemprop="sku" content="0446310786" /&gt;
+       &lt;div itemprop="brand" itemtype="http://schema.org/Brand" itemscope&gt;
+         &lt;meta itemprop="name" content="ACME" /&gt;
+       &lt;/div&gt;
+     &lt;/div&gt;
+   &lt;/div&gt;
+ &lt;/body&gt;
+
+ &lt;/html&gt;</code></pre>
+<p><strong>思考：可以利用Node+CDN服务搭建富媒体HTML直出平台，优化SEO？</strong></p>
+<h2 id="自动化测试"><a href="#自动化测试" class="headerlink" title="自动化测试"></a>自动化测试</h2><h3 id="PageSpeed-Insights-PSI"><a href="#PageSpeed-Insights-PSI" class="headerlink" title=" PageSpeed Insights(PSI)"></a><a target="_blank" rel="noopener" href="https://developers.google.com/speed/pagespeed/insights/"> PageSpeed Insights(PSI)</a></h3><blockquote>
+<p>PSI 作为一款专注于改进网页性能的开发者工具</p>
+</blockquote>
+<p><strong>它主要具有以下两个优势：</strong></p>
+<ul>
+<li>真实的网页运行速度。这是 PSI 2.0 中的新功能，PSI 结合 Chrome 用户体验报告中的数据，向开发者展示他们的网页的实际性能，这一点对于开发者来说是很有价值的。那么，PSI 则成为了用户获得真实的网页运行速度的窗口。</li>
+<li>优化建议。根据一些常用的网页性能优化规则(如避免过多的重定向)，PSI 会基于该网页的优化空间为用户提供一些网页优化建议。</li>
+</ul>
+<h3 id="Puppeteer"><a href="#Puppeteer" class="headerlink" title="Puppeteer"></a><a target="_blank" rel="noopener" href="https://github.com/puppeteer/puppeteer">Puppeteer</a></h3><blockquote>
+<p>Nodejs工具库，它提供了高级的JavaScript API 来通过DevTools控制 Chromium与其他浏览器</p>
+</blockquote>
+<p><strong>Puppeteer能做什么？</strong></p>
+<ul>
+<li>生成页面的屏幕截图和PDF。</li>
+<li>爬取SPA（单页应用程序）并生成预渲染的内容（即“ SSR”（服务器端渲染））。</li>
+<li>高级爬虫，可以爬取大量异步渲染内容的网页。</li>
+<li>自动进行表单提交，UI测试，键盘输入，模拟时区，改变深色主题等。</li>
+<li>创建最新的自动化测试环境。使用最新的JavaScript和浏览器功能，直接在最新版本的Chrome中运行测试。</li>
+<li>捕获站点的时间线跟踪，以帮助诊断性能问题。</li>
+<li>测试Chrome扩展程序。</li>
+</ul>
+<p><strong>example.js</strong></p>
+<pre><code class="js">const puppeteer = require('puppeteer');
+
+(async () =&gt; {
+  const browser = await puppeteer.launch();
+  const page = await browser.newPage();
+  await page.goto('https://example.com');
+  await page.screenshot({
+    path: 'example.png'
+  });
+
+  await browser.close();
+})();</code></pre>
+<blockquote>
+<p>node example.js</p>
+</blockquote>
+<p><strong>最新进展介绍</strong></p>
+ <img src="https://user-images.githubusercontent.com/5030910/100229116-aebd3980-2f5e-11eb-8c5b-e85159a427d7.png " width="500" align="center">
+
+<p><strong>思考：可以构建Serveless服务，搭建FaaS平台，助力前端服务和运营服务？</strong></p>
+<h3 id="Web-Vitals"><a href="#Web-Vitals" class="headerlink" title="Web Vitals"></a>Web Vitals</h3><blockquote>
+<p>什么是 Web Vitals ，Google 给的定义是一个良好网站的基本指标 (Essential metrics for a healthy site)，为什么还要再定义一个新的指标集，原因是过去要衡量一个好的网站，需要使用的指标太多，推出 Web Vitals 是简化这个学习的曲线，站主只要观注 Web Vitals 指标表现即可。</p>
+</blockquote>
+<h4 id="三大指标"><a href="#三大指标" class="headerlink" title="三大指标"></a>三大指标</h4><p><img src="https://user-images.githubusercontent.com/5030910/100299467-bf0cfd00-2fce-11eb-972f-48b4b8c60a3c.png" alt="image"></p>
+<p>使用<a target="_blank" rel="noopener" href="https://github.com/GoogleChrome/web-vitals">web-vitals</a>库，测量每个指标就像调用单个函数一样简单（有关完整用法和 API详细信息，请参阅文档 ）：</p>
+<pre><code class="js">import {
+  getCLS,
+  getFID,
+  getLCP
+} from 'web-vitals';
+
+function sendToAnalytics(metric) {
+  const body = JSON.stringify(metric);
+  // Use `navigator.sendBeacon()` if available, falling back to `fetch()`.
+  (navigator.sendBeacon &amp;&amp; navigator.sendBeacon('/analytics', body)) ||
+  fetch('/analytics', {
+    body,
+    method: 'POST',
+    keepalive: true
+  });
+}
+
+getCLS(sendToAnalytics);
+getFID(sendToAnalytics);
+getLCP(sendToAnalytics);</code></pre>
+<table>
+<thead>
+<tr>
+<th>Platform</th>
+<th>LCP</th>
+<th>FID</th>
+<th>CLS</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a target="_blank" rel="noopener" href="https://developers.google.com/web/tools/chrome-user-experience-report">Chrome User Experience Report</a></td>
+<td>✔</td>
+<td>✔</td>
+<td>✔</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://developers.google.com/speed/pagespeed/insights/">PageSpeed Insights</a></td>
+<td>✔</td>
+<td>✔</td>
+<td>✔</td>
+</tr>
+<tr>
+<td><a target="_blank" rel="noopener" href="https://support.google.com/webmasters/answer/9205520">Search Console (Core Web Vitals report)</a></td>
+<td>✔</td>
+<td>✔</td>
+<td>✔</td>
+</tr>
+</tbody></table>
+<p><strong>思考：利用Web Vitals结合puppeteer，搭建网页自动化测试平台，爬虫工具？</strong></p>
+<h2 id="Chrome相关（DevTools，Lighthouse）"><a href="#Chrome相关（DevTools，Lighthouse）" class="headerlink" title="Chrome相关（DevTools，Lighthouse）"></a>Chrome相关（DevTools，Lighthouse）</h2><h3 id="支持CSS-in-JS框架的样式编辑"><a href="#支持CSS-in-JS框架的样式编辑" class="headerlink" title="支持CSS-in-JS框架的样式编辑"></a><a target="_blank" rel="noopener" href="https://developers.google.com/web/updates/images/2020/06/css-in-js.mp4">支持CSS-in-JS框架的样式编辑</a></h3><p><img src="https://user-images.githubusercontent.com/5030910/100299322-60e01a00-2fce-11eb-96b6-a37621b3180a.png" alt="image"></p>
+<h3 id="模拟时区"><a href="#模拟时区" class="headerlink" title="模拟时区"></a>模拟时区</h3><p><img src="https://user-images.githubusercontent.com/5030910/100299410-92f17c00-2fce-11eb-8447-6eb810ec5a8d.png" alt="image"></p>
+<h3 id="媒体面板"><a href="#媒体面板" class="headerlink" title="媒体面板"></a>媒体面板</h3><p><img src="https://user-images.githubusercontent.com/5030910/100299683-35a9fa80-2fcf-11eb-9a67-cf3927b48199.png" alt="image"></p>
+<h3 id="一键修复文字的色彩对比"><a href="#一键修复文字的色彩对比" class="headerlink" title="一键修复文字的色彩对比"></a>一键修复文字的色彩对比</h3><p><img src="https://user-images.githubusercontent.com/5030910/100299746-638f3f00-2fcf-11eb-9e12-0e2a7017c6a9.png" alt="image"></p>
+<h3 id="利用Lighthouse-生成性能报告"><a href="#利用Lighthouse-生成性能报告" class="headerlink" title="利用Lighthouse 生成性能报告"></a>利用Lighthouse 生成性能报告</h3><p><img src="https://user-images.githubusercontent.com/5030910/100299914-d0a2d480-2fcf-11eb-8500-a0fdc33c45c0.png" alt="image"></p>
+<p><strong><a target="_blank" rel="noopener" href="https://developers.google.com/web/updates">更多内容查看这里</a></strong></p>
+<h2 id="PWA与WebPush"><a href="#PWA与WebPush" class="headerlink" title="PWA与WebPush"></a>PWA与WebPush</h2><h3 id="利用PWA解决以下问题"><a href="#利用PWA解决以下问题" class="headerlink" title="利用PWA解决以下问题"></a>利用PWA解决以下问题</h3><p><img src="https://user-images.githubusercontent.com/5030910/100417600-3cfb0200-30bc-11eb-8c5b-16148406d95c.png" alt="image"></p>
+<h3 id="WebPush流程图"><a href="#WebPush流程图" class="headerlink" title="WebPush流程图"></a>WebPush流程图</h3><p><strong>授权流程</strong></p>
+<p><img src="https://user-images.githubusercontent.com/5030910/100417630-50a66880-30bc-11eb-8ecc-2199dab3dc11.png" alt="Web push授权流程"></p>
+<p><strong>通知流程</strong></p>
+<p><img src="https://user-images.githubusercontent.com/5030910/100417986-eb06ac00-30bc-11eb-9ecf-6b3dd9b5a69e.png" alt="image"></p>
+<p><strong>代码实现</strong></p>
+<p><img src="https://user-images.githubusercontent.com/5030910/100418090-17bac380-30bd-11eb-8ca5-6fe9c18deddd.png" alt="image"></p>
+<p><strong>成果</strong></p>
+<p><img src="https://user-images.githubusercontent.com/5030910/100418205-505a9d00-30bd-11eb-9bda-9e12c38f60f1.png" alt="image"></p>
+<p><strong>思考：利用Node，搭建PWA构建平台，助力海外电商业务，将营销推广类活动页封装成PWA</strong></p>
+<h2 id="TensorFlow-js"><a href="#TensorFlow-js" class="headerlink" title="TensorFlow.js"></a>TensorFlow.js</h2><h3 id="来分享一个有意思的场景"><a href="#来分享一个有意思的场景" class="headerlink" title="来分享一个有意思的场景"></a>来分享一个有意思的场景</h3><p><strong><a target="_blank" rel="noopener" href="https://blog.tensorflow.org/2020/09/bringing-mona-lisa-effect-to-life-tensorflow-js.html">交互式《蒙娜丽莎》画像</a></strong></p>
+<blockquote>
+<p>传说中，不管你从哪个角度看《蒙娜丽莎》画像，都会感到画像中的女子在看着你。TensorFlow 的官方博客，演示怎么用 TensorFlow.js，制作一个交互式的《蒙娜丽莎》画像，摄像头捕捉观看者的角度，然后自动改变画像的眼神。</p>
+</blockquote>
+<p><img src="https://www.wangbase.com/blogimg/asset/202009/bg2020092603.jpg" alt="image"></p>
+<p><img src="https://www.wangbase.com/blogimg/asset/202009/bg2020092604.jpg" alt="image"></p>
+<h3 id="利用TensorFlow-Privacy-检查隐私保护措施"><a href="#利用TensorFlow-Privacy-检查隐私保护措施" class="headerlink" title="利用TensorFlow Privacy 检查隐私保护措施"></a>利用TensorFlow Privacy 检查隐私保护措施</h3><p><img src="https://user-images.githubusercontent.com/5030910/100418941-851b2400-30be-11eb-98cf-af0d5dbb1a5f.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/5030910/100419020-a3811f80-30be-11eb-9237-c33f9de6b58a.png" alt="image"></p>
+<p><img src="https://user-images.githubusercontent.com/5030910/100419041-ada31e00-30be-11eb-88cd-0c5f8b2c89bd.png" alt="image"></p>
+<p><strong>思考：或许可以利用Node+TensorFlow，对于用户上传的图片进行二次处理？</strong></p>
+<ul>
+<li><p><a target="_blank" rel="noopener" href="https://www.tensorflow.org/js/?hl=zh_cn">官网</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.icourse163.org/learn/youdao-1460578162?tid=1461280442#/learn/content">入门课程</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://flutter.dev/web">Flutter Web</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://space.bilibili.com/64169458/channel/detail?cid=156180">视频集合链接</a></p>
+</li>
+</ul>
+</article><section class="is-flex is-justify-content-space-between my-6"><!-- em is empty placeholder--><a class="button is-small is-default" href="/My-Blogs/2021/01/08/HTML/%E5%86%B7%E7%9F%A5%E8%AF%86%E4%B9%8BHTML%E7%AF%87/" title="冷知识之HTML篇">Previous</a><a class="button is-small is-default" href="/My-Blogs/2021/01/08/Git/Git%E8%BF%9C%E7%A8%8B%E6%93%8D%E4%BD%9C%E8%AF%A6%E8%A7%A3%E3%80%90%E8%BD%AC%E8%BD%BD%E3%80%91/" title="Git远程操作详解【转载】">Next</a></section><article class="mt-6 comment-container"><script src="https://utteranc.es/client.js" repo="529303664/My-Blogs" issue-term="pathname" theme="github-light" async></script></article></div></div></main></main><footer class="is-flex is-flex-direction-column is-align-items-center is-flex-shrink-0 is-family-serif"><section class="sns-container"><a title="twitter" target="_blank" rel="noopener nofollow" href="//twitter.com/https://twitter.com/Lucas55207840?s=05"><i class="iconfont icon-twitter"></i></a><!-- Github--><a title="github" target="_blank" rel="noopener nofollow" href="//github.com/529303664"><i class="iconfont icon-github"></i></a><!-- Ins--><a title="instagram" target="_blank" rel="noopener nofollow" href="//www.instagram.com//"><i class="iconfont icon-ins"></i></a><!-- RSS--><a title="rss" target="_blank" rel="noopener nofollow" href="/My-Blogs/atom.xml"><i class="iconfont icon-rss"></i></a><!-- 知乎--><!-- 领英--><!-- 脸书--><a title="facebook" target="_blank" rel="noopener nofollow" href="//www.facebook.com/https://www.facebook.com/profile.php?id=100010703889793"><i class="iconfont icon-tian7_facebook"></i></a></section><p><span>Copyright ©</span><span> Lucas 2021</span></p><div class="is-flex"><p>Powered by Hexo｜</p><p class="is-flex is-justify-content-center"><a title="Hexo theme author" target="_blank" rel="noopener" href="//github.com/haojen">Theme by &nbspHaojen&nbsp</a></p><div style="margin-top: 2px"><a class="github-button" title="github-button" target="_blank" rel="noopener" href="https://github.com/haojen/hexo-theme-Claudia" data-color-scheme="no-preference: light; light: light; dark: dark;" data-show-count="true"></a></div></div></footer><script async defer src="https://buttons.github.io/buttons.js"></script><script>hljs.initHighlighting();
+
+var directory = document.querySelectorAll('.toc a')
+if (directory.length > 0) {
+    var contentTocList = []
+    var activeClassName = 'is-active'
+
+    directory.forEach(function (link) {
+        if (!link.href) return
+        var id = decodeURI(link.href).split('#')[1]
+        contentTocList.push(document.getElementById(id))
+    })
+
+    var DELAY = 150
+    var needWait = false
+    window.addEventListener('scroll', function (evt) {
+        if (needWait) {
+            return
+        }
+        needWait = true
+        var tocContainer = document.querySelector('.toc')
+        setTimeout(function () {
+            var spacing = 60
+            var activeTopicEl = null
+            var scrollTop = window.pageYOffset
+            for (var i = 0; i < contentTocList.length; i++) {
+                var currentTopic = contentTocList[i]
+
+                if (currentTopic.offsetTop > scrollTop + spacing / 2) {
+                    // jump to next loop
+                    continue
+                }
+
+                if (!activeTopicEl) {
+                    activeTopicEl = currentTopic
+                } else if (currentTopic.offsetTop + spacing >= activeTopicEl.offsetTop - spacing) {
+                    activeTopicEl = currentTopic
+                }
+
+                var beforeActiveEl = document.querySelector('.toc' + ' .' + activeClassName)
+                beforeActiveEl && beforeActiveEl.classList.remove(activeClassName)
+
+                var selectTarget = '.toc a[href="#' + encodeURI(activeTopicEl.id) + '"]'
+                var direc = document.querySelector(selectTarget)
+                direc.classList.add(activeClassName)
+
+                var tocContainerHeight = tocContainer.getBoundingClientRect().height
+                if (direc.offsetTop >= tocContainerHeight - spacing) {
+                    tocContainer.scrollTo({
+                        // top: direc.offsetTop - spacing,
+                        top: direc.offsetTop + 100 - tocContainerHeight,
+                    })
+                }
+                else {
+                    tocContainer.scrollTo({ top: 0 })
+                }
+            }
+            needWait = false
+        }, DELAY)
+
+    })
+
+}</script></body></html>

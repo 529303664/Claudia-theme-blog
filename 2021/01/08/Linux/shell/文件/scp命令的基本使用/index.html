@@ -1,0 +1,144 @@
+<!DOCTYPE html><html class="appearance-auto" lang="zh-cn"><head><meta charset="UTF-8"><title>scp命令的基本使用</title><meta name="description" content="完善自己"><meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, initial-scale=1"><link rel="icon"><link rel="stylesheet" href="/My-Blogs/style/bulma.css"><link rel="stylesheet" href="/My-Blogs/style/base.css"><link rel="stylesheet" href="/My-Blogs/style/helper.css"><script src="/My-Blogs/js/main.js"></script><link rel="stylesheet" href="/My-Blogs/style/post.css"><link rel="stylesheet" href="/My-Blogs/style/highlight-theme-light.css"><script src="/My-Blogs/jslib/highlight.pack.js"></script><meta name="generator" content="Hexo 5.2.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/My-Blogs/atom.xml" title="John Doe's blog" type="application/atom+xml">
+</head><body class="is-flex is-flex-direction-column"><header class="is-flex header-widget is-flex-shrink-0 is-align-items-center is-justify-content-space-between is-hidden-mobile"><section class="is-hidden-mobile"><h2><a href="/My-Blogs/">Lucas's blog</a></h2></section><h3 class="is-hidden-mobile"></h3><aside><h3 class="is-inline-block"><a href="/My-Blogs/">Home</a></h3><h3 class="is-inline-block"><a href="/My-Blogs/about">About</a></h3><h3 class="is-inline-block"><a href="/My-Blogs/archives">Archives</a></h3></aside></header><header class="is-flex header-widget is-flex-shrink-0 is-align-items-center is-justify-content-center is-hidden-tablet"><h3 class="is-inline-block"><a href="/My-Blogs/">Home</a></h3><h3 class="is-inline-block"><a href="/My-Blogs/about">About</a></h3><h3 class="is-inline-block"><a href="/My-Blogs/archives">Archives</a></h3></header><main><main class="container is-max-widescreen content section post-page pt-4 px-4"><div class="columns is-flex-desktop is-justify-content-center is-flex-direction-row-reverse"><div class="column is-3 is-hidden-mobile"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AE%80%E4%BB%8B"><span class="toc-text">简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95"><span class="toc-text">基本语法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%A8%E6%B3%95%E7%A4%BA%E4%BE%8B"><span class="toc-text">用法示例</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%AC%E5%9C%B0%E6%96%87%E4%BB%B6%E5%A4%8D%E5%88%B6%E5%88%B0%E8%BF%9C%E7%A8%8B"><span class="toc-text">本地文件复制到远程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%9C%E7%A8%8B%E6%96%87%E4%BB%B6%E5%A4%8D%E5%88%B6%E5%88%B0%E6%9C%AC%E5%9C%B0"><span class="toc-text">远程文件复制到本地</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%A4%E4%B8%AA%E8%BF%9C%E7%A8%8B%E7%B3%BB%E7%BB%9F%E4%B9%8B%E9%97%B4%E7%9A%84%E5%A4%8D%E5%88%B6"><span class="toc-text">两个远程系统之间的复制</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E9%A1%B9"><span class="toc-text">配置项</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#c"><span class="toc-text">-c</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#C"><span class="toc-text">-C</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#F"><span class="toc-text">-F</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#i"><span class="toc-text">-i</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#l"><span class="toc-text">-l</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#p"><span class="toc-text">-p</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#P"><span class="toc-text">-P</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#q"><span class="toc-text">-q</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#r"><span class="toc-text">-r</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#v"><span class="toc-text">-v</span></a></li></ol></li></ol></div><div class="column is-9"><header class="my-4"><a href="/My-Blogs/tags/Linux"><i class="tag post-item-tag">Linux</i></a><a href="/My-Blogs/tags/shell"><i class="tag post-item-tag">shell</i></a><a href="/My-Blogs/tags/%E6%96%87%E4%BB%B6%E5%A4%84%E7%90%86"><i class="tag post-item-tag">文件处理</i></a></header><h1 class="mt-0 mb-1 is-family-serif">scp命令的基本使用</h1><time class="has-text-grey" datetime="2021-01-08T17:23:57.000Z">2021-01-08</time><article class="mt-2 post-content"><p><code>scp</code> 是 secure copy 的缩写，相当于 <code>cp</code> 命令 + SSH。它的底层是 SSH 协议，默认端口是22，相当于先使用 <code>ssh</code> 命令登录远程主机，然后再执行拷贝操作</p>
+<a id="more"></a>
+
+<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p><code>scp</code> 主要用于以下三种复制操作。</p>
+<ul>
+<li>本地复制到远程。</li>
+<li>远程复制到本地。</li>
+<li>两个远程系统之间的复制。</li>
+</ul>
+<p>使用 <code>scp</code> 传输数据时，文件和密码都是加密的，不会泄漏敏感信息。</p>
+<h2 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法"></a>基本语法</h2><p><code>scp</code> 的语法类似 <code>cp</code> 的语法。</p>
+<pre><code class="BASH">scp source destination</code></pre>
+<p>上面命令中， <code>source</code> 是文件当前的位置， <code>destination</code> 是文件所要复制到的位置。它们都可以包含用户名和主机名。</p>
+<pre><code class="BASH">scp user@host:foo.txt bar.txt</code></pre>
+<p>上面命令将远程主机（ <code>user@host</code> ）用户主目录下的 <code>foo.txt</code> ，复制为本机当前目录的 <code>bar.txt</code> 。可以看到，主机与文件之间要使用冒号（ <code>:</code> ）分隔。</p>
+<p><code>scp</code> 会先用 SSH 登录到远程主机，然后在加密连接之中复制文件。客户端发起连接后，会提示用户输入密码，这部分是跟 SSH 的用法一致的。</p>
+<p>用户名和主机名都是可以省略的。用户名的默认值是本机的当前用户名，主机名默认为当前主机。注意， <code>scp</code> 会使用 SSH 客户端的配置文件 <code>.ssh/config</code> ，如果配置文件里面定义了主机的别名，这里也可以使用别名连接。</p>
+<p><code>scp</code> 支持一次复制多个文件。</p>
+<pre><code class="BASH">scp source1 source2 destination</code></pre>
+<p>上面命令会将 <code>source1</code> 和 <code>source2</code> 两个文件，复制到 <code>destination</code> 。</p>
+<p>注意，如果所要复制的文件，在目标位置已经存在同名文件， <code>scp</code> 会在没有警告的情况下覆盖同名文件。</p>
+<h2 id="用法示例"><a href="#用法示例" class="headerlink" title="用法示例"></a>用法示例</h2><h3 id="本地文件复制到远程"><a href="#本地文件复制到远程" class="headerlink" title="本地文件复制到远程"></a>本地文件复制到远程</h3><p>复制本机文件到远程系统的用法如下。</p>
+<pre><code class="BASH"># 语法
+$ scp SourceFile user@host:directory/TargetFile
+
+# 示例
+$ scp file.txt remote_username@10.10.0.2:/remote/directory</code></pre>
+<p>下面是复制整个目录的例子。</p>
+<pre><code class="BASH"># 将本机的 documents 目录拷贝到远程主机，
+# 会在远程主机创建 documents 目录
+$ scp -r documents username@server_ip:/path_to_remote_directory
+
+# 将本机整个目录拷贝到远程目录下
+$ scp -r localmachine/path_to_the_directory username@server_ip:/path_to_remote_directory/
+
+# 将本机目录下的所有内容拷贝到远程目录下
+$ scp -r localmachine/path_to_the_directory/* username@server_ip:/path_to_remote_directory/</code></pre>
+<h3 id="远程文件复制到本地"><a href="#远程文件复制到本地" class="headerlink" title="远程文件复制到本地"></a>远程文件复制到本地</h3><p>从远程主机复制文件到本地的用法如下。</p>
+<pre><code class="BASH"># 语法
+$ scp user@host:directory/SourceFile TargetFile
+
+# 示例
+$ scp remote_username@10.10.0.2:/remote/file.txt /local/directory</code></pre>
+<p>下面是复制整个目录的例子。</p>
+<pre><code class="BASH"># 拷贝一个远程目录到本机目录下
+$ scp -r username@server_ip:/path_to_remote_directory local-machine/path_to_the_directory/
+
+# 拷贝远程目录下的所有内容，到本机目录下
+$ scp -r username@server_ip:/path_to_remote_directory/* local-machine/path_to_the_directory/
+$ scp -r user@host:directory/SourceFolder TargetFolder</code></pre>
+<h3 id="两个远程系统之间的复制"><a href="#两个远程系统之间的复制" class="headerlink" title="两个远程系统之间的复制"></a>两个远程系统之间的复制</h3><p>本机发出指令，从远程主机 A 拷贝到远程主机 B 的用法如下。</p>
+<pre><code class="BASH"># 语法
+$ scp user@host1:directory/SourceFile user@host2:directory/SourceFile
+
+# 示例
+$ scp user1@host1.com:/files/file.txt user2@host2.com:/files</code></pre>
+<p>系统将提示你输入两个远程帐户的密码。数据将直接从一个远程主机传输到另一个远程主机。</p>
+<h2 id="配置项"><a href="#配置项" class="headerlink" title="配置项"></a>配置项</h2><h3 id="c"><a href="#c" class="headerlink" title="-c"></a>-c</h3><p><code>-c</code>参数用来指定文件拷贝数据传输的加密算法</p>
+<pre><code class="BASH">scp -c blowfish some_file your_username@remotehost.edu:~</code></pre>
+<p>上面代码指定加密算法为 <code>blowfish</code> 。</p>
+<h3 id="C"><a href="#C" class="headerlink" title="-C"></a>-C</h3><p><code>-C</code> 参数表示是否在传输时压缩文件。</p>
+<pre><code class="BASH">scp -c blowfish -C local_file your_username@remotehost.edu:~</code></pre>
+<h3 id="F"><a href="#F" class="headerlink" title="-F"></a>-F</h3><p><code>-F</code> 参数用来指定 ssh_config 文件，供 ssh 使用。</p>
+<pre><code class="BASH">scp -F /home/pungki/proxy_ssh_config Label.pdf root@172.20.10.8:/root</code></pre>
+<h3 id="i"><a href="#i" class="headerlink" title="-i"></a>-i</h3><p><code>-i</code> 参数用来指定密钥。</p>
+<pre><code class="BASH">scp -vCq -i private_key.pem ~/test.txt root@192.168.1.3:/some/path/test.txt</code></pre>
+<h3 id="l"><a href="#l" class="headerlink" title="-l"></a>-l</h3><p><code>-l</code> 参数用来限制传输数据的带宽速率，单位是 Kbit/sec。对于多人分享的带宽，这个参数可以留出一部分带宽供其他人使用。</p>
+<pre><code class="BASH">scp -l 80 yourusername@yourserver:/home/yourusername/* .</code></pre>
+<p>上面代码中， <code>scp</code> 命令占用的带宽限制为每秒 80K 比特位，即每秒 10K 字节。</p>
+<h3 id="p"><a href="#p" class="headerlink" title="-p"></a>-p</h3><p><code>-p</code> 参数用来保留修改时间（modification time）、访问时间（access time）、文件状态（mode）等原始文件的信息。</p>
+<pre><code class="BASH">scp -p ~/test.txt root@192.168.1.3:/some/path/test.txt</code></pre>
+<h3 id="P"><a href="#P" class="headerlink" title="-P"></a>-P</h3><p><code>-P</code> 参数用来指定远程主机的 SSH 端口。如果远程主机使用默认端口22，可以不用指定，否则需要用-P参数在命令中指定。</p>
+<pre><code class="BASH">scp -P 2222 user@host:directory/SourceFile TargetFile</code></pre>
+<h3 id="q"><a href="#q" class="headerlink" title="-q"></a>-q</h3><p><code>-q</code> 参数用来关闭显示拷贝的进度条。</p>
+<pre><code class="BASH">scp -q Label.pdf mrarianto@202.x.x.x:.</code></pre>
+<h3 id="r"><a href="#r" class="headerlink" title="-r"></a>-r</h3><p><code>-r</code> 参数表示是否以递归方式复制目录。</p>
+<h3 id="v"><a href="#v" class="headerlink" title="-v"></a>-v</h3><p><code>-v</code> 参数用来显示详细的输出。</p>
+<pre><code class="BASH">scp -v ~/test.txt root@192.168.1.3:/root/help2356.txt</code></pre>
+</article><section class="is-flex is-justify-content-space-between my-6"><!-- em is empty placeholder--><a class="button is-small is-default" href="/My-Blogs/2021/01/08/Linux/shell/%E6%96%87%E4%BB%B6/sftp%E5%91%BD%E4%BB%A4%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/" title="sftp命令基本使用">Previous</a><a class="button is-small is-default" href="/My-Blogs/2021/01/08/Linux/shell/%E6%96%87%E4%BB%B6/rsync%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/" title="rsync的基本使用">Next</a></section><article class="mt-6 comment-container"><script src="https://utteranc.es/client.js" repo="529303664/My-Blogs" issue-term="pathname" theme="github-light" async></script></article></div></div></main></main><footer class="is-flex is-flex-direction-column is-align-items-center is-flex-shrink-0 is-family-serif"><section class="sns-container"><a title="twitter" target="_blank" rel="noopener nofollow" href="//twitter.com/https://twitter.com/Lucas55207840?s=05"><i class="iconfont icon-twitter"></i></a><!-- Github--><a title="github" target="_blank" rel="noopener nofollow" href="//github.com/529303664"><i class="iconfont icon-github"></i></a><!-- Ins--><a title="instagram" target="_blank" rel="noopener nofollow" href="//www.instagram.com//"><i class="iconfont icon-ins"></i></a><!-- RSS--><a title="rss" target="_blank" rel="noopener nofollow" href="/My-Blogs/atom.xml"><i class="iconfont icon-rss"></i></a><!-- 知乎--><!-- 领英--><!-- 脸书--><a title="facebook" target="_blank" rel="noopener nofollow" href="//www.facebook.com/https://www.facebook.com/profile.php?id=100010703889793"><i class="iconfont icon-tian7_facebook"></i></a></section><p><span>Copyright ©</span><span> Lucas 2021</span></p><div class="is-flex"><p>Powered by Hexo｜</p><p class="is-flex is-justify-content-center"><a title="Hexo theme author" target="_blank" rel="noopener" href="//github.com/haojen">Theme by &nbspHaojen&nbsp</a></p><div style="margin-top: 2px"><a class="github-button" title="github-button" target="_blank" rel="noopener" href="https://github.com/haojen/hexo-theme-Claudia" data-color-scheme="no-preference: light; light: light; dark: dark;" data-show-count="true"></a></div></div></footer><script async defer src="https://buttons.github.io/buttons.js"></script><script>hljs.initHighlighting();
+
+var directory = document.querySelectorAll('.toc a')
+if (directory.length > 0) {
+    var contentTocList = []
+    var activeClassName = 'is-active'
+
+    directory.forEach(function (link) {
+        if (!link.href) return
+        var id = decodeURI(link.href).split('#')[1]
+        contentTocList.push(document.getElementById(id))
+    })
+
+    var DELAY = 150
+    var needWait = false
+    window.addEventListener('scroll', function (evt) {
+        if (needWait) {
+            return
+        }
+        needWait = true
+        var tocContainer = document.querySelector('.toc')
+        setTimeout(function () {
+            var spacing = 60
+            var activeTopicEl = null
+            var scrollTop = window.pageYOffset
+            for (var i = 0; i < contentTocList.length; i++) {
+                var currentTopic = contentTocList[i]
+
+                if (currentTopic.offsetTop > scrollTop + spacing / 2) {
+                    // jump to next loop
+                    continue
+                }
+
+                if (!activeTopicEl) {
+                    activeTopicEl = currentTopic
+                } else if (currentTopic.offsetTop + spacing >= activeTopicEl.offsetTop - spacing) {
+                    activeTopicEl = currentTopic
+                }
+
+                var beforeActiveEl = document.querySelector('.toc' + ' .' + activeClassName)
+                beforeActiveEl && beforeActiveEl.classList.remove(activeClassName)
+
+                var selectTarget = '.toc a[href="#' + encodeURI(activeTopicEl.id) + '"]'
+                var direc = document.querySelector(selectTarget)
+                direc.classList.add(activeClassName)
+
+                var tocContainerHeight = tocContainer.getBoundingClientRect().height
+                if (direc.offsetTop >= tocContainerHeight - spacing) {
+                    tocContainer.scrollTo({
+                        // top: direc.offsetTop - spacing,
+                        top: direc.offsetTop + 100 - tocContainerHeight,
+                    })
+                }
+                else {
+                    tocContainer.scrollTo({ top: 0 })
+                }
+            }
+            needWait = false
+        }, DELAY)
+
+    })
+
+}</script></body></html>
