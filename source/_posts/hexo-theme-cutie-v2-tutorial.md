@@ -2,7 +2,6 @@
 title: hexo theme cutie v2.x tutorial
 tags: [hexo, cutie, tutorial]
 categories: [notes]
-toc_level: 3
 version: 3
 date: 2018-02-12 00:00:00 Z
 ---
