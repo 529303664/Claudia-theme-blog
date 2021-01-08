@@ -13,17 +13,20 @@ widgets:
 # social config
 social:
   zhihu:
-  twitter: /
-  facebook: /
+  twitter:  https://twitter.com/Lucas55207840?s=05
+  twitter_username: Lucas
+  facebook: https://www.facebook.com/profile.php?id=100010703889793
+  facebook_username: Lu Lu
   linkedin:
   instagram: /
-  github: haojen
+  github: 529303664
+  github_username: Lucas_v520
 
 user:
-  name: Haojen
+  name: Lucas
   avatar: /images/avatar.jpg
-  location: In the dust
-  description: May the Force be with you
+  location: Guangzhou
+  description: Never Give up
 
 # documents: https://github.com/utterance/utterances
 # API config: https://utteranc.es/
