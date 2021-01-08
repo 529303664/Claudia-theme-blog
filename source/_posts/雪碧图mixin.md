@@ -3,7 +3,7 @@ title: 雪碧图mixin
 tags: [css]
 categories: [CSS]
 version: 1
-date: 2021-01-08 04:00:00 Z
+date: 2021-01-08 04:00:00
 ---
 
 icon小图标

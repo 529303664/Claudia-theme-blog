@@ -3,7 +3,7 @@ title: hexo theme cutie v2.x tutorial
 tags: [hexo, cutie, tutorial]
 categories: [notes]
 version: 3
-date: 2018-02-12 00:00:00 Z
+date: 2018-02-12 00:00:00
 ---
 
 ![$cover](/images/tree.png)

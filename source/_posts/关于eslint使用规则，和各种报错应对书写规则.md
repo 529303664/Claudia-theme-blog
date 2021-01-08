@@ -3,7 +3,7 @@ title: eslint使用规则
 tags: [eslint]
 categories: [eslint]
 version: 1
-date: 2021-01-08 15:44:40 Z
+date: 2021-01-08 15:44:40
 ---
 
 整理了一些eslint常用规则，欢迎大家评阅

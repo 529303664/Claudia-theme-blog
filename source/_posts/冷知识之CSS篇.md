@@ -3,7 +3,7 @@ title: 冷知识之CSS篇
 tags: [css]
 categories: [CSS]
 version: 1
-date: 2021-01-08 00:00:00 Z
+date: 2021-01-08 00:00:00
 ---
 
 CSS的冷知识，你又了解多少呢？
