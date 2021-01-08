@@ -4,6 +4,160 @@
   
     
     <entry>
+      <title>时序分析场景</title>
+      <link href="/My-Blogs/2021/01/08/%E6%97%B6%E5%BA%8F%E5%88%86%E6%9E%90%E5%9C%BA%E6%99%AF/"/>
+      <url>/My-Blogs/2021/01/08/%E6%97%B6%E5%BA%8F%E5%88%86%E6%9E%90%E5%9C%BA%E6%99%AF/</url>
+      
+        <content type="html"><![CDATA[<p>时序数据是按时间顺序记录设备、系统状态变化的数据。典型的时序数据有传统的服务器监控指标数据、应用系统性能监控数据、智能硬件、工业物联网传感器数据等。</p><p>早在2017年我们也基于ES进行了时序分析场景的探索。时序分析场景具有高并发写入、低查询时延、多维分析的特点。</p><p>由于ES具有集群扩展、批量写入、读写带路由、数据分片等能力，目前已实现线上单集群最大规模达到600+ 节点、1000w/s的写入吞吐、单条曲线或单个时间线的查询延时可控制在10ms。</p><p>ES提供灵活、多维度的统计分析能力，实现查看监控按照地域、业务模块等灵活的进行统计分析。另外，ES支持列存储、高压缩比、副本数按需调整等能力，可实现较低存储成本。最后时序数据也可通过Kibana组件轻松实现可视化。</p><p><img src="/My-Blogs/images/%E6%97%B6%E5%BA%8F%E5%88%86%E6%9E%90%E5%9C%BA%E6%99%AF-01.jpeg"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Elasticsearch </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Elasticsearch </tag>
+            
+            <tag> 应用场景 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>日志实时分析场景</title>
+      <link href="/My-Blogs/2021/01/08/%E6%97%A5%E5%BF%97%E5%AE%9E%E6%97%B6%E5%88%86%E6%9E%90%E5%9C%BA%E6%99%AF/"/>
+      <url>/My-Blogs/2021/01/08/%E6%97%A5%E5%BF%97%E5%AE%9E%E6%97%B6%E5%88%86%E6%9E%90%E5%9C%BA%E6%99%AF/</url>
+      
+        <content type="html"><![CDATA[<p>日志是互联网行业基础广泛的数据形式。典型日志有用来定位业务问题的运营日志，如慢日志、异常日志；用来分析用户行为的业务日志，如用户的点击、访问日志；以及安全行为分析的审计日志等。</p><p>Elastic生态提供了完整的日志解决方案。通过简单部署，即可搭建一个完整的日志实时分析服务。ES生态完美的解决了日志实时分析场景需求，这也是近几年ES快速发展的一个重要原因。</p><p>日志从产生到可访问一般在10s级，相比于传统大数据解决方案的几十分钟、小时级时效性非常高。</p><p>ES底层支持倒排索引、列存储等数据结构，使得在日志场景可以利用ES非常灵活的搜索分析能力。通过ES交互式分析能力，即使在万亿级日志的情况下，日志搜索响应时间也是秒级。</p><p>日志处理的基本流程包含：日志采集-&gt; 数据清洗-&gt; 存储-&gt; 可视化分析。ElasticStack通过完整的日志解决方案，帮助用户完成对日志处理全链路管理。</p><p><img src="/My-Blogs/images/%E6%97%A5%E5%BF%97%E5%AE%9E%E6%97%B6%E5%88%86%E6%9E%90%E5%9C%BA%E6%99%AF-01.jpeg"></p><p>其中：</p><ul><li>日志采集：通过轻量级日志采集组件FileBeat实时读取业务日志文件，发送数据至下游组件如Logstash。</li><li> 文本解析：利用正则解析等机制，将日志文本数据转换成结构化数据。可使用独立的Logstash服务或Elasticsearch内置的轻量级数据处理模块IngestPipe-line，完成数据清洗和转换。</li><li>数据存储：通过Elasticsearch搜索分析平台进行数据持久存储，提供全文搜索和分析能力。</li><li>可视化分析：通过功能丰富的图形界面，即可对日志数据进行搜索分析，如可视化组件Kibana。</li></ul><p><img src="/My-Blogs/images/%E6%97%A5%E5%BF%97%E5%AE%9E%E6%97%B6%E5%88%86%E6%9E%90%E5%9C%BA%E6%99%AF-02.jpeg"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Elasticsearch </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Elasticsearch </tag>
+            
+            <tag> 应用场景 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>雪碧图mixin</title>
+      <link href="/My-Blogs/2021/01/08/%E9%9B%AA%E7%A2%A7%E5%9B%BEmixin/"/>
+      <url>/My-Blogs/2021/01/08/%E9%9B%AA%E7%A2%A7%E5%9B%BEmixin/</url>
+      
+        <content type="html"><![CDATA[<p>icon小图标</p><a id="more"></a><h2 id="调用icon小图标的方式是通过mixin方式进行调用的"><a href="#调用icon小图标的方式是通过mixin方式进行调用的" class="headerlink" title="调用icon小图标的方式是通过mixin方式进行调用的"></a>调用icon小图标的方式是通过mixin方式进行调用的</h2><pre><code class="CSS">@mixin Ricon($width, $height, $url, $important: '') {  @include background(#{$baseURL}#{$url}.png, $important);  display: inline-block;  width: $width;  height: $height;  background-size: 100% auto;  background-position: center center;}@mixin background($url: '', $important: '') {  @if $url !='' {    @if ($important !='') {      background-image: url($url) !important;    }    @else {      background-image: url($url);    }  }  background-repeat: no-repeat;  background-size: 100% auto;}</code></pre><p>考虑到改造成本以及雪碧图的接入成本，解决方案是在构建过程中接入了<a href="https://github.com/mixtur/webpack-spritesmith">webpack-spritesmith</a>，优点是</p><ol><li> 构建过程中可根据指定目录自动生成及更新雪碧图与scss文件</li><li> 自动生成的scss文件模版允许自定义化</li><li> 无需手动引入生成的scss文件，可在webpack配置中配置自动引入</li></ol><p>构建配置如下：</p><pre><code class="JS">// 配置代码new SpritesmithPlugin({  src: {    // icon小图标目录    cwd: './src/like/act_30083/assets/img/icon/',    // 合成图片格式    glob: '*.png'  },  target: {    // 合成雪碧图本地文件地址    image: path.resolve(__dirname, './assets/img/sprite-ignore.png'),    css: [      [        // 生成雪碧图样式文件地址        path.resolve(__dirname, './styles/mixins/_sprite-ignore.scss'),        {          // scss文件模板          format: 'function_based_template'        }      ]    ]  },  customTemplates: {    // 自定义模板    'function_based_template': templateFunction,  },  apiOptions: {    // 雪碧图引用地址    cssImageRef: '~@assets/img/sprite-ignore.png',  },  spritesmithOptions: {    // 合成规则    algorithm: 'binary-tree',    // icon之间的距离    padding: 10,  }});</code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> CSS </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> css </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>记一次伪元素动画引起的webview崩溃</title>
+      <link href="/My-Blogs/2021/01/08/%E8%AE%B0%E4%B8%80%E6%AC%A1%E4%BC%AA%E5%85%83%E7%B4%A0%E5%8A%A8%E7%94%BB%E5%BC%95%E8%B5%B7%E7%9A%84webview%E5%B4%A9%E6%BA%83/"/>
+      <url>/My-Blogs/2021/01/08/%E8%AE%B0%E4%B8%80%E6%AC%A1%E4%BC%AA%E5%85%83%E7%B4%A0%E5%8A%A8%E7%94%BB%E5%BC%95%E8%B5%B7%E7%9A%84webview%E5%B4%A9%E6%BA%83/</url>
+      
+        <content type="html"><![CDATA[<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>前不久做了一个年终盛典的 h5 移动端活动项目，活动主页有三个排行榜页面，以及任务页面。在测试过程中，测试同事反馈排行榜页面在 android 4.x 的系统下会引起 webview 的崩溃，而且是必现，而任务页面是正常的，这让我纠结了很久，因为本身页面也做了很多的优化，像图片的懒加载，组件的懒加载，排行榜列表虚拟滚动（只渲染屏幕显示部分数据），所以一时也不知道问题在哪里。</p><a id="more"></a><h2 id="解决过程"><a href="#解决过程" class="headerlink" title="解决过程"></a>解决过程</h2><p>仔细 review 了一下项目代码，也没发现什么端倪，就只能一点一点注释代码来调试了，发现有一段 css 代码注释掉以后 android 4.x 就正常了。</p><p>于是 google 了一番，发现是伪元素做动画惹的祸，是旧版 chromium 的问题，可以查看<a href="https://bugs.chromium.org/p/chromium/issues/detail?id=364222">官方 issue</a>，crash 代码如下。</p><pre><code class="CSS">@-webkit-keyframes crashChrome {  0% {    -webkit-transform: translateX(0rem);  }}.anim:before {  content: "";  width: 3rem;  height: 3rem;  border-radius: 3rem;  position: absolute;  left: 5rem;  top: 5rem;  background-color: #06839f;  -webkit-animation: crashChrome;}</code></pre><pre><code class="HTML">&lt;div class="anim"&gt;&lt;/div&gt;</code></pre><p>代码一看其实也比较正常，普普通通的的用法，就是一个 before 的伪元素做了一个 一动也不动的 animation 的动画，怎么就会奔溃了呢？</p><p>这个 bug 具体是怎么回事还没想明白，但是问题得解决呀，自己活动页面的奔溃八九不离十就是 before+animation 引起的，用 div 代替 before 先把 bug 解决了。</p><h2 id="分析问题"><a href="#分析问题" class="headerlink" title="分析问题"></a>分析问题</h2><p>这段 crash 的 css 代码确实比较平常，而且写法完全符合 web 的标准，故不应该是代码本身的问题。且在自己本地的开发浏览器中，以及稍微不那么旧的手机里都是正常的，所以断定这个问题因该属于浏览器的 bug，并且在某些旧版浏览器里才有的 bug，后来的新版浏览器已经修复了这个问题。</p><p>拿着会 crash 的手机测试发现，只有满足以下三个条件：伪元素（before，after 等）+ animation + rem，才会 crash。</p><p>所以得出了以下结论，在伪元素里使用 animation 动画，并且动画里有 rem 的变化就会引起了某些版本 webview 的 crash。</p><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>这个问题与浏览器的底层渲染有关，并且官方没有给出具体哪些版本会受到影响，而在移动段 rem 是比较常规的单位，所以各位同学做项目的时候，就不要在伪元素里写动画。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> CSS </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> css </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>自适应布局的相关介绍</title>
+      <link href="/My-Blogs/2021/01/08/%E8%87%AA%E9%80%82%E5%BA%94%E5%B8%83%E5%B1%80%E7%9A%84%E7%9B%B8%E5%85%B3%E4%BB%8B%E7%BB%8D/"/>
+      <url>/My-Blogs/2021/01/08/%E8%87%AA%E9%80%82%E5%BA%94%E5%B8%83%E5%B1%80%E7%9A%84%E7%9B%B8%E5%85%B3%E4%BB%8B%E7%BB%8D/</url>
+      
+        <content type="html"><![CDATA[<p>我们都知道自适应布局有很多种方式可以实现，下面让我们来看看有哪些方式比较简单？</p><a id="more"></a><h3 id="利用clamp函数"><a href="#利用clamp函数" class="headerlink" title="利用clamp函数"></a>利用clamp函数</h3><p><code>clamp()</code> 通过“限制”或限制最小和最大范围之间的灵活值来工作</p><p>使用方法如下：</p><ul><li>最小值：例如 16px</li><li>弹性值：例如 5vw</li><li>最大值：例如 34px</li></ul><pre><code class="css">h1 {  font-size: clamp(16px, 5vw, 34px);}</code></pre><p>在此示例中，该 h1 font-size 值将是 5% 视口宽度。但前提是该值大于 16px 和小于 34px。</p><p>例如，如果您的视口宽度为 300px，则您的 5vw 值将等于 15px。但是，您将该 font-size 值限制为的最小值 16px，这样就可以了。</p><p>另一方面，如果您的视口宽度为 1400px，则您 5vw 将大声疾呼 70px！但幸运的是，您将该最大值限制为34px，因此它不会超过该最大值 。</p><p><img src="/My-Blogs/images/%E8%87%AA%E9%80%82%E5%BA%94%E5%B8%83%E5%B1%80%E7%9A%84%E7%9B%B8%E5%85%B3%E4%BB%8B%E7%BB%8D-01.gif" alt="iamge"></p><p>我可以为此模板添加此代码…</p><pre><code class="css">img {  width: clamp(15vw, 800%, 100%);}h1 {  font-size: clamp(20px, 5vw, 35px);}p {  font-size: clamp(10px, 4vw, 20px);}</code></pre><p>实际上，任何其他接受长度，频率，角度，时间，百分比，数字或整数的属性</p><p><img src="/My-Blogs/images/%E8%87%AA%E9%80%82%E5%BA%94%E5%B8%83%E5%B1%80%E7%9A%84%E7%9B%B8%E5%85%B3%E4%BB%8B%E7%BB%8D-02.png" alt="image"></p><br><h3 id="利用grid布局新特性"><a href="#利用grid布局新特性" class="headerlink" title="利用grid布局新特性"></a>利用<a href="http://1linelayouts.glitch.me/">grid布局新特性</a></h3><br><h4 id="强居中"><a href="#强居中" class="headerlink" title="强居中"></a>强居中</h4><p><img src="/My-Blogs/images/%E8%87%AA%E9%80%82%E5%BA%94%E5%B8%83%E5%B1%80%E7%9A%84%E7%9B%B8%E5%85%B3%E4%BB%8B%E7%BB%8D-03.png"></p><br><h4 id="三段式布局"><a href="#三段式布局" class="headerlink" title="三段式布局"></a>三段式布局</h4><p><img src="/My-Blogs/images/%E8%87%AA%E9%80%82%E5%BA%94%E5%B8%83%E5%B1%80%E7%9A%84%E7%9B%B8%E5%85%B3%E4%BB%8B%E7%BB%8D-04.png"></p><br><h4 id="经典布局"><a href="#经典布局" class="headerlink" title="经典布局"></a>经典布局</h4><p><img src="/My-Blogs/images/%E8%87%AA%E9%80%82%E5%BA%94%E5%B8%83%E5%B1%80%E7%9A%84%E7%9B%B8%E5%85%B3%E4%BB%8B%E7%BB%8D-05.png"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> CSS </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> css </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>冷知识之CSS篇【竖行横书组合】</title>
+      <link href="/My-Blogs/2021/01/08/%E5%86%B7%E7%9F%A5%E8%AF%86%E4%B9%8BCSS%E7%AF%87%E3%80%90%E7%AB%96%E8%A1%8C%E6%A8%AA%E4%B9%A6%E7%BB%84%E5%90%88%E3%80%91/"/>
+      <url>/My-Blogs/2021/01/08/%E5%86%B7%E7%9F%A5%E8%AF%86%E4%B9%8BCSS%E7%AF%87%E3%80%90%E7%AB%96%E8%A1%8C%E6%A8%AA%E4%B9%A6%E7%BB%84%E5%90%88%E3%80%91/</url>
+      
+        <content type="html"><![CDATA[<blockquote><p>我们都知道竖书成行，自右向左换行是古文中的一种书写方式。那么在CSS中writing-mode就定义了文本在水平或垂直方向上排列方式。下面我们通过writing-mode这个属性定义一个“竹简”书写方式，同时如果在竖行文本中穿插阿拉伯数字时又当如何？</p></blockquote><a id="more"></a><p>我们要定义竹简的书写方式前，首先回顾下 CSS <code>writing-mode</code> 属性，它是定义文本在水平或垂直方向上如何排列。</p><p><img src="/My-Blogs/images/%E5%86%B7%E7%9F%A5%E8%AF%86%E4%B9%8BCSS%E7%AF%87%E3%80%90%E7%AB%96%E8%A1%8C%E6%A8%AA%E4%B9%A6%E7%BB%84%E5%90%88%E3%80%91-01.jpg"></p><p>CSS text-combine-upright 竖行横书组合</p><h3 id="writing-mode语法"><a href="#writing-mode语法" class="headerlink" title="writing-mode语法"></a>writing-mode语法</h3><pre><code class="CSS">writing-mode: horizontal-tb | vertical-rl | vertical-lr | sideways-rl | sideways-lr</code></pre><ul><li>horizontal-tb：水平方向自上而下的书写方式。</li><li>vertical-rl：垂直方向自右而左的书写方式。</li><li>vertical-lr：垂直方向内内容从上到下，水平方向从左到右。</li><li>sideways-rl：内容垂直方向从上到下排列。</li></ul><p>由此，我们若要定义出“竹简”的书写模式，就可以运用<code>vertical-rl</code>值，垂直方向由右到左。</p><p><strong>示例</strong></p><p>先吟诗一首🤭以此为例开始</p><p>同在屋檐下，惟有偶遇。</p><p>犹如白驹过隙，言之不尽。</p><p>因有时不我与，爬耳搔腮，</p><p>心之不及也。</p><p>—— Lucas</p><pre><code class="CSS">div{  writing-mode: vertical-rl;}</code></pre><pre><code class="HTML">&lt;div&gt;  &lt;p&gt;同在屋檐下，&lt;/p&gt;  &lt;p&gt;惟有偶遇。&lt;/p&gt;  &lt;p&gt;犹如白驹过隙，&lt;/p&gt;  &lt;p&gt;言之不尽，&lt;/p&gt;  &lt;p&gt;因有时不我与，&lt;/p&gt;  &lt;p&gt;爬耳搔腮，&lt;/p&gt;  &lt;p&gt;心之不及也。&lt;/p&gt;  &lt;p&gt;—— DeathGhost&lt;/p&gt;&lt;/div&gt;</code></pre><p><img src="/My-Blogs/images/%E5%86%B7%E7%9F%A5%E8%AF%86%E4%B9%8BCSS%E7%AF%87%E3%80%90%E7%AB%96%E8%A1%8C%E6%A8%AA%E4%B9%A6%E7%BB%84%E5%90%88%E3%80%91-02.jpg"></p><p>CSS writing-mode 文本排布</p><p>接下来，我们看看竖行排布中的“意外”。看看下面的图例。</p><p><img src="/My-Blogs/images/%E5%86%B7%E7%9F%A5%E8%AF%86%E4%B9%8BCSS%E7%AF%87%E3%80%90%E7%AB%96%E8%A1%8C%E6%A8%AA%E4%B9%A6%E7%BB%84%E5%90%88%E3%80%91-03.jpg"></p><p>CSS 书写模式 <code>writing-mode: vertical-rl</code> （从右到左）</p><p>可以看出，若以中文描述还好，但若加入阿拉伯数字，就显得怪异。</p><p>那么可否将数字转为横向（常规）书写？</p><p>下面我们重点看看CSS中的另一个属性。</p><h3 id="text-combine-upright-竖行横书组合"><a href="#text-combine-upright-竖行横书组合" class="headerlink" title="text-combine-upright 竖行横书组合"></a>text-combine-upright 竖行横书组合</h3><pre><code class="CSS">/* Keyword values */text-combine-upright: none;text-combine-upright: all;/* Digits values */text-combine-upright: digits;text-combine-upright: digits 4;/* Global values */text-combine-upright: inherit;text-combine-upright: initial;text-combine-upright: unset;</code></pre><ul><li><code>none</code>: 没有特殊处理。</li><li><code>all</code>: 试图将元素内的字符水平排列，使其它们在竖行中占据单个字符空间。</li><li><code>digits</code>: 尝试显示一个连续的ASCII数字序列（U + 0030–U + 0039），该序列的字符数少于或等于指定的整数，以致于它在垂直行框中占据单个字符的空间。如果省略整数，则计算结果为2。2-4范围以外的整数无效。</li></ul><p>值 <code>digits</code> 目前浏览器上没有看到效果，这里预先搁置。</p><p>我们要将上述文本中的数字让其横向排列，按属性值就是将其水平排列，让其占据单个字符空间。</p><p>那么，样式文本定义就可以这样：</p><pre><code class="CSS">div{  writing-mode: vertical-rl;  letter-spacing: 1px;}div b{  text-combine-upright: all;  margin: 5px 0;}</code></pre><pre><code class="HTML">&lt;div&gt;  &lt;h1&gt;清朝&lt;/h1&gt;  &lt;p&gt;是中国历史上最后一个封建王朝，&lt;/p&gt;  &lt;p&gt;共传十二帝，&lt;/p&gt;  &lt;p&gt;统治者为满洲爱新觉罗氏。&lt;/p&gt;  &lt;p&gt;从努尔哈赤建立后金起，&lt;/p&gt;  &lt;p&gt;总计&lt;b&gt;296&lt;/b&gt;年。&lt;/p&gt;  &lt;p&gt;从皇太极改国号为清起，国祚&lt;b&gt;276&lt;/b&gt;年。&lt;/p&gt;  &lt;p&gt;建立全国性政权算起为&lt;b&gt;268&lt;/b&gt;年。&lt;/p&gt;&lt;/div&gt;</code></pre><p>对文本中的<b>标签定义<code>text-combine-upright</code>为<code>all</code>即可。</b></p><b><p><img src="/My-Blogs/images/%E5%86%B7%E7%9F%A5%E8%AF%86%E4%B9%8BCSS%E7%AF%87%E3%80%90%E7%AB%96%E8%A1%8C%E6%A8%AA%E4%B9%A6%E7%BB%84%E5%90%88%E3%80%91-04.jpg"></p><p>CSS text-combine-upright 竖行横书组合</p><p>虽然如此，但是，它也是有一定的局限性。</p><p>例如，我们将“数字+年”合为一起，或更多文本合为一起，就会看到段尾效果。</p><p><img src="/My-Blogs/images/%E5%86%B7%E7%9F%A5%E8%AF%86%E4%B9%8BCSS%E7%AF%87%E3%80%90%E7%AB%96%E8%A1%8C%E6%A8%AA%E4%B9%A6%E7%BB%84%E5%90%88%E3%80%91-05.jpg"></p><p>CSS text-combine-upright 竖行横书组合</p><p>所以，它占据单个字符空间压缩是有一定限制。</p><p>本示例于浏览器 <code>chrome87</code> 版本，详细可阅读<a href="https://drafts.csswg.org/css-writing-modes-4/#text-combine-upright">这里</a>。</p></b>]]></content>
+      
+      
+      <categories>
+          
+          <category> CSS </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> css </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>冷知识之CSS篇</title>
       <link href="/My-Blogs/2021/01/08/%E5%86%B7%E7%9F%A5%E8%AF%86%E4%B9%8BCSS%E7%AF%87/"/>
       <url>/My-Blogs/2021/01/08/%E5%86%B7%E7%9F%A5%E8%AF%86%E4%B9%8BCSS%E7%AF%87/</url>
