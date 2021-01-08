@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>冷知识之CSS篇</title>
+      <link href="/My-Blogs/2021/01/08/%E5%86%B7%E7%9F%A5%E8%AF%86%E4%B9%8BCSS%E7%AF%87/"/>
+      <url>/My-Blogs/2021/01/08/%E5%86%B7%E7%9F%A5%E8%AF%86%E4%B9%8BCSS%E7%AF%87/</url>
+      
+        <content type="html"><![CDATA[<p>CSS的冷知识，你又了解多少呢？</p><a id="more"></a><h3 id="文字模糊效果"><a href="#文字模糊效果" class="headerlink" title="文字模糊效果"></a>文字模糊效果</h3><p>只需要添加以下两行代码，即可达到将文字模糊处理的目的。</p><pre><code class="css">color: transparent;text-shadow: #111 0 0 5px;</code></pre><br><p><img src="/My-Blogs/images/%E5%86%B7%E7%9F%A5%E8%AF%86%E4%B9%8BCSS%E7%AF%87-01.png" alt="image"></p><br><h3 id="毛玻璃效果"><a href="#毛玻璃效果" class="headerlink" title="毛玻璃效果"></a>毛玻璃效果</h3><p>其实毛玻璃的模糊效果技术上比较简单，只是用到了 css 滤镜（filter）中的 blur 属性。但是要做一个好的毛玻璃效果，需要注意很多细节。下面提供一个简单示例：</p><pre><code class="css">.blur {  display: block;  width: 300px;  height: 300px;  margin: 100px auto;  filter: blur(10px);}&lt;img src="./img/test.png"class="blur"alt=""&gt;</code></pre><p><img src="/My-Blogs/images/%E5%86%B7%E7%9F%A5%E8%AF%86%E4%B9%8BCSS%E7%AF%87-02.png" alt="image"></p><h3 id="CSS中也可以做简单运算"><a href="#CSS中也可以做简单运算" class="headerlink" title="CSS中也可以做简单运算"></a>CSS中也可以做简单运算</h3><p>在日常开发中，我们时常会遇到这样的需求：</p><blockquote><p>左侧或者右侧宽度固定，然后剩余部分自动充满。</p></blockquote><p>可能很多小伙伴会想到用flex布局，通过设置flex:1; 使其自动充满，当然这个做法也是对的，但是我们还有更为简便的方法，那就是利用css的calc函数，示例代码如下：</p><pre><code class="css">.container {  width: calc(100% - 50px);}</code></pre><p><code>calc() </code> 函数用于动态计算长度值。</p><ul><li>需要注意的是，运算符前后都需要保留一个空格，例如：width: calc(100% - 10px)；</li><li>任何长度值都可以使用calc()函数进行计算；</li><li>calc()函数支持 “+”, “-“, “*”, “/“ 运算；</li><li>calc()函数使用标准的数学运算优先级规则；</li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> CSS </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> css </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>hexo theme cutie v2.x tutorial</title>
       <link href="/My-Blogs/2018/02/12/hexo-theme-cutie-v2-tutorial/"/>
       <url>/My-Blogs/2018/02/12/hexo-theme-cutie-v2-tutorial/</url>
@@ -54,19 +79,6 @@
             <tag> hexo </tag>
             
         </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Gallery Post</title>
-      <link href="/My-Blogs/2013/12/25/gallery-post/"/>
-      <url>/My-Blogs/2013/12/25/gallery-post/</url>
-      
-        <content type="html"><![CDATA[<p>This post contains 4 photos:</p><ul><li>Widescreen wallpaper</li><li>Portrait photo</li><li>Dual widescreen wallpaper</li><li>Small photo</li></ul><p>All photos should be displayed properly.</p><p><em>From <a href="http://wallbase.cc/">Wallbase.cc</a></em></p>]]></content>
-      
-      
       
     </entry>
     
