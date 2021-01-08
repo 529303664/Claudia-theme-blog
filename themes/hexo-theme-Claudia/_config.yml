@@ -40,3 +40,5 @@ comment_utteranc:
 appearance: auto # Default value is auto
 
 block_highlight: highlight_github
+
+# favicon: /images/favicon.png
