@@ -243,8 +243,8 @@ getFID(sendToAnalytics);
 getLCP(sendToAnalytics);
 ```
 
-Platform | LCP | FID | CLS
-| -- | -- | -- | --
+| Platform | LCP | FID | CLS |
+| -- | -- | -- | --|
 [Chrome User Experience Report](https://developers.google.com/web/tools/chrome-user-experience-report) | ✔ | ✔ | ✔
 [PageSpeed Insights](https://developers.google.com/speed/pagespeed/insights/) | ✔ | ✔ | ✔
 [Search Console (Core Web Vitals report)](https://support.google.com/webmasters/answer/9205520) | ✔ | ✔ | ✔|
