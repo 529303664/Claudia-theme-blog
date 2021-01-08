@@ -1,6 +1,6 @@
 ---
 title: 雪碧图mixin
-tags: [css]
+tags: [CSS, 雪碧图]
 categories: [CSS]
 version: 1
 date: 2021-01-08 04:00:00

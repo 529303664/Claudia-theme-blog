@@ -1,6 +1,6 @@
 ---
 title: 冷知识之CSS篇【竖行横书组合】
-tags: [css]
+tags: [CSS, 冷知识]
 categories: [CSS]
 version: 1
 date: 2021-01-08 01:00:00
