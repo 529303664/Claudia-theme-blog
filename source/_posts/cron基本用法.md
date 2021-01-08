@@ -1,6 +1,6 @@
 ---
 title: cron基本的使用
-tags: [Linux, cron, 定时器]
+tags: [Linux, shell, 定时任务]
 categories: [Linux]
 version: 1
 date: 2021-01-08 17:09:44
