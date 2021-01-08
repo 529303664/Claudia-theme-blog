@@ -1,0 +1,144 @@
+<!DOCTYPE html><html class="appearance-auto" lang="zh-cn"><head><meta charset="UTF-8"><title>Redis缓存的三大问题及其解决方案</title><meta name="description" content="完善自己"><meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, initial-scale=1"><link rel="icon"><link rel="stylesheet" href="/My-Blogs/style/bulma.css"><link rel="stylesheet" href="/My-Blogs/style/base.css"><link rel="stylesheet" href="/My-Blogs/style/helper.css"><script src="/My-Blogs/js/main.js"></script><link rel="stylesheet" href="/My-Blogs/style/post.css"><link rel="stylesheet" href="/My-Blogs/style/highlight-theme-light.css"><script src="/My-Blogs/jslib/highlight.pack.js"></script><meta name="generator" content="Hexo 5.2.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/My-Blogs/atom.xml" title="John Doe's blog" type="application/atom+xml">
+</head><body class="is-flex is-flex-direction-column"><header class="is-flex header-widget is-flex-shrink-0 is-align-items-center is-justify-content-space-between is-hidden-mobile"><section class="is-hidden-mobile"><h2><a href="/My-Blogs/">Lucas's blog</a></h2></section><h3 class="is-hidden-mobile"></h3><aside><h3 class="is-inline-block"><a href="/My-Blogs/">Home</a></h3><h3 class="is-inline-block"><a href="/My-Blogs/about">About</a></h3><h3 class="is-inline-block"><a href="/My-Blogs/archives">Archives</a></h3></aside></header><header class="is-flex header-widget is-flex-shrink-0 is-align-items-center is-justify-content-center is-hidden-tablet"><h3 class="is-inline-block"><a href="/My-Blogs/">Home</a></h3><h3 class="is-inline-block"><a href="/My-Blogs/about">About</a></h3><h3 class="is-inline-block"><a href="/My-Blogs/archives">Archives</a></h3></header><main><main class="container is-max-widescreen content section post-page pt-4 px-4"><div class="columns is-flex-desktop is-justify-content-center is-flex-direction-row-reverse"><div class="column is-3 is-hidden-mobile"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E7%BC%93%E5%AD%98%E7%A9%BF%E9%80%8F"><span class="toc-text">一、缓存穿透</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%B8%B8%E8%A7%81%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="toc-text">1. 常见解决方案</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%B8%83%E9%9A%86%E8%BF%87%E6%BB%A4%E5%99%A8"><span class="toc-text">2. 布隆过滤器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E7%BC%93%E5%AD%98%E7%A9%BA%E6%95%B0%E6%8D%AE%E4%B8%8E%E5%B8%83%E9%9A%86%E8%BF%87%E6%BB%A4%E5%99%A8%E7%9A%84%E6%AF%94%E8%BE%83"><span class="toc-text">3. 缓存空数据与布隆过滤器的比较</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E7%BC%93%E5%AD%98%E5%87%BB%E7%A9%BF"><span class="toc-text">二、缓存击穿</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="toc-text">解决方案</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E7%BC%93%E5%AD%98%E9%9B%AA%E5%B4%A9"><span class="toc-text">三、缓存雪崩</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88-1"><span class="toc-text">解决方案</span></a></li></ol></li></ol></div><div class="column is-9"><header class="my-4"><a href="/My-Blogs/tags/Redis"><i class="tag post-item-tag">Redis</i></a></header><h1 class="mt-0 mb-1 is-family-serif">Redis缓存的三大问题及其解决方案</h1><time class="has-text-grey" datetime="2021-01-08T17:40:53.000Z">2021-01-08</time><article class="mt-2 post-content"><p>Redis经常用于系统中的缓存，这样可以解决目前IO设备无法满足互联网应用海量的读写请求的问题。</p>
+<a id="more"></a>
+<h2 id="一、缓存穿透"><a href="#一、缓存穿透" class="headerlink" title="一、缓存穿透"></a>一、缓存穿透</h2><p>缓存穿透是指缓存和数据库中都没有的数据，而用户不断发起请求，如发起id为-1的数据或者特别大的不存在的数据。有可能是黑客利用漏洞攻击从而去压垮应用的数据库。</p>
+<h3 id="1-常见解决方案"><a href="#1-常见解决方案" class="headerlink" title="1. 常见解决方案"></a>1. 常见解决方案</h3><p>对于缓存穿透问题，常见的解决方案有以下三种：</p>
+<ul>
+<li>验证拦截：接口层进行校验，如鉴定用户权限，对ID之类的字段做基础的校验，如id&lt;=0的字段直接拦截；</li>
+<li>缓存空数据：当数据库查询到的数据为空时，也将这条数据进行缓存，但缓存的有效性设置得要较短，以免影响正常数据的缓存；</li>
+</ul>
+<pre><code class="JAVA">public Student getStudentsByID(Long id) {
+
+    // 从Redis中获取学生信息
+    Student student = redisTemplate.opsForValue()
+        .get(String.valueOf(id));
+    if (student != null) {
+        return student;
+    }
+
+    // 从数据库查询学生信息，并存入Redis
+    student = studentDao.selectByStudentId(id);
+    if (student != null) {
+        redisTemplate.opsForValue()
+            .set(String.valueOf(id), student, 60, TimeUnit.MINUTES);
+    } else {
+        // 即使不存在，也将其存入缓存中
+        redisTemplate.opsForValue()
+            .set(String.valueOf(id), null, 60, TimeUnit.SECONDS);
+    }
+
+    return student;
+}</code></pre>
+<ul>
+<li>使用布隆过滤器：布隆过滤器是一种比较独特数据结构，有一定的误差。当它指定一个数据存在时，它不一定存在，但是当它指定一个数据不存在时，那么它一定是不存在的。</li>
+</ul>
+<h3 id="2-布隆过滤器"><a href="#2-布隆过滤器" class="headerlink" title="2. 布隆过滤器"></a>2. 布隆过滤器</h3><p>布隆过滤器是一种比较特殊的数据结构，有点类似与HashMap，在业务中我们可能会通过使用HashMap来判断一个值是否存在，它可以在<code>O(1)</code>时间复杂度内返回结果，效率极高，但是受限于存储容量，如果可能需要去判断的值超过亿级别，那么HashMap所占的内存就很可观了。<br>而<code>BloomFilter</code>解决这个问题的方案很简单。首先用多个bit位去代替HashMap中的数组，这样的话储存空间就下来了，之后就是对 Key 进行多次哈希，将 Key 哈希后的值所对应的 bit 位置为1。<br>当判断一个元素是否存在时，就去判断这个值哈希出来的比特位是否都为1，如果都为1，那么可能存在，也可能不存在（如下图F）。但是如果有一个bit位不为1，那么这个Key就肯定不存在。</p>
+<p><img src="/My-Blogs/images/%E3%80%90Redis%E3%80%91%E7%BC%93%E5%AD%98%E7%9A%84%E4%B8%89%E5%A4%A7%E9%97%AE%E9%A2%98%E5%8F%8A%E5%85%B6%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88-01.png" alt="img"></p>
+<br>
+
+<p>注意：<code>BloomFilter</code>并不支持删除操作，只支持添加操作。这一点很容易理解，因为你如果要删除数据，就得将对应的bit位置为0，但是你这个Key对应的bit位可能其他的Key也对应着。</p>
+<h3 id="3-缓存空数据与布隆过滤器的比较"><a href="#3-缓存空数据与布隆过滤器的比较" class="headerlink" title="3. 缓存空数据与布隆过滤器的比较"></a>3. 缓存空数据与布隆过滤器的比较</h3><p>上面对这两种方案都进行了简单的介绍，缓存空数据与布隆过滤器都能有效解决缓存穿透问题，但使用场景有着些许不同；</p>
+<ul>
+<li>当一些恶意攻击查询查询的key各不相同，而且数量巨多，此时缓存空数据不是一个好的解决方案。因为它需要存储所有的Key，内存空间占用高。并且在这种情况下，很多key可能只用一次，所以存储下来没有意义。所以对于这种情况而言，使用布隆过滤器是个不错的选择；</li>
+<li>而对与空数据的Key数量有限、Key重复请求效率较高的场景而言，可以选择缓存空数据的方案。</li>
+</ul>
+<h2 id="二、缓存击穿"><a href="#二、缓存击穿" class="headerlink" title="二、缓存击穿"></a>二、缓存击穿</h2><p>缓存击穿是指当前热点数据存储到期时，多个线程同时并发访问热点数据。因为缓存刚过期，所有并发请求都会到数据库中查询数据。</p>
+<h3 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h3><ul>
+<li>将热点数据设置为永不过期；</li>
+<li>加互斥锁：互斥锁可以控制查询数据库的线程访问，但这种方案会导致系统的吞吐量下降，需要根据实际情况使用。</li>
+</ul>
+<pre><code class="JAVA">
+public String get(key) {
+    String value = redis.get(key);
+    if (value == null) { // 代表缓存值过期
+        // 设置3min的超时，防止del操作失败的时候，下次缓存过期一直不能load db
+        if (redis.setnx(key_mutex, 1, 3 * 60) == 1) {  // 代表设置成功
+            value = db.get(key);
+            redis.set(key, value, expire_secs);
+            redis.del(key_mutex);
+        } else {  // 这个时候代表同时候的其他线程已经load db并回设到缓存了，这时候重试获取缓存值即可
+            sleep(50);
+            get(key);  // 重试
+        }
+    } else {
+        return value;      
+    }
+}</code></pre>
+<h2 id="三、缓存雪崩"><a href="#三、缓存雪崩" class="headerlink" title="三、缓存雪崩"></a>三、缓存雪崩</h2><p>缓存雪崩发生有几种情况，比如大量缓存集中在或者缓存同时在大范围中失效，出现了大量请求去访问数据库，从而导致CPU和内存过载，甚至停机。</p>
+<p>一个简单的雪崩过程：</p>
+<ol>
+<li> Redis 集群产生了大面积故障；</li>
+<li> 缓存失败，此时仍有大量请求去访问 Redis 缓存服务器；</li>
+<li> 在大量 Redis 请求失败后，这些请求将会去访问数据库；</li>
+<li> 由于应用的设计依赖于数据库和 Redis 服务，很快就会造成服务器集群的雪崩，最终导致整个系统的瘫痪。</li>
+</ol>
+<h3 id="解决方案-1"><a href="#解决方案-1" class="headerlink" title="解决方案"></a>解决方案</h3><ul>
+<li>【事前】高可用缓存：高可用缓存是防止出现整个缓存故障。即使个别节点，机器甚至机房都关闭，系统仍然可以提供服务，Redis 哨兵(Sentinel) 和 Redis 集群(Cluster) 都可以做到高可用；</li>
+<li>【事中】缓存降级（临时支持）：当访问次数急剧增加导致服务出现问题时，我们如何确保服务仍然可用。在国内使用比较多的是 Hystrix，它通过熔断、降级、限流三个手段来降低雪崩发生后的损失。只要确保数据库不死，系统总可以响应请求，每年的春节 12306 我们不都是这么过来的吗？只要还可以响应起码还有抢到票的机会；</li>
+<li>【事后】Redis备份和快速预热：Redis数据备份和恢复、快速缓存预热。</li>
+</ul>
+</article><section class="is-flex is-justify-content-space-between my-6"><!-- em is empty placeholder--><a class="button is-small is-default" href="/My-Blogs/2021/01/08/vue/vue3/%E6%B5%85%E8%B0%88Vue3%E6%96%B0%E7%89%B9%E6%80%A7/" title="浅谈Vue3新特性">Previous</a><a class="button is-small is-default" href="/My-Blogs/2021/01/08/PWA/PWA%E5%9C%A8likee%E4%B8%9A%E5%8A%A1%E7%BA%BF%E7%9A%84%E5%AE%9E%E8%B7%B5/" title="PWA在likee业务线的实践">Next</a></section><article class="mt-6 comment-container"><script src="https://utteranc.es/client.js" repo="529303664/My-Blogs" issue-term="pathname" theme="github-light" async></script></article></div></div></main></main><footer class="is-flex is-flex-direction-column is-align-items-center is-flex-shrink-0 is-family-serif"><section class="sns-container"><a title="twitter" target="_blank" rel="noopener nofollow" href="//twitter.com/https://twitter.com/Lucas55207840?s=05"><i class="iconfont icon-twitter"></i></a><!-- Github--><a title="github" target="_blank" rel="noopener nofollow" href="//github.com/529303664"><i class="iconfont icon-github"></i></a><!-- Ins--><a title="instagram" target="_blank" rel="noopener nofollow" href="//www.instagram.com//"><i class="iconfont icon-ins"></i></a><!-- RSS--><a title="rss" target="_blank" rel="noopener nofollow" href="/My-Blogs/atom.xml"><i class="iconfont icon-rss"></i></a><!-- 知乎--><!-- 领英--><!-- 脸书--><a title="facebook" target="_blank" rel="noopener nofollow" href="//www.facebook.com/https://www.facebook.com/profile.php?id=100010703889793"><i class="iconfont icon-tian7_facebook"></i></a></section><p><span>Copyright ©</span><span> Lucas 2021</span></p><div class="is-flex"><p>Powered by Hexo｜</p><p class="is-flex is-justify-content-center"><a title="Hexo theme author" target="_blank" rel="noopener" href="//github.com/haojen">Theme by &nbspHaojen&nbsp</a></p><div style="margin-top: 2px"><a class="github-button" title="github-button" target="_blank" rel="noopener" href="https://github.com/haojen/hexo-theme-Claudia" data-color-scheme="no-preference: light; light: light; dark: dark;" data-show-count="true"></a></div></div></footer><script async defer src="https://buttons.github.io/buttons.js"></script><script>hljs.initHighlighting();
+
+var directory = document.querySelectorAll('.toc a')
+if (directory.length > 0) {
+    var contentTocList = []
+    var activeClassName = 'is-active'
+
+    directory.forEach(function (link) {
+        if (!link.href) return
+        var id = decodeURI(link.href).split('#')[1]
+        contentTocList.push(document.getElementById(id))
+    })
+
+    var DELAY = 150
+    var needWait = false
+    window.addEventListener('scroll', function (evt) {
+        if (needWait) {
+            return
+        }
+        needWait = true
+        var tocContainer = document.querySelector('.toc')
+        setTimeout(function () {
+            var spacing = 60
+            var activeTopicEl = null
+            var scrollTop = window.pageYOffset
+            for (var i = 0; i < contentTocList.length; i++) {
+                var currentTopic = contentTocList[i]
+
+                if (currentTopic.offsetTop > scrollTop + spacing / 2) {
+                    // jump to next loop
+                    continue
+                }
+
+                if (!activeTopicEl) {
+                    activeTopicEl = currentTopic
+                } else if (currentTopic.offsetTop + spacing >= activeTopicEl.offsetTop - spacing) {
+                    activeTopicEl = currentTopic
+                }
+
+                var beforeActiveEl = document.querySelector('.toc' + ' .' + activeClassName)
+                beforeActiveEl && beforeActiveEl.classList.remove(activeClassName)
+
+                var selectTarget = '.toc a[href="#' + encodeURI(activeTopicEl.id) + '"]'
+                var direc = document.querySelector(selectTarget)
+                direc.classList.add(activeClassName)
+
+                var tocContainerHeight = tocContainer.getBoundingClientRect().height
+                if (direc.offsetTop >= tocContainerHeight - spacing) {
+                    tocContainer.scrollTo({
+                        // top: direc.offsetTop - spacing,
+                        top: direc.offsetTop + 100 - tocContainerHeight,
+                    })
+                }
+                else {
+                    tocContainer.scrollTo({ top: 0 })
+                }
+            }
+            needWait = false
+        }, DELAY)
+
+    })
+
+}</script></body></html>

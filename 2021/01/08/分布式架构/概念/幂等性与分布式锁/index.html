@@ -1,0 +1,214 @@
+<!DOCTYPE html><html class="appearance-auto" lang="zh-cn"><head><meta charset="UTF-8"><title>幂等性与分布式锁</title><meta name="description" content="完善自己"><meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, initial-scale=1"><link rel="icon"><link rel="stylesheet" href="/My-Blogs/style/bulma.css"><link rel="stylesheet" href="/My-Blogs/style/base.css"><link rel="stylesheet" href="/My-Blogs/style/helper.css"><script src="/My-Blogs/js/main.js"></script><link rel="stylesheet" href="/My-Blogs/style/post.css"><link rel="stylesheet" href="/My-Blogs/style/highlight-theme-light.css"><script src="/My-Blogs/jslib/highlight.pack.js"></script><meta name="generator" content="Hexo 5.2.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/My-Blogs/atom.xml" title="John Doe's blog" type="application/atom+xml">
+</head><body class="is-flex is-flex-direction-column"><header class="is-flex header-widget is-flex-shrink-0 is-align-items-center is-justify-content-space-between is-hidden-mobile"><section class="is-hidden-mobile"><h2><a href="/My-Blogs/">Lucas's blog</a></h2></section><h3 class="is-hidden-mobile"></h3><aside><h3 class="is-inline-block"><a href="/My-Blogs/">Home</a></h3><h3 class="is-inline-block"><a href="/My-Blogs/about">About</a></h3><h3 class="is-inline-block"><a href="/My-Blogs/archives">Archives</a></h3></aside></header><header class="is-flex header-widget is-flex-shrink-0 is-align-items-center is-justify-content-center is-hidden-tablet"><h3 class="is-inline-block"><a href="/My-Blogs/">Home</a></h3><h3 class="is-inline-block"><a href="/My-Blogs/about">About</a></h3><h3 class="is-inline-block"><a href="/My-Blogs/archives">Archives</a></h3></header><main><main class="container is-max-widescreen content section post-page pt-4 px-4"><div class="columns is-flex-desktop is-justify-content-center is-flex-direction-row-reverse"><div class="column is-3 is-hidden-mobile"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E4%BB%80%E4%B9%88%E6%98%AF%E5%B9%82%E7%AD%89%E6%80%A7"><span class="toc-text">1. 什么是幂等性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%B8%B8%E8%A7%81%E7%9A%84%E5%B9%82%E7%AD%89%E6%80%A7%E9%97%AE%E9%A2%98"><span class="toc-text">2. 常见的幂等性问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%A3%E5%86%B3%E5%B9%82%E7%AD%89%E6%80%A7%E9%97%AE%E9%A2%98%E6%96%B9%E6%A1%88"><span class="toc-text">解决幂等性问题方案</span></a></li></ol></div><div class="column is-9"><header class="my-4"><a href="/My-Blogs/tags/%E5%88%86%E5%B8%83%E5%BC%8F%E6%9E%B6%E6%9E%84"><i class="tag post-item-tag">分布式架构</i></a></header><h1 class="mt-0 mb-1 is-family-serif">幂等性与分布式锁</h1><time class="has-text-grey" datetime="2021-01-08T17:50:14.000Z">2021-01-08</time><article class="mt-2 post-content"><h3 id="1-什么是幂等性"><a href="#1-什么是幂等性" class="headerlink" title="1. 什么是幂等性"></a>1. 什么是幂等性</h3><p><code>幂等性</code> 就是指：一个幂等操作任其执行多次所产生的影响均与一次执行的影响相同。用数学的概念表达是这样的: <code>f(f(x)) = f(x)</code> . 就像 <code>nx1 = n</code> 一样， x1 就是一个幂等操作。无论是乘以多少次结果都一样。</p>
+<a id="more"></a>
+
+<h3 id="2-常见的幂等性问题"><a href="#2-常见的幂等性问题" class="headerlink" title="2. 常见的幂等性问题"></a>2. 常见的幂等性问题</h3><blockquote>
+<p>幂等性问题经常会是由网络问题引起的，还有重复操作引起的。</p>
+</blockquote>
+<p><strong>场景一：比如点赞功能，一个用户只能对同一片文章点赞一次，重复点赞提示已经点过赞了。</strong></p>
+<p>示例代码：</p>
+<pre><code class="JAVA">public void like(Article article,User user) {
+    //检查是否点过赞
+    if (checkIsLike(article,user)) {
+        //点过赞了
+        throw new ApiException(CodeEnums.SYSTEM_ERR);
+    } else {
+        //保存点赞
+        saveLike(article,user);
+    }
+}</code></pre>
+<p>看上去好像没有什么问题，保存点赞之前已经检查过是否点赞了，理论上同一个人不会对同一篇文章重复点赞。但实际不是这样的。因为网络请求不是排队进来的，而是一窝蜂涌进来的。</p>
+<p>某些时候，用户网络不好，可能很短的时间内点击了多次，由于网络传输问题，这些请求可能会同时来到我们的服务器。</p>
+<ul>
+<li><strong>第一个请求 checkIsLike（） 返回 false ， 正在执行 saveLike() 操作，还没来的及提交事务</strong> </li>
+<li><strong>第二个请求过来了 ，checkIsLike（） 返回 也是 false , 并去 执行了 saveLike() 操作</strong></li>
+</ul>
+<p>这样子，就造成了一个用户同时对一篇文章进行了多次点赞操作。</p>
+<p>这就是典型的幂等性问题， 操作了一次和操作了两次结果不一样，因为你多点了一次赞，按照幂等性原则 不管你点击了多少次结果都一样，只点了一次赞。</p>
+<p>很多场景都是这样造成的，比如用户重复下单，重复评论，重复提交表单等。</p>
+<p>那怎么解决呢？假设网络的请求是排队进来的就不会出现这个问题了。</p>
+<p>于是我们可以改成这样：</p>
+<pre><code class="JAVA">public synchronized void like(Article article,User user) {
+    //检查是否点过赞
+    if (checkIsLike(article,user)) {
+        //点过赞了
+        throw new ApiException(CodeEnums.SYSTEM_ERR);
+    } else {
+        //保存点赞
+        saveLike(article,user);
+    }
+}</code></pre>
+<p><code>synchronized</code> 同步锁 这样我们的请求就会乖乖的排队进来了。</p>
+<p>PS: 这样做是效率比较低的做法，不建议这么做，只是举例子，<code>synchronized</code> 也不适合分布式集群场景。</p>
+<p><strong>场景二 ： 第三方回调</strong></p>
+<p>我们系统经常需要和第三方系统打交道，比如微信充值，支付宝充值什么的，微信和支付宝常常会以回调你的接口通知你支付结果。为了保证你能收到回调，往往可能会回调多次。</p>
+<p>有时候我们也为了保证数据的准确性会有个定时器去查询支付结果未知的流水，并执行响应的处理。<br>如果定时器的轮询和回调刚好是在同时进行，这可能又出BUG了, 又进行了两次重复操作。</p>
+<p>那么问题来了：假设我是一个充值操作， 回调回来的时候 ，会做业务处理，成功了给用户账户加钱。这是后就要保证幂等性了， 假设微信同一笔交易给你回调了两次，如果你给用户充值了两次，这显然不合理(我是老板肯定扣你工资)，所以要保证 不管微信回调你多少次 ，同一笔交易你只能给用户充一次钱。这就幂等性</p>
+<h3 id="解决幂等性问题方案"><a href="#解决幂等性问题方案" class="headerlink" title="解决幂等性问题方案"></a>解决幂等性问题方案</h3><ul>
+<li>synchronized 适合单机应用，不追求性能 ，不追求并发。</li>
+<li>分布式锁 但是往往我们的应用是分布式的集群，并且很讲究性能，并发，所以我们需要用到 分布式锁 来解决这个问题。</li>
+</ul>
+<p>Redis 分布式锁：</p>
+<pre><code class="JAVA">/**
+
+* setNx
+
+*
+
+*  @param key
+*  @param value
+*  @return
+
+*/
+public Boolean setNx(String key,Object value) {
+    return redisTemplate.opsForValue().setIfAbsent(key,value);
+}
+/**
+
+*  @param key 锁
+*  @param waitTime 等待时间  毫秒
+*  @param expireTime 超时时间  毫秒
+*  @return
+
+*/
+public Boolean lock(String key,long waitTime,long expireTime) {
+    String vlaue =  UUIDUtil.mongoObjectId();
+    Boolean flag = setNx(key,vlaue);
+    //尝试获取锁  成功返回
+    if (flag) {
+        redisTemplate.expire(key,expireTime,TimeUnit.MILLISECONDS);
+        return flag;
+    } else {
+        //失败
+        //现在时间
+        long newTime =  System.currentTimeMillis();
+        //等待过期时间
+        long loseTime = newTime + waitTime;
+        //不断尝试获取锁成功返回
+        while (System.currentTimeMillis()  &lt; loseTime) {
+            Boolean testFlag = setNx(key,vlaue);
+            if (testFlag) {
+                redisTemplate.expire(key,expireTime,TimeUnit.MILLISECONDS);
+                return testFlag;
+            }
+            //休眠100毫秒
+            try {
+                Thread.sleep(100);
+            }
+            catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+    return false;
+}
+/**
+
+*  @param key
+*  @return
+
+*/
+public Boolean lock(String key) {
+    return lock(key,1000L,60  *  1000L);
+}
+/**
+
+*  @param key
+
+*/
+public void unLock(String key) {
+    remove(key);
+}</code></pre>
+<p>利用Redis 分布式锁 我们的代码可以改成这样：</p>
+<pre><code class="JAVA">public void like(Article article,User user) {
+    String key =  "key:like"  + article.getId()  +  ":"  + user.getUserId();
+    //  等待锁的时间  0  ，  过期时间  一分钟防止死锁
+    Boolean flag = redisService.lock(key,0,60  *  1000L);
+    if(!flag) {
+        //获取锁失败  说明前面的请求已经获取了锁
+        throw new ApiException(CodeEnums.SYSTEM_ERR);
+    }
+    //检查是否点过赞
+    if (checkIsLike(article,user)) {
+        //点过赞了
+        throw new ApiException(CodeEnums.SYSTEM_ERR);
+    } else {
+        //保存点赞
+        saveLike(article,user);
+    }
+    //删除锁
+    redisService.unLock(key);
+}</code></pre>
+<p>key 的设计也很讲究：</p>
+<p>数据不冲突的两个业务场景，key不能冲突，不同人的key也不一样，不同的文章Key也不一样。</p>
+<p>根据场景业务设定。</p>
+<p><strong>一个原则： 尽可能的缩小key的范围。</strong> 这样才能增强我们的并发。</p>
+<p>首先我们先获取锁，获取锁成功 执行完操作，保存数据 ，删除锁。获取不到锁返回失败。设置过期时间是为了防止‘死锁’，比如机器获取到了 锁，没有设置过期时间，但是他死机了，没有删除释放锁。</p>
+<ul>
+<li>版本号控制CAS 算法： CAS有3个操作数，内存值V，旧的预期值A，要修改的新值B。当且仅当预期值A和内存值V相同时，将内存值V修改为B，否则什么都不做。这个比较繁杂，有兴趣的大家可以去看看。</li>
+</ul>
+</article><section class="is-flex is-justify-content-space-between my-6"><!-- em is empty placeholder--><a class="button is-small is-default" href="/My-Blogs/2021/01/08/%E5%88%86%E5%B8%83%E5%BC%8F%E6%9E%B6%E6%9E%84/%E6%A6%82%E5%BF%B5/%E6%9E%B6%E6%9E%84%E4%B8%89%E9%AB%98%E6%80%BB%E7%BB%93/" title="架构三高总结">Previous</a><a class="button is-small is-default" href="/My-Blogs/2021/01/08/%E5%88%86%E5%B8%83%E5%BC%8F%E6%9E%B6%E6%9E%84/%E6%96%87%E7%AB%A0/%E5%A6%82%E4%BD%95%E5%AD%A6%E4%B9%A0%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F(%E8%BD%AC%E8%BD%BD)/" title="如何学习分布式系统(转载)">Next</a></section><article class="mt-6 comment-container"><script src="https://utteranc.es/client.js" repo="529303664/My-Blogs" issue-term="pathname" theme="github-light" async></script></article></div></div></main></main><footer class="is-flex is-flex-direction-column is-align-items-center is-flex-shrink-0 is-family-serif"><section class="sns-container"><a title="twitter" target="_blank" rel="noopener nofollow" href="//twitter.com/https://twitter.com/Lucas55207840?s=05"><i class="iconfont icon-twitter"></i></a><!-- Github--><a title="github" target="_blank" rel="noopener nofollow" href="//github.com/529303664"><i class="iconfont icon-github"></i></a><!-- Ins--><a title="instagram" target="_blank" rel="noopener nofollow" href="//www.instagram.com//"><i class="iconfont icon-ins"></i></a><!-- RSS--><a title="rss" target="_blank" rel="noopener nofollow" href="/My-Blogs/atom.xml"><i class="iconfont icon-rss"></i></a><!-- 知乎--><!-- 领英--><!-- 脸书--><a title="facebook" target="_blank" rel="noopener nofollow" href="//www.facebook.com/https://www.facebook.com/profile.php?id=100010703889793"><i class="iconfont icon-tian7_facebook"></i></a></section><p><span>Copyright ©</span><span> Lucas 2021</span></p><div class="is-flex"><p>Powered by Hexo｜</p><p class="is-flex is-justify-content-center"><a title="Hexo theme author" target="_blank" rel="noopener" href="//github.com/haojen">Theme by &nbspHaojen&nbsp</a></p><div style="margin-top: 2px"><a class="github-button" title="github-button" target="_blank" rel="noopener" href="https://github.com/haojen/hexo-theme-Claudia" data-color-scheme="no-preference: light; light: light; dark: dark;" data-show-count="true"></a></div></div></footer><script async defer src="https://buttons.github.io/buttons.js"></script><script>hljs.initHighlighting();
+
+var directory = document.querySelectorAll('.toc a')
+if (directory.length > 0) {
+    var contentTocList = []
+    var activeClassName = 'is-active'
+
+    directory.forEach(function (link) {
+        if (!link.href) return
+        var id = decodeURI(link.href).split('#')[1]
+        contentTocList.push(document.getElementById(id))
+    })
+
+    var DELAY = 150
+    var needWait = false
+    window.addEventListener('scroll', function (evt) {
+        if (needWait) {
+            return
+        }
+        needWait = true
+        var tocContainer = document.querySelector('.toc')
+        setTimeout(function () {
+            var spacing = 60
+            var activeTopicEl = null
+            var scrollTop = window.pageYOffset
+            for (var i = 0; i < contentTocList.length; i++) {
+                var currentTopic = contentTocList[i]
+
+                if (currentTopic.offsetTop > scrollTop + spacing / 2) {
+                    // jump to next loop
+                    continue
+                }
+
+                if (!activeTopicEl) {
+                    activeTopicEl = currentTopic
+                } else if (currentTopic.offsetTop + spacing >= activeTopicEl.offsetTop - spacing) {
+                    activeTopicEl = currentTopic
+                }
+
+                var beforeActiveEl = document.querySelector('.toc' + ' .' + activeClassName)
+                beforeActiveEl && beforeActiveEl.classList.remove(activeClassName)
+
+                var selectTarget = '.toc a[href="#' + encodeURI(activeTopicEl.id) + '"]'
+                var direc = document.querySelector(selectTarget)
+                direc.classList.add(activeClassName)
+
+                var tocContainerHeight = tocContainer.getBoundingClientRect().height
+                if (direc.offsetTop >= tocContainerHeight - spacing) {
+                    tocContainer.scrollTo({
+                        // top: direc.offsetTop - spacing,
+                        top: direc.offsetTop + 100 - tocContainerHeight,
+                    })
+                }
+                else {
+                    tocContainer.scrollTo({ top: 0 })
+                }
+            }
+            needWait = false
+        }, DELAY)
+
+    })
+
+}</script></body></html>

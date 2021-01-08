@@ -1,0 +1,180 @@
+<!DOCTYPE html><html class="appearance-auto" lang="zh-cn"><head><meta charset="UTF-8"><title>如何构建一个完善的活动平台</title><meta name="description" content="完善自己"><meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, initial-scale=1"><link rel="icon"><link rel="stylesheet" href="/My-Blogs/style/bulma.css"><link rel="stylesheet" href="/My-Blogs/style/base.css"><link rel="stylesheet" href="/My-Blogs/style/helper.css"><script src="/My-Blogs/js/main.js"></script><link rel="stylesheet" href="/My-Blogs/style/post.css"><link rel="stylesheet" href="/My-Blogs/style/highlight-theme-light.css"><script src="/My-Blogs/jslib/highlight.pack.js"></script><meta name="generator" content="Hexo 5.2.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/My-Blogs/atom.xml" title="John Doe's blog" type="application/atom+xml">
+</head><body class="is-flex is-flex-direction-column"><header class="is-flex header-widget is-flex-shrink-0 is-align-items-center is-justify-content-space-between is-hidden-mobile"><section class="is-hidden-mobile"><h2><a href="/My-Blogs/">Lucas's blog</a></h2></section><h3 class="is-hidden-mobile"></h3><aside><h3 class="is-inline-block"><a href="/My-Blogs/">Home</a></h3><h3 class="is-inline-block"><a href="/My-Blogs/about">About</a></h3><h3 class="is-inline-block"><a href="/My-Blogs/archives">Archives</a></h3></aside></header><header class="is-flex header-widget is-flex-shrink-0 is-align-items-center is-justify-content-center is-hidden-tablet"><h3 class="is-inline-block"><a href="/My-Blogs/">Home</a></h3><h3 class="is-inline-block"><a href="/My-Blogs/about">About</a></h3><h3 class="is-inline-block"><a href="/My-Blogs/archives">Archives</a></h3></header><main><main class="container is-max-widescreen content section post-page pt-4 px-4"><div class="columns is-flex-desktop is-justify-content-center is-flex-direction-row-reverse"><div class="column is-3 is-hidden-mobile"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%84%E4%BB%B6"><span class="toc-text">组件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%99%BD%E8%AF%9D%E8%A7%A3%E9%87%8A"><span class="toc-text">白话解释</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A6%82%E4%B8%8B%E5%9B%BE"><span class="toc-text">如下图</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%83%8C%E6%99%AF"><span class="toc-text">背景</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80%E6%AE%B5%E4%B8%8D%E5%A0%AA%E5%9B%9E%E9%A6%96%E7%9A%84%E7%BB%8F%E5%8E%86%F0%9F%98%AD"><span class="toc-text">一段不堪回首的经历😭</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9C%80%E6%B1%82%E4%B8%8A%E7%BA%BF%E6%B5%81%E7%A8%8B%E5%9B%BE"><span class="toc-text">需求上线流程图</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%AF%E8%A7%86%E5%8C%96%E5%B9%B3%E5%8F%B0%E8%AE%BE%E6%83%B3"><span class="toc-text">可视化平台设想</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%8A%E7%BA%BF%E6%B5%81%E7%A8%8B%E5%9B%BE%E8%AE%BE%E6%83%B3"><span class="toc-text">上线流程图设想</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B9%B3%E5%8F%B0%E5%90%AF%E5%8A%A8%E5%89%8D%E6%80%9D%E8%80%83%F0%9F%A4%94"><span class="toc-text">平台启动前思考🤔</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%B9%B3%E5%8F%B0%E5%AE%9E%E7%8E%B0"><span class="toc-text">平台实现</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%84%E4%BB%B6%E5%BC%80%E5%8F%91%E6%9E%B6%E6%9E%84%E5%9B%BE"><span class="toc-text">组件开发架构图</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%84%E4%BB%B6%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83"><span class="toc-text">组件开发环境</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%86%8D%E6%9D%A5%E8%AF%B4%E4%B8%8B%E7%BB%84%E4%BB%B6%E5%BD%A2%E6%80%81"><span class="toc-text">再来说下组件形态</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%84%E4%BB%B6%E5%8F%91%E5%B8%83"><span class="toc-text">组件发布</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%B9%B3%E5%8F%B0%E5%AE%9E%E7%8E%B0-1"><span class="toc-text">平台实现</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A1%B5%E9%9D%A2%E9%85%8D%E7%BD%AE%E4%B8%80%E8%A7%88"><span class="toc-text">页面配置一览</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A1%B5%E9%9D%A2%E9%85%8D%E7%BD%AE-%E7%BC%96%E8%BE%91"><span class="toc-text">页面配置-编辑</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A1%B5%E9%9D%A2%E9%85%8D%E7%BD%AE-%E5%8F%91%E5%B8%83"><span class="toc-text">页面配置-发布</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A1%B5%E9%9D%A2%E6%B8%B2%E6%9F%93-%E8%A7%A3%E6%9E%90"><span class="toc-text">页面渲染-解析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A1%B5%E9%9D%A2%E6%B8%B2%E6%9F%93-%E7%9B%91%E6%8E%A7"><span class="toc-text">页面渲染-监控</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-text">总结</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0%E7%BB%86%E8%8A%82%E6%80%BB%E7%BB%93"><span class="toc-text">实现细节总结</span></a></div><div class="column is-9"><header class="my-4"><a href="/My-Blogs/tags/%E5%88%86%E5%B8%83%E5%BC%8F%E6%9E%B6%E6%9E%84"><i class="tag post-item-tag">分布式架构</i></a><a href="/My-Blogs/tags/%E6%B4%BB%E5%8A%A8%E5%B9%B3%E5%8F%B0"><i class="tag post-item-tag">活动平台</i></a></header><h1 class="mt-0 mb-1 is-family-serif">如何构建一个完善的活动平台</h1><time class="has-text-grey" datetime="2021-01-08T17:46:41.000Z">2021-01-08</time><article class="mt-2 post-content"><h3 id="组件"><a href="#组件" class="headerlink" title="组件"></a>组件</h3><blockquote>
+<p>即是将页面的某一部分独立出来，将这一部分的用黑盒的形式全部封装到一个组件内，暴露出一些属性供外部组件传入值</p>
+</blockquote>
+<a id="more"></a>
+<h3 id="白话解释"><a href="#白话解释" class="headerlink" title="白话解释"></a>白话解释</h3><blockquote>
+<p>执行一段‘组件脚本’后，可以写“非法”HTML标签（指代组件实例），并在标签内绑定数据，该标签（组件）会根据自身逻辑，渲染出相关视图。</p>
+</blockquote>
+<h3 id="如下图"><a href="#如下图" class="headerlink" title="如下图"></a>如下图</h3><p><img src="/My-Blogs/images/%E5%A6%82%E4%BD%95%E6%9E%84%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%AE%8C%E5%96%84%E7%9A%84%E6%B4%BB%E5%8A%A8%E5%B9%B3%E5%8F%B0/%E5%A6%82%E4%BD%95%E6%9E%84%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%AE%8C%E5%96%84%E7%9A%84%E6%B4%BB%E5%8A%A8%E5%B9%B3%E5%8F%B0-01.png"></p>
+<br>
+
+<h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><h3 id="一段不堪回首的经历😭"><a href="#一段不堪回首的经历😭" class="headerlink" title="一段不堪回首的经历😭"></a>一段不堪回首的经历😭</h3><p><img src="/My-Blogs/images/%E5%A6%82%E4%BD%95%E6%9E%84%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%AE%8C%E5%96%84%E7%9A%84%E6%B4%BB%E5%8A%A8%E5%B9%B3%E5%8F%B0/%E5%A6%82%E4%BD%95%E6%9E%84%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%AE%8C%E5%96%84%E7%9A%84%E6%B4%BB%E5%8A%A8%E5%B9%B3%E5%8F%B0-02.png" alt="不堪回首"></p>
+<br>
+
+<h3 id="需求上线流程图"><a href="#需求上线流程图" class="headerlink" title="需求上线流程图"></a>需求上线流程图</h3><p><strong>特征：</strong></p>
+<ol>
+<li> 参与人员多。</li>
+<li> 上线周期长。</li>
+</ol>
+<p><img src="/My-Blogs/images/%E5%A6%82%E4%BD%95%E6%9E%84%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%AE%8C%E5%96%84%E7%9A%84%E6%B4%BB%E5%8A%A8%E5%B9%B3%E5%8F%B0/%E5%A6%82%E4%BD%95%E6%9E%84%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%AE%8C%E5%96%84%E7%9A%84%E6%B4%BB%E5%8A%A8%E5%B9%B3%E5%8F%B0-03.png" alt="img"></p>
+<br>
+
+<h3 id="可视化平台设想"><a href="#可视化平台设想" class="headerlink" title="可视化平台设想"></a>可视化平台设想</h3><p><strong>特征：</strong></p>
+<ol>
+<li> 设计、开发协作，提供通用、规范UI组件。</li>
+<li> 用户创建活动，选择需要的组件，编辑组件数据。</li>
+<li> 保存，预览，发布，访问。</li>
+</ol>
+<br>
+
+<p><strong>如下图👇</strong><br><img src="/My-Blogs/images/%E5%A6%82%E4%BD%95%E6%9E%84%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%AE%8C%E5%96%84%E7%9A%84%E6%B4%BB%E5%8A%A8%E5%B9%B3%E5%8F%B0/%E5%A6%82%E4%BD%95%E6%9E%84%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%AE%8C%E5%96%84%E7%9A%84%E6%B4%BB%E5%8A%A8%E5%B9%B3%E5%8F%B0-04.png" alt="img"></p>
+<br>
+
+<h3 id="上线流程图设想"><a href="#上线流程图设想" class="headerlink" title="上线流程图设想"></a>上线流程图设想</h3><p><strong>特征：</strong></p>
+<ol>
+<li> 人员少：仅运营1人。</li>
+<li> 上线快：小时级周期。</li>
+</ol>
+<br>
+
+<p><img src="/My-Blogs/images/%E5%A6%82%E4%BD%95%E6%9E%84%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%AE%8C%E5%96%84%E7%9A%84%E6%B4%BB%E5%8A%A8%E5%B9%B3%E5%8F%B0/%E5%A6%82%E4%BD%95%E6%9E%84%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%AE%8C%E5%96%84%E7%9A%84%E6%B4%BB%E5%8A%A8%E5%B9%B3%E5%8F%B0-05.png" alt="img"></p>
+<br>
+
+<h3 id="平台启动前思考🤔"><a href="#平台启动前思考🤔" class="headerlink" title="平台启动前思考🤔"></a>平台启动前思考🤔</h3><p><code>组件开发</code>：<br>平台的组件数量应该无限制，组件之间独立，组件与平台解耦，做到动态加载、编辑组件。</p>
+<p><code>配置平台</code>：<br>对外的核心交互，配置平台负责可视化创建页面，选择组件，编辑数据。</p>
+<p><code>页面渲染</code>：<br>平台的最终产物，保存活动配置后，渲染页应该仅加载本活动涉及的组件。</p>
+<p><code>总结</code>：<br>组件开发模块：负责产出页面的基本单元——组件。<br>配置平台模块：负责可视化创建，编辑活动页。<br>页面渲染模块：负责呈现活动视图。</p>
+<br>
+
+<h1 id="平台实现"><a href="#平台实现" class="headerlink" title="平台实现"></a>平台实现</h1><h3 id="组件开发架构图"><a href="#组件开发架构图" class="headerlink" title="组件开发架构图"></a>组件开发架构图</h3><p><img src="/My-Blogs/images/%E5%A6%82%E4%BD%95%E6%9E%84%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%AE%8C%E5%96%84%E7%9A%84%E6%B4%BB%E5%8A%A8%E5%B9%B3%E5%8F%B0/%E5%A6%82%E4%BD%95%E6%9E%84%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%AE%8C%E5%96%84%E7%9A%84%E6%B4%BB%E5%8A%A8%E5%B9%B3%E5%8F%B0-06.png" alt="img"></p>
+<br>
+
+<h3 id="组件开发环境"><a href="#组件开发环境" class="headerlink" title="组件开发环境"></a>组件开发环境</h3><p><strong>组件开发：</strong></p>
+<ol>
+<li> 提供集中式开发、管理组件的项目环境。</li>
+<li> 支持命令式创建、调试、编译、校验、发布组件。</li>
+</ol>
+<p><img src="/My-Blogs/images/%E5%A6%82%E4%BD%95%E6%9E%84%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%AE%8C%E5%96%84%E7%9A%84%E6%B4%BB%E5%8A%A8%E5%B9%B3%E5%8F%B0/%E5%A6%82%E4%BD%95%E6%9E%84%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%AE%8C%E5%96%84%E7%9A%84%E6%B4%BB%E5%8A%A8%E5%B9%B3%E5%8F%B0-07.png" alt="img"></p>
+<br>
+
+<h3 id="再来说下组件形态"><a href="#再来说下组件形态" class="headerlink" title="再来说下组件形态"></a>再来说下组件形态</h3><ol>
+<li> 一段可执行JS脚本——组件本身。</li>
+<li> 一份XLSX文件——多地区语言配置。</li>
+<li> 一份JSON文件——可编辑属性申明。</li>
+</ol>
+<p><img src="/My-Blogs/images/%E5%A6%82%E4%BD%95%E6%9E%84%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%AE%8C%E5%96%84%E7%9A%84%E6%B4%BB%E5%8A%A8%E5%B9%B3%E5%8F%B0/%E5%A6%82%E4%BD%95%E6%9E%84%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%AE%8C%E5%96%84%E7%9A%84%E6%B4%BB%E5%8A%A8%E5%B9%B3%E5%8F%B0-08.png" alt="img"></p>
+<br>
+
+<h3 id="组件发布"><a href="#组件发布" class="headerlink" title="组件发布"></a>组件发布</h3><blockquote>
+<p>命令式发布，相关字段被完善，注册入库。</p>
+</blockquote>
+<p><img src="/My-Blogs/images/%E5%A6%82%E4%BD%95%E6%9E%84%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%AE%8C%E5%96%84%E7%9A%84%E6%B4%BB%E5%8A%A8%E5%B9%B3%E5%8F%B0/%E5%A6%82%E4%BD%95%E6%9E%84%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%AE%8C%E5%96%84%E7%9A%84%E6%B4%BB%E5%8A%A8%E5%B9%B3%E5%8F%B0-09.png" alt="img"></p>
+<br>
+
+<h1 id="平台实现-1"><a href="#平台实现-1" class="headerlink" title="平台实现"></a>平台实现</h1><h3 id="页面配置一览"><a href="#页面配置一览" class="headerlink" title="页面配置一览"></a>页面配置一览</h3><p><img src="/My-Blogs/images/%E5%A6%82%E4%BD%95%E6%9E%84%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%AE%8C%E5%96%84%E7%9A%84%E6%B4%BB%E5%8A%A8%E5%B9%B3%E5%8F%B0/%E5%A6%82%E4%BD%95%E6%9E%84%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%AE%8C%E5%96%84%E7%9A%84%E6%B4%BB%E5%8A%A8%E5%B9%B3%E5%8F%B0-10.png" alt="img"></p>
+<br>
+
+<h3 id="页面配置-编辑"><a href="#页面配置-编辑" class="headerlink" title="页面配置-编辑"></a>页面配置-编辑</h3><p><img src="/My-Blogs/images/%E5%A6%82%E4%BD%95%E6%9E%84%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%AE%8C%E5%96%84%E7%9A%84%E6%B4%BB%E5%8A%A8%E5%B9%B3%E5%8F%B0/%E5%A6%82%E4%BD%95%E6%9E%84%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%AE%8C%E5%96%84%E7%9A%84%E6%B4%BB%E5%8A%A8%E5%B9%B3%E5%8F%B0-11.png" alt="img"></p>
+<br>
+
+<h3 id="页面配置-发布"><a href="#页面配置-发布" class="headerlink" title="页面配置-发布"></a>页面配置-发布</h3><p><strong>发布流程</strong></p>
+<ol>
+<li> 将组件、配置打包。</li>
+<li> 打包文件推至CDN。</li>
+</ol>
+<p><img src="/My-Blogs/images/%E5%A6%82%E4%BD%95%E6%9E%84%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%AE%8C%E5%96%84%E7%9A%84%E6%B4%BB%E5%8A%A8%E5%B9%B3%E5%8F%B0/%E5%A6%82%E4%BD%95%E6%9E%84%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%AE%8C%E5%96%84%E7%9A%84%E6%B4%BB%E5%8A%A8%E5%B9%B3%E5%8F%B0-12.png" alt="img"></p>
+<br>
+
+<h3 id="页面渲染-解析"><a href="#页面渲染-解析" class="headerlink" title="页面渲染-解析"></a>页面渲染-解析</h3><ol>
+<li> 加载CDN配置文件。</li>
+<li> 遍历Render组件并传入该组件配置</li>
+</ol>
+<p><img src="/My-Blogs/images/%E5%A6%82%E4%BD%95%E6%9E%84%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%AE%8C%E5%96%84%E7%9A%84%E6%B4%BB%E5%8A%A8%E5%B9%B3%E5%8F%B0/%E5%A6%82%E4%BD%95%E6%9E%84%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%AE%8C%E5%96%84%E7%9A%84%E6%B4%BB%E5%8A%A8%E5%B9%B3%E5%8F%B0-13.png" alt="img"></p>
+<br>
+
+<h3 id="页面渲染-监控"><a href="#页面渲染-监控" class="headerlink" title="页面渲染-监控"></a>页面渲染-监控</h3><ol>
+<li> 异常监控+告警。</li>
+<li> 页面性能监控+告警。</li>
+<li> 用户行为监控。</li>
+</ol>
+<p><img src="/My-Blogs/images/%E5%A6%82%E4%BD%95%E6%9E%84%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%AE%8C%E5%96%84%E7%9A%84%E6%B4%BB%E5%8A%A8%E5%B9%B3%E5%8F%B0/%E5%A6%82%E4%BD%95%E6%9E%84%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%AE%8C%E5%96%84%E7%9A%84%E6%B4%BB%E5%8A%A8%E5%B9%B3%E5%8F%B0-14.png" alt="img"></p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><ul>
+<li><code>组件开发</code>：关键数据有JS, JSON, XLSX。</li>
+<li><code>页面配置</code>：选择组件，编辑组件，保存配置。</li>
+<li><code>页面渲染</code>：逐个渲染组件并传入配置，页面监控。</li>
+</ul>
+<br>
+
+<h1 id="实现细节总结"><a href="#实现细节总结" class="headerlink" title="实现细节总结"></a>实现细节总结</h1><ul>
+<li><code>组件编辑面板</code>: 根据组件JSON配置，展开编辑面板。</li>
+<li><code>组件通信</code>: 将发射、接收的事件、方法名申明，添加事件监听并调用暴露方法。</li>
+<li><code>组件嵌套</code>: 配置中父子关系链。</li>
+<li><code>多语言</code>: 汇总各组件多语言文件，集中处理成包，再以Hash ID分发。</li>
+<li><code>主题色</code>: 规范视觉UI的色值占位，一套主题即一套词典。</li>
+</ul>
+</article><section class="is-flex is-justify-content-space-between my-6"><!-- em is empty placeholder--><a class="button is-small is-default" href="/My-Blogs/2021/01/08/%E5%88%86%E5%B8%83%E5%BC%8F%E6%9E%B6%E6%9E%84/%E6%96%87%E7%AB%A0/%E5%A6%82%E4%BD%95%E5%AD%A6%E4%B9%A0%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F(%E8%BD%AC%E8%BD%BD)/" title="如何学习分布式系统(转载)">Previous</a><a class="button is-small is-default" href="/My-Blogs/2021/01/08/webpack/easywebpack/easywebpack%E9%A1%B9%E7%9B%AE%E6%B7%BB%E5%8A%A0svg%E5%A4%84%E7%90%86/" title="easywebpack项目添加svg处理">Next</a></section><article class="mt-6 comment-container"><script src="https://utteranc.es/client.js" repo="529303664/My-Blogs" issue-term="pathname" theme="github-light" async></script></article></div></div></main></main><footer class="is-flex is-flex-direction-column is-align-items-center is-flex-shrink-0 is-family-serif"><section class="sns-container"><a title="twitter" target="_blank" rel="noopener nofollow" href="//twitter.com/https://twitter.com/Lucas55207840?s=05"><i class="iconfont icon-twitter"></i></a><!-- Github--><a title="github" target="_blank" rel="noopener nofollow" href="//github.com/529303664"><i class="iconfont icon-github"></i></a><!-- Ins--><a title="instagram" target="_blank" rel="noopener nofollow" href="//www.instagram.com//"><i class="iconfont icon-ins"></i></a><!-- RSS--><a title="rss" target="_blank" rel="noopener nofollow" href="/My-Blogs/atom.xml"><i class="iconfont icon-rss"></i></a><!-- 知乎--><!-- 领英--><!-- 脸书--><a title="facebook" target="_blank" rel="noopener nofollow" href="//www.facebook.com/https://www.facebook.com/profile.php?id=100010703889793"><i class="iconfont icon-tian7_facebook"></i></a></section><p><span>Copyright ©</span><span> Lucas 2021</span></p><div class="is-flex"><p>Powered by Hexo｜</p><p class="is-flex is-justify-content-center"><a title="Hexo theme author" target="_blank" rel="noopener" href="//github.com/haojen">Theme by &nbspHaojen&nbsp</a></p><div style="margin-top: 2px"><a class="github-button" title="github-button" target="_blank" rel="noopener" href="https://github.com/haojen/hexo-theme-Claudia" data-color-scheme="no-preference: light; light: light; dark: dark;" data-show-count="true"></a></div></div></footer><script async defer src="https://buttons.github.io/buttons.js"></script><script>hljs.initHighlighting();
+
+var directory = document.querySelectorAll('.toc a')
+if (directory.length > 0) {
+    var contentTocList = []
+    var activeClassName = 'is-active'
+
+    directory.forEach(function (link) {
+        if (!link.href) return
+        var id = decodeURI(link.href).split('#')[1]
+        contentTocList.push(document.getElementById(id))
+    })
+
+    var DELAY = 150
+    var needWait = false
+    window.addEventListener('scroll', function (evt) {
+        if (needWait) {
+            return
+        }
+        needWait = true
+        var tocContainer = document.querySelector('.toc')
+        setTimeout(function () {
+            var spacing = 60
+            var activeTopicEl = null
+            var scrollTop = window.pageYOffset
+            for (var i = 0; i < contentTocList.length; i++) {
+                var currentTopic = contentTocList[i]
+
+                if (currentTopic.offsetTop > scrollTop + spacing / 2) {
+                    // jump to next loop
+                    continue
+                }
+
+                if (!activeTopicEl) {
+                    activeTopicEl = currentTopic
+                } else if (currentTopic.offsetTop + spacing >= activeTopicEl.offsetTop - spacing) {
+                    activeTopicEl = currentTopic
+                }
+
+                var beforeActiveEl = document.querySelector('.toc' + ' .' + activeClassName)
+                beforeActiveEl && beforeActiveEl.classList.remove(activeClassName)
+
+                var selectTarget = '.toc a[href="#' + encodeURI(activeTopicEl.id) + '"]'
+                var direc = document.querySelector(selectTarget)
+                direc.classList.add(activeClassName)
+
+                var tocContainerHeight = tocContainer.getBoundingClientRect().height
+                if (direc.offsetTop >= tocContainerHeight - spacing) {
+                    tocContainer.scrollTo({
+                        // top: direc.offsetTop - spacing,
+                        top: direc.offsetTop + 100 - tocContainerHeight,
+                    })
+                }
+                else {
+                    tocContainer.scrollTo({ top: 0 })
+                }
+            }
+            needWait = false
+        }, DELAY)
+
+    })
+
+}</script></body></html>
