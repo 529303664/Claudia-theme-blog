@@ -26,7 +26,7 @@ user:
   name: Lucas
   avatar: /images/avatar.jpg
   location: Guangzhou
-  description: Never Give up
+  description: 完善自己
 
 # documents: https://github.com/utterance/utterances
 # API config: https://utteranc.es/
@@ -38,3 +38,5 @@ comment_utteranc:
 # light
 # user-can-set
 appearance: auto # Default value is auto
+
+block_highlight: highlight_github
