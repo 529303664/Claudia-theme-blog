@@ -1,7 +1,16 @@
+---
+title: Explain使用分析
+tags: [MySQL]
+categories: [MySQL]
+version: 1
+date: 2021-01-08 18:06:09
+---
+
 ## 简介
 
 MySQL 提供了一个 EXPLAIN 命令, 它可以对 SELECT 语句进行分析, 并输出 SELECT 执行的详细信息, 以供开发人员针对性优化.
 EXPLAIN 命令用法十分简单, 在 SELECT 语句前加上 Explain 就可以了, 例如:
+<!-- more -->
 
 ``` SQL
 EXPLAIN SELECT * from user_info WHERE  id < 300;

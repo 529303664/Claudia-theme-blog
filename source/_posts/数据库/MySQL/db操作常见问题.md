@@ -1,3 +1,12 @@
+---
+title: db操作常见问题
+tags: [MySQL]
+categories: [MySQL]
+version: 1
+date: 2021-01-08 18:05:18
+---
+总结了一些db操作的常见问题，让我们一起来看看吧
+<!-- more -->
 ## 联合索引问题
 
 1.  在imo后台群唤醒活动中，用户数据表多达几千万，大数据这边，并未针对业务场景建立有效覆盖索引，导致后台SQL慢查询告警上千次，针对业务场景，提出以下优化，新增key1，key2索引覆盖，后台where条件严格按照stats_day，activelevel，categeory_id，cc顺序查询。
