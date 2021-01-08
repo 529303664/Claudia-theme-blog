@@ -2,8 +2,7 @@
 title: 冷知识之CSS篇
 tags: [css]
 categories: [CSS]
-toc_level: 3
-version: 3
+version: 1
 date: 2021-01-08 00:00:00 Z
 ---
 
