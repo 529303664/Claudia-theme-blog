@@ -1,0 +1,1148 @@
+[
+    {
+        "value": "FR",
+        "areaCode": "A_FR",
+        "area": "法语区",
+        "label": "法国"
+    },
+    {
+        "value": "BE",
+        "areaCode": "A_FR",
+        "area": "法语区",
+        "label": "比利时"
+    },
+    {
+        "value": "DE",
+        "areaCode": "A_DE",
+        "area": "德语区",
+        "label": "德国"
+    },
+    {
+        "value": "CH",
+        "areaCode": "A_DE",
+        "area": "德语区",
+        "label": "瑞士"
+    },
+    {
+        "value": "AT",
+        "areaCode": "A_DE",
+        "area": "德语区",
+        "label": "奥地利"
+    },
+    {
+        "value": "BD",
+        "areaCode": "A_BD",
+        "area": "孟尼",
+        "label": "孟加拉"
+    },
+    {
+        "value": "NP",
+        "areaCode": "A_BD",
+        "area": "孟尼",
+        "label": "尼泊尔"
+    },
+    {
+        "value": "SA",
+        "areaCode": "MENA",
+        "area": "中东",
+        "label": "沙特"
+    },
+    {
+        "value": "AE",
+        "areaCode": "MENA",
+        "area": "中东",
+        "label": "阿联酋"
+    },
+    {
+        "value": "KW",
+        "areaCode": "MENA",
+        "area": "中东",
+        "label": "科威特"
+    },
+    {
+        "value": "IQ",
+        "areaCode": "MENA",
+        "area": "中东",
+        "label": "伊拉克"
+    },
+    {
+        "value": "QA",
+        "areaCode": "MENA",
+        "area": "中东",
+        "label": "卡塔尔"
+    },
+    {
+        "value": "BH",
+        "areaCode": "MENA",
+        "area": "中东",
+        "label": "巴林"
+    },
+    {
+        "value": "YE",
+        "areaCode": "MENA",
+        "area": "中东",
+        "label": "也门"
+    },
+    {
+        "value": "OM",
+        "areaCode": "MENA",
+        "area": "中东",
+        "label": "阿曼"
+    },
+    {
+        "value": "JO",
+        "areaCode": "MENA",
+        "area": "中东",
+        "label": "约旦"
+    },
+    {
+        "value": "SY",
+        "areaCode": "MENA",
+        "area": "中东",
+        "label": "叙利亚"
+    },
+    {
+        "value": "LB",
+        "areaCode": "MENA",
+        "area": "中东",
+        "label": "黎巴嫩"
+    },
+    {
+        "value": "EG",
+        "areaCode": "MENA",
+        "area": "中东",
+        "label": "埃及"
+    },
+    {
+        "value": "LY",
+        "areaCode": "MENA",
+        "area": "中东",
+        "label": "利比亚"
+    },
+    {
+        "value": "TN",
+        "areaCode": "MENA",
+        "area": "中东",
+        "label": "突尼斯"
+    },
+    {
+        "value": "DZ",
+        "areaCode": "MENA",
+        "area": "中东",
+        "label": "阿尔及利亚"
+    },
+    {
+        "value": "MA",
+        "areaCode": "MENA",
+        "area": "中东",
+        "label": "摩洛哥"
+    },
+    {
+        "value": "SD",
+        "areaCode": "MENA",
+        "area": "中东",
+        "label": "苏丹"
+    },
+    {
+        "value": "SO",
+        "areaCode": "MENA",
+        "area": "中东",
+        "label": "索马里"
+    },
+    {
+        "value": "DJ",
+        "areaCode": "MENA",
+        "area": "中东",
+        "label": "吉布提"
+    },
+    {
+        "value": "PS",
+        "areaCode": "MENA",
+        "area": "中东",
+        "label": "巴勒斯坦"
+    },
+    {
+        "value": "CO",
+        "areaCode": "A_ES",
+        "area": "西语区",
+        "label": "哥伦比亚"
+    },
+    {
+        "value": "MX",
+        "areaCode": "A_ES",
+        "area": "西语区",
+        "label": "墨西哥"
+    },
+    {
+        "value": "AR",
+        "areaCode": "A_ES",
+        "area": "西语区",
+        "label": "阿根廷"
+    },
+    {
+        "value": "ES",
+        "areaCode": "A_ES",
+        "area": "西语区",
+        "label": "西班牙"
+    },
+    {
+        "value": "CL",
+        "areaCode": "A_ES",
+        "area": "西语区",
+        "label": "智利"
+    },
+    {
+        "value": "PE",
+        "areaCode": "A_ES",
+        "area": "西语区",
+        "label": "秘鲁"
+    },
+    {
+        "value": "EC",
+        "areaCode": "A_ES",
+        "area": "西语区",
+        "label": "厄瓜多尔"
+    },
+    {
+        "value": "CR",
+        "areaCode": "A_ES",
+        "area": "西语区",
+        "label": "哥斯达黎加"
+    },
+    {
+        "value": "UY",
+        "areaCode": "A_ES",
+        "area": "西语区",
+        "label": "乌拉圭"
+    },
+    {
+        "value": "PY",
+        "areaCode": "A_ES",
+        "area": "西语区",
+        "label": "巴拉圭"
+    },
+    {
+        "value": "VE",
+        "areaCode": "A_ES",
+        "area": "西语区",
+        "label": "委内瑞拉"
+    },
+    {
+        "value": "BO",
+        "areaCode": "A_ES",
+        "area": "西语区",
+        "label": "玻利维亚"
+    },
+    {
+        "value": "GT",
+        "areaCode": "A_ES",
+        "area": "西语区",
+        "label": "危地马拉"
+    },
+    {
+        "value": "DO",
+        "areaCode": "A_ES",
+        "area": "西语区",
+        "label": "多米尼加共和国"
+    },
+    {
+        "value": "PA",
+        "areaCode": "A_ES",
+        "area": "西语区",
+        "label": "巴拿马"
+    },
+    {
+        "value": "SV",
+        "areaCode": "A_ES",
+        "area": "西语区",
+        "label": "萨尔瓦多"
+    },
+    {
+        "value": "HN",
+        "areaCode": "A_ES",
+        "area": "西语区",
+        "label": "洪都拉斯"
+    },
+    {
+        "value": "NI",
+        "areaCode": "A_ES",
+        "area": "西语区",
+        "label": "尼加拉瓜"
+    },
+    {
+        "value": "CU",
+        "areaCode": "A_ES",
+        "area": "西语区",
+        "label": "古巴"
+    },
+    {
+        "value": "PR",
+        "areaCode": "A_ES",
+        "area": "西语区",
+        "label": "波多黎各"
+    },
+    {
+        "value": "BR",
+        "areaCode": "A_BR",
+        "area": "葡语区",
+        "label": "巴西"
+    },
+    {
+        "value": "AO",
+        "areaCode": "A_BR",
+        "area": "葡语区",
+        "label": "安哥拉"
+    },
+    {
+        "value": "PT",
+        "areaCode": "A_BR",
+        "area": "葡语区",
+        "label": "葡萄牙"
+    },
+    {
+        "value": "MY",
+        "areaCode": "A_MY",
+        "area": "马文",
+        "label": "马来西亚"
+    },
+    {
+        "value": "BN",
+        "areaCode": "A_MY",
+        "area": "马文",
+        "label": "文莱"
+    },
+    {
+        "value": "RU",
+        "areaCode": "A_RU",
+        "area": "俄语区",
+        "label": "俄罗斯"
+    },
+    {
+        "value": "BY",
+        "areaCode": "A_RU",
+        "area": "俄语区",
+        "label": "白俄罗斯"
+    },
+    {
+        "value": "UA",
+        "areaCode": "A_RU",
+        "area": "俄语区",
+        "label": "乌克兰"
+    },
+    {
+        "value": "UZ",
+        "areaCode": "A_RU",
+        "area": "俄语区",
+        "label": "乌兹别克斯坦"
+    },
+    {
+        "value": "KZ",
+        "areaCode": "A_RU",
+        "area": "俄语区",
+        "label": "哈萨克斯坦"
+    },
+    {
+        "value": "TM",
+        "areaCode": "A_RU",
+        "area": "俄语区",
+        "label": "土库曼斯坦"
+    },
+    {
+        "value": "KG",
+        "areaCode": "A_RU",
+        "area": "俄语区",
+        "label": "吉尔吉斯斯坦"
+    },
+    {
+        "value": "TJ",
+        "areaCode": "A_RU",
+        "area": "俄语区",
+        "label": "塔吉克斯坦"
+    },
+    {
+        "value": "AM",
+        "areaCode": "A_RU",
+        "area": "俄语区",
+        "label": "亚美尼亚"
+    },
+    {
+        "value": "GE",
+        "areaCode": "A_RU",
+        "area": "俄语区",
+        "label": "格鲁吉亚"
+    },
+    {
+        "value": "AZ",
+        "areaCode": "A_RU",
+        "area": "俄语区",
+        "label": "阿塞拜疆"
+    },
+    {
+        "value": "MD",
+        "areaCode": "A_RU",
+        "area": "俄语区",
+        "label": "摩尔多瓦"
+    },
+    {
+        "value": "CN",
+        "areaCode": "A_CN",
+        "area": "华语区",
+        "label": "中国"
+    },
+    {
+        "value": "TW",
+        "areaCode": "A_CN",
+        "area": "华语区",
+        "label": "台湾"
+    },
+    {
+        "value": "HK",
+        "areaCode": "A_CN",
+        "area": "华语区",
+        "label": "香港"
+    },
+    {
+        "value": "MO",
+        "areaCode": "A_CN",
+        "area": "华语区",
+        "label": "澳门"
+    },
+    {
+        "value": "SG",
+        "areaCode": "A_CN",
+        "area": "华语区",
+        "label": "新加坡"
+    },
+    {
+        "value": "ZA",
+        "areaCode": "A_ZA",
+        "area": "非洲区",
+        "label": "南非"
+    },
+    {
+        "value": "NG",
+        "areaCode": "A_ZA",
+        "area": "非洲区",
+        "label": "尼日利亚"
+    },
+    {
+        "value": "GH",
+        "areaCode": "A_ZA",
+        "area": "非洲区",
+        "label": "加纳"
+    },
+    {
+        "value": "KE",
+        "areaCode": "A_ZA",
+        "area": "非洲区",
+        "label": "肯尼亚"
+    },
+    {
+        "value": "US",
+        "areaCode": "A_EN",
+        "area": "英语区",
+        "label": "美国"
+    },
+    {
+        "value": "CA",
+        "areaCode": "A_EN",
+        "area": "英语区",
+        "label": "加拿大"
+    },
+    {
+        "value": "GB",
+        "areaCode": "A_EN",
+        "area": "英语区",
+        "label": "英国"
+    },
+    {
+        "value": "IE",
+        "areaCode": "A_EN",
+        "area": "英语区",
+        "label": "爱尔兰"
+    },
+    {
+        "value": "AU",
+        "areaCode": "A_AU",
+        "area": "澳新",
+        "label": "澳大利亚"
+    },
+    {
+        "value": "NZ",
+        "areaCode": "A_AU",
+        "area": "澳新",
+        "label": "新西兰"
+    },
+    {
+        "value": "TH",
+        "areaCode": "A_TH",
+        "area": "泰国&老挝",
+        "label": "泰国"
+    },
+    {
+        "value": "LA",
+        "areaCode": "A_TH",
+        "area": "泰国&老挝",
+        "label": "老挝"
+    },
+    {
+        "value": "NL",
+        "areaCode": "A_NL",
+        "area": "北欧",
+        "label": "荷兰"
+    },
+    {
+        "value": "SE",
+        "areaCode": "A_NL",
+        "area": "北欧",
+        "label": "瑞典"
+    },
+    {
+        "value": "FI",
+        "areaCode": "A_NL",
+        "area": "北欧",
+        "label": "芬兰"
+    },
+    {
+        "value": "DK",
+        "areaCode": "A_NL",
+        "area": "北欧",
+        "label": "丹麦"
+    },
+    {
+        "value": "NO",
+        "areaCode": "A_NL",
+        "area": "北欧",
+        "label": "挪威"
+    },
+    {
+        "value": "MR",
+        "label": "毛里塔尼亚",
+        "areaCode": "A_OTHER",
+        "area": "其他"
+    },
+    {
+        "value": "KM",
+        "label": "科摩罗",
+        "areaCode": "A_OTHER",
+        "area": "其他"
+    },
+    {
+        "value": "IR",
+        "label": "伊朗",
+        "areaCode": "A_OTHER",
+        "area": "其他"
+    },
+    {
+        "value": "IL",
+        "label": "以色列",
+        "areaCode": "A_OTHER",
+        "area": "其他"
+    },
+    {
+        "value": "CY",
+        "label": "塞浦路斯",
+        "areaCode": "A_OTHER",
+        "area": "其他"
+    },
+    {
+        "value": "EE",
+        "label": "爱沙尼亚",
+        "areaCode": "A_OTHER",
+        "area": "其他"
+    },
+    {
+        "value": "BG",
+        "label": "保加利亚",
+        "areaCode": "A_OTHER",
+        "area": "其他"
+    },
+    {
+        "value": "RS",
+        "label": "塞尔维亚",
+        "areaCode": "A_OTHER",
+        "area": "其他"
+    },
+    {
+        "value": "JP",
+        "label": "日本",
+        "areaCode": "A_OTHER",
+        "area": "其他"
+    },
+    {
+        "value": "KR",
+        "label": "韩国",
+        "areaCode": "A_OTHER",
+        "area": "其他"
+    },
+    {
+        "value": "VN",
+        "label": "越南",
+        "areaCode": "A_OTHER",
+        "area": "其他"
+    },
+    {
+        "value": "ID",
+        "label": "印尼",
+        "areaCode": "A_OTHER",
+        "area": "其他"
+    },
+    {
+        "value": "TR",
+        "label": "土耳其",
+        "areaCode": "A_OTHER",
+        "area": "其他"
+    },
+    {
+        "value": "MM",
+        "label": "缅甸",
+        "areaCode": "A_OTHER",
+        "area": "其他"
+    },
+    {
+        "value": "KH",
+        "label": "柬埔寨",
+        "areaCode": "A_OTHER",
+        "area": "其他"
+    },
+    {
+        "value": "IN",
+        "label": "印度",
+        "areaCode": "A_OTHER",
+        "area": "其他"
+    },
+    {
+        "value": "PK",
+        "label": "巴基斯坦",
+        "areaCode": "A_OTHER",
+        "area": "其他"
+    },
+    {
+        "value": "PH",
+        "label": "菲律宾",
+        "areaCode": "A_OTHER",
+        "area": "其他"
+    },
+    {
+        "value": "IT",
+        "label": "意大利",
+        "areaCode": "A_OTHER",
+        "area": "其他"
+    },
+    {
+        "value": "PL",
+        "label": "波兰",
+        "areaCode": "A_OTHER",
+        "area": "其他"
+    },
+    {
+        "value": "CD",
+        "label": "刚果金",
+        "areaCode": "A_OTHER",
+        "area": "其他"
+    },
+    {
+        "value": "CG",
+        "label": "刚果",
+        "areaCode": "A_OTHER",
+        "area": "其他"
+    },
+    {
+        "value": "CZ",
+        "label": "捷克",
+        "areaCode": "A_OTHER",
+        "area": "其他"
+    },
+    {
+        "value": "GR",
+        "label": "希腊",
+        "areaCode": "A_OTHER",
+        "area": "其他"
+    },
+    {
+        "value": "HU",
+        "label": "匈牙利",
+        "areaCode": "A_OTHER",
+        "area": "其他"
+    },
+    {
+        "value": "IS",
+        "label": "冰岛",
+        "areaCode": "A_OTHER",
+        "area": "其他"
+    },
+    {
+        "value": "LT",
+        "label": "立陶宛",
+        "areaCode": "A_OTHER",
+        "area": "其他"
+    },
+    {
+        "value": "LU",
+        "label": "卢森堡",
+        "areaCode": "A_OTHER",
+        "area": "其他"
+    },
+    {
+        "value": "MC",
+        "label": "摩纳哥",
+        "areaCode": "A_OTHER",
+        "area": "其他"
+    },
+    {
+        "value": "MN",
+        "label": "蒙古",
+        "areaCode": "A_OTHER",
+        "area": "其他"
+    },
+    {
+        "value": "MV",
+        "label": "马尔代夫",
+        "areaCode": "A_OTHER",
+        "area": "其他"
+    },
+    {
+        "value": "RO",
+        "label": "罗马尼亚",
+        "areaCode": "A_OTHER",
+        "area": "其他"
+    },
+    {
+        "value": "ZM",
+        "label": "赞比亚",
+        "areaCode": "A_OTHER",
+        "area": "其他"
+    },
+    {
+        "value": "AD",
+        "label": "安道尔共和国",
+        "areaCode": "A_OTHER",
+        "area": "其他"
+    },
+    {
+        "value": "AF",
+        "label": "阿富汗",
+        "areaCode": "A_OTHER",
+        "area": "其他"
+    },
+    {
+        "value": "AL",
+        "label": "阿尔巴尼亚",
+        "areaCode": "A_OTHER",
+        "area": "其他"
+    },
+    {
+        "value": "AW",
+        "label": "阿鲁巴",
+        "areaCode": "A_OTHER",
+        "area": "其他"
+    },
+    {
+        "value": "AX",
+        "label": "美属萨摩亚",
+        "areaCode": "A_OTHER",
+        "area": "其他"
+    },
+    {
+        "value": "BA",
+        "label": "波斯尼亚和黑塞哥维那",
+        "areaCode": "A_OTHER",
+        "area": "其他"
+    },
+    {
+        "value": "BB",
+        "label": "巴巴多斯",
+        "areaCode": "A_OTHER",
+        "area": "其他"
+    },
+    {
+        "value": "BF",
+        "label": "布基纳法索",
+        "areaCode": "A_OTHER",
+        "area": "其他"
+    },
+    {
+        "value": "BJ",
+        "label": "贝宁",
+        "areaCode": "A_OTHER",
+        "area": "其他"
+    },
+    {
+        "value": "BM",
+        "label": "百慕大群岛",
+        "areaCode": "A_OTHER",
+        "area": "其他"
+    },
+    {
+        "value": "BS",
+        "label": "巴哈马",
+        "areaCode": "A_OTHER",
+        "area": "其他"
+    },
+    {
+        "value": "BT",
+        "label": "不丹",
+        "areaCode": "A_OTHER",
+        "area": "其他"
+    },
+    {
+        "value": "BW",
+        "label": "博茨瓦纳",
+        "areaCode": "A_OTHER",
+        "area": "其他"
+    },
+    {
+        "value": "BZ",
+        "label": "伯利兹",
+        "areaCode": "A_OTHER",
+        "area": "其他"
+    },
+    {
+        "value": "CI",
+        "label": "科特迪瓦",
+        "areaCode": "A_OTHER",
+        "area": "其他"
+    },
+    {
+        "value": "CK",
+        "label": "库克群岛",
+        "areaCode": "A_OTHER",
+        "area": "其他"
+    },
+    {
+        "value": "CM",
+        "label": "喀麦隆",
+        "areaCode": "A_OTHER",
+        "area": "其他"
+    },
+    {
+        "value": "CX",
+        "label": "圣诞岛",
+        "areaCode": "A_OTHER",
+        "area": "其他"
+    },
+    {
+        "value": "ET",
+        "label": "埃塞俄比亚",
+        "areaCode": "A_OTHER",
+        "area": "其他"
+    },
+    {
+        "value": "FJ",
+        "label": "斐济",
+        "areaCode": "A_OTHER",
+        "area": "其他"
+    },
+    {
+        "value": "FM",
+        "label": "密克罗尼西亚联邦",
+        "areaCode": "A_OTHER",
+        "area": "其他"
+    },
+    {
+        "value": "GA",
+        "label": "加蓬",
+        "areaCode": "A_OTHER",
+        "area": "其他"
+    },
+    {
+        "value": "GF",
+        "label": "法属圭亚那",
+        "areaCode": "A_OTHER",
+        "area": "其他"
+    },
+    {
+        "value": "GI",
+        "label": "直布罗陀",
+        "areaCode": "A_OTHER",
+        "area": "其他"
+    },
+    {
+        "value": "GM",
+        "label": "冈比亚",
+        "areaCode": "A_OTHER",
+        "area": "其他"
+    },
+    {
+        "value": "GN",
+        "label": "几内亚",
+        "areaCode": "A_OTHER",
+        "area": "其他"
+    },
+    {
+        "value": "GP",
+        "label": "瓜德罗普岛",
+        "areaCode": "A_OTHER",
+        "area": "其他"
+    },
+    {
+        "value": "GQ",
+        "label": "赤道几内亚",
+        "areaCode": "A_OTHER",
+        "area": "其他"
+    },
+    {
+        "value": "GU",
+        "label": "关岛",
+        "areaCode": "A_OTHER",
+        "area": "其他"
+    },
+    {
+        "value": "GY",
+        "label": "圭亚那",
+        "areaCode": "A_OTHER",
+        "area": "其他"
+    },
+    {
+        "value": "HR",
+        "label": "克罗地亚",
+        "areaCode": "A_OTHER",
+        "area": "其他"
+    },
+    {
+        "value": "HT",
+        "label": "海地",
+        "areaCode": "A_OTHER",
+        "area": "其他"
+    },
+    {
+        "value": "IM",
+        "label": "马恩岛",
+        "areaCode": "A_OTHER",
+        "area": "其他"
+    },
+    {
+        "value": "JM",
+        "label": "牙买加",
+        "areaCode": "A_OTHER",
+        "area": "其他"
+    },
+    {
+        "value": "KN",
+        "label": "圣基茨和尼维斯",
+        "areaCode": "A_OTHER",
+        "area": "其他"
+    },
+    {
+        "value": "LI",
+        "label": "列支敦士登",
+        "areaCode": "A_OTHER",
+        "area": "其他"
+    },
+    {
+        "value": "LK",
+        "label": "斯里兰卡",
+        "areaCode": "A_OTHER",
+        "area": "其他"
+    },
+    {
+        "value": "LR",
+        "label": "利比里亚",
+        "areaCode": "A_OTHER",
+        "area": "其他"
+    },
+    {
+        "value": "LV",
+        "label": "拉脱维亚",
+        "areaCode": "A_OTHER",
+        "area": "其他"
+    },
+    {
+        "value": "ME",
+        "label": "黑山",
+        "areaCode": "A_OTHER",
+        "area": "其他"
+    },
+    {
+        "value": "MG",
+        "label": "马达加斯加",
+        "areaCode": "A_OTHER",
+        "area": "其他"
+    },
+    {
+        "value": "MK",
+        "label": "北马其顿",
+        "areaCode": "A_OTHER",
+        "area": "其他"
+    },
+    {
+        "value": "ML",
+        "label": "马里",
+        "areaCode": "A_OTHER",
+        "area": "其他"
+    },
+    {
+        "value": "MQ",
+        "label": "马提尼克岛",
+        "areaCode": "A_OTHER",
+        "area": "其他"
+    },
+    {
+        "value": "MT",
+        "label": "马耳他",
+        "areaCode": "A_OTHER",
+        "area": "其他"
+    },
+    {
+        "value": "MU",
+        "label": "毛里求斯",
+        "areaCode": "A_OTHER",
+        "area": "其他"
+    },
+    {
+        "value": "MW",
+        "label": "马拉维",
+        "areaCode": "A_OTHER",
+        "area": "其他"
+    },
+    {
+        "value": "MZ",
+        "label": "莫桑比克",
+        "areaCode": "A_OTHER",
+        "area": "其他"
+    },
+    {
+        "value": "NA",
+        "label": "纳米比亚",
+        "areaCode": "A_OTHER",
+        "area": "其他"
+    },
+    {
+        "value": "NC",
+        "label": "新喀里多尼亚",
+        "areaCode": "A_OTHER",
+        "area": "其他"
+    },
+    {
+        "value": "NE",
+        "label": "尼日尔",
+        "areaCode": "A_OTHER",
+        "area": "其他"
+    },
+    {
+        "value": "PG",
+        "label": "巴布亚新几内亚",
+        "areaCode": "A_OTHER",
+        "area": "其他"
+    },
+    {
+        "value": "PW",
+        "label": "帕劳",
+        "areaCode": "A_OTHER",
+        "area": "其他"
+    },
+    {
+        "value": "RE",
+        "label": "留尼汪岛",
+        "areaCode": "A_OTHER",
+        "area": "其他"
+    },
+    {
+        "value": "SB",
+        "label": "所罗门群岛",
+        "areaCode": "A_OTHER",
+        "area": "其他"
+    },
+    {
+        "value": "SC",
+        "label": "塞舌尔",
+        "areaCode": "A_OTHER",
+        "area": "其他"
+    },
+    {
+        "value": "SI",
+        "label": "斯洛语尼亚",
+        "areaCode": "A_OTHER",
+        "area": "其他"
+    },
+    {
+        "value": "SK",
+        "label": "斯洛伐克",
+        "areaCode": "A_OTHER",
+        "area": "其他"
+    },
+    {
+        "value": "SL",
+        "label": "塞拉利昂",
+        "areaCode": "A_OTHER",
+        "area": "其他"
+    },
+    {
+        "value": "SN",
+        "label": "塞内加尔",
+        "areaCode": "A_OTHER",
+        "area": "其他"
+    },
+    {
+        "value": "SR",
+        "label": "苏里南",
+        "areaCode": "A_OTHER",
+        "area": "其他"
+    },
+    {
+        "value": "SS",
+        "label": "南苏丹",
+        "areaCode": "A_OTHER",
+        "area": "其他"
+    },
+    {
+        "value": "TG",
+        "label": "多哥",
+        "areaCode": "A_OTHER",
+        "area": "其他"
+    },
+    {
+        "value": "TK",
+        "label": "托克劳",
+        "areaCode": "A_OTHER",
+        "area": "其他"
+    },
+    {
+        "value": "TL",
+        "label": "东帝汶",
+        "areaCode": "A_OTHER",
+        "area": "其他"
+    },
+    {
+        "value": "TO",
+        "label": "汤加",
+        "areaCode": "A_OTHER",
+        "area": "其他"
+    },
+    {
+        "value": "TT",
+        "label": "特立尼达和多巴哥",
+        "areaCode": "A_OTHER",
+        "area": "其他"
+    },
+    {
+        "value": "TZ",
+        "label": "坦桑尼亚",
+        "areaCode": "A_OTHER",
+        "area": "其他"
+    },
+    {
+        "value": "UG",
+        "label": "乌干达",
+        "areaCode": "A_OTHER",
+        "area": "其他"
+    },
+    {
+        "value": "VC",
+        "label": "圣语森特",
+        "areaCode": "A_OTHER",
+        "area": "其他"
+    },
+    {
+        "value": "VU",
+        "label": "瓦努阿图",
+        "areaCode": "A_OTHER",
+        "area": "其他"
+    },
+    {
+        "value": "ZW",
+        "label": "津巴布韦",
+        "areaCode": "A_OTHER",
+        "area": "其他"
+    }
+]
