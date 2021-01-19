@@ -88,3 +88,52 @@ for await (const req of s) {
   });
 }
 ```
+
+### 缓存目录
+
+Mac
+``` BASH
+ $HOME/Library/Caches/Deno
+#  远程库下载地址
+deno run https://deno.land/std@0.83.0/examples/welcome.ts
+# DIRECTORIES
+gen/: 缓存编译为JavaScript的文件
+deps/: 缓存导入的远程url的文件
+  |__ http/: http方式导入的文件
+  |__ https/: https方式导入的文件
+
+# FILES
+deno_history.txt: Deno REPL历史记录缓存
+```
+
+**gen/**
+被用来存放 JavaScript 文件，这些文件是从 TypeScript 源码编译来的。这样的编译是必要的，因为 V8 不识别 JS 子集之外的 TypeScript 语法。
+$DENO_DIR/gen/ 被用来存放 JavaScript 文件，这些文件是从 TypeScript 源码编译来的。这样的编译是必要的，因为 V8 不识别 JS 子集之外的 TypeScript 语法。
+
+gen/目录下的每一个 JS 文件的文件名是他的 TypeScript 源码的 hash 值。同时 JS 文件也对应一个 .map 为后缀的 source map 文件。
+
+缓存存在的原因是为了避免在用户没有修改代码的情况下，每次运行时不断的重新编译文件。比如我们有一个 hello-world.ts 文件，他只是包含了代码 console.log("Hello world")。在第一次运行时，我们会看到编译信息：
+
+$ deno hello-world.ts
+Compiling /Users/kevinqian/my-folder/hello-world.ts
+Hello world
+但是在没有修改文件内容的情况下，当你重新运行代码：
+
+$ deno hello-world.ts
+Hello world
+不会再有编译信息的提示。这是因为在这一次运行中，Deno 直接使用了 gen/ 中缓存的版本，而不用再次编译。
+
+缓存加载和保存的代码，可以从文件 src/deno_dir.rs 中的 DenoDir::load_cache 和 DenoDir::code_cache 中找到。
+
+如果想要强制 Deno 重新编译你的代码而不是使用缓存的版本，你需要使用 --recompile 标志。
+
+deps/
+$DENO_DIR/deps 被用来保存远端 url import 获得的文件。根据 url 的模式，他包含了子目录（现在只有http和https），并且保存文件的位置由 URL path 决定。比如，对于下面的的 import（请注意，Deno 要求用户显式地指定扩展名）。
+
+import { serve } from "https://deno.land/x/std/net/http.ts";
+下载的http.ts文件将会被存储在：
+
+$DENO_DIR/deps/https/deno.land/x/std/net/http.ts
+需要注意，除非用户用 --reload 标志运行代码，否则我们的http.ts文件在接下来的运行中不会被重新下载。
+
+当前（警告：将来可能改变），Deno 会关注从远端下载的文件的内容的 MIME 类型。在文件缺少扩展名或扩展名与内容类型不匹配的情况下，Deno 将创建一个以 .mime 结尾的额外文件，来存储 HTTP 响应头提供的 mime 类型。如果我们下载的文件名是 a.ts，然而响应头里面是 Content-Type: text/javascript，一个包含text/javascript内容的a.ts.mime文件将会在他旁边被创建。由于.mime文件的存在，a.ts 后面将会被当做一个 JavaScript 文件被 import。
