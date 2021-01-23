@@ -49,7 +49,13 @@ const wasmModule = new WebAssembly.Module(wasmCode);
 const wasmInstance = new WebAssembly.Instance(wasmModule);
 const main = wasmInstance.exports.main as CallableFunction
 console.log(main().toString());</code></pre>
-<h3 id="第三方库"><a href="#第三方库" class="headerlink" title="第三方库"></a><a target="_blank" rel="noopener" href="https://deno.land/x">第三方库</a></h3><h3 id="标准库"><a href="#标准库" class="headerlink" title="标准库"></a><a target="_blank" rel="noopener" href="https://deno.land/std/">标准库</a></h3><h3 id="兼容node-js"><a href="#兼容node-js" class="headerlink" title="兼容node.js"></a><a target="_blank" rel="noopener" href="https://deno.land/std/node">兼容node.js</a></h3><h2 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h2><p>Shell (Mac, Linux):</p>
+<h3 id="第三方库"><a href="#第三方库" class="headerlink" title="第三方库"></a>第三方库</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://deno.land/x">已支持开源项目</a></li>
+<li><a target="_blank" rel="noopener" href="https://deno.land/x/denon@2.4.6">denon</a></li>
+<li><a target="_blank" rel="noopener" href="https://deno.land/x/oak@v6.4.2">oak</a> – 类似koa的web框架</li>
+<li><a target="_blank" rel="noopener" href="https://deno.land/x/aleph@v0.2.28">Aleph.js</a> – 类似Next.js(React ssr框架)<h3 id="标准库"><a href="#标准库" class="headerlink" title="标准库"></a><a target="_blank" rel="noopener" href="https://deno.land/std/">标准库</a></h3><h3 id="兼容node-js"><a href="#兼容node-js" class="headerlink" title="兼容node.js"></a><a target="_blank" rel="noopener" href="https://deno.land/std/node">兼容node.js</a></h3></li>
+</ul>
+<h2 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h2><p>Shell (Mac, Linux):</p>
 <pre><code class="BASH">curl -fsSL https://deno.land/x/install/install.sh | sh</code></pre>
 <p>PowerShell (Windows):</p>
 <pre><code class="BASH">iwr https://deno.land/x/install/install.ps1 -useb | iex</code></pre>
