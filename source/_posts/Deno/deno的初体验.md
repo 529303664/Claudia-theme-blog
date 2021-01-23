@@ -72,6 +72,7 @@ console.log(main().toString());
 
 ### [第三方库](https://deno.land/x)
 ### [标准库](https://deno.land/std/)
+### [兼容node.js](https://deno.land/std/node)
 
 ## Installation
 
@@ -118,7 +119,7 @@ for await (const req of s) {
 }
 ```
 
-### [例子](https://deno.land/std@0.84.0)
+### [例子](https://deno.land/std/)
 
 
 ## 缓存目录
