@@ -71,7 +71,11 @@ const main = wasmInstance.exports.main as CallableFunction
 console.log(main().toString());
 ```
 
-### [第三方库](https://deno.land/x)
+### 第三方库
+- [已支持开源项目](https://deno.land/x)
+- [denon](https://deno.land/x/denon@2.4.6)
+- [oak](https://deno.land/x/oak@v6.4.2) -- 类似koa的web框架
+- [Aleph.js](https://deno.land/x/aleph@v0.2.28) -- 类似Next.js(React ssr框架)
 ### [标准库](https://deno.land/std/)
 ### [兼容node.js](https://deno.land/std/node)
 
