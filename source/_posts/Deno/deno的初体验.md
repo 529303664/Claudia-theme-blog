@@ -49,11 +49,11 @@ A `secure` runtime for JavaScript and TypeScript。由Ryan Dahl（Node.js 的创
 * 具有安全控制，显示打开权限方可使用。
 * 社区还不完善。
 
-## [CLI](https://deno.land/manual@v1.7.0/getting_started/command_line_interface)
+### [CLI](https://deno.land/manual@v1.7.0/getting_started/command_line_interface)
 
-## [permission](https://deno.land/manual@v1.7.0/getting_started/permissions)
+### [permission](https://deno.land/manual@v1.7.0/getting_started/permissions)
 
-## [WebAssembly](https://deno.land/manual@v1.7.0/getting_started/webassembly#webassembly-support)
+### [WebAssembly](https://deno.land/manual@v1.7.0/getting_started/webassembly#webassembly-support)
 
 ``` JS
 const wasmCode = new Uint8Array([
@@ -70,7 +70,8 @@ const main = wasmInstance.exports.main as CallableFunction
 console.log(main().toString());
 ```
 
-## [第三方库](https://deno.land/x)
+### [第三方库](https://deno.land/x)
+### [标准库](https://deno.land/std/)
 
 ## Installation
 
@@ -136,6 +137,11 @@ deps/: 缓存导入的远程url的文件
 
 # FILES
 deno_history.txt: Deno REPL历史记录缓存
+
+deno info                                                                               
+DENO_DIR location: "/Users/lulu/Library/Caches/deno"
+Remote modules cache: "/Users/lulu/Library/Caches/deno/deps"
+TypeScript compiler cache: "/Users/lulu/Library/Caches/deno/gen"
 ```
 
 ### gen/
