@@ -46,8 +46,8 @@ A `secure` runtime for JavaScript and TypeScript。由Ryan Dahl（Node.js 的创
 ## 不足
 
 * 缺少集大成框架，满足不了企业级应用开发。
-* 具有安全控制，显示打开权限方可使用。
-* 社区还不完善。
+* 社区还不完善，第三方库不够丰富。
+* 缺乏包管理工具，管理起来混乱。
 
 ### [CLI](https://deno.land/manual@v1.7.0/getting_started/command_line_interface)
 
@@ -197,3 +197,7 @@ $DENO_DIR/deps/https/deno.land/x/std/net/http.ts
 ``` BASH
 cd /Users/lulu/my-projects/deno-demo && code .
 ```
+
+
+## 总结
+目前Deno还处于初步阶段，标准库，兼容性还有待改进，适合脚本，小型应用开发。想要完成一个成熟的大型项目，还需要时间的沉淀。让我们好好期待下，未来的Deno会如何发展？
