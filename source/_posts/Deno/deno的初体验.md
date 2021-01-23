@@ -42,6 +42,7 @@ A `secure` runtime for JavaScript and TypeScript。由Ryan Dahl（Node.js 的创
 * 高效且安全
 * 单文件，兼容浏览器标准，体积小。
 * 替代脚本
+* 内存占用少，运行速度比node快。[从Deno跟Node的性能对比说起](https://juejin.cn/post/6854573218419474439)
 
 ## 不足
 
