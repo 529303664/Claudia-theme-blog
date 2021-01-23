@@ -190,3 +190,9 @@ $DENO_DIR/deps/https/deno.land/x/std/net/http.ts
 需要注意，除非用户用 `--reload` 标志运行代码，否则我们的http.ts文件在接下来的运行中不会被重新下载。
 
 当前（警告：将来可能改变），Deno 会关注从远端下载的文件的内容的 MIME 类型。在文件缺少扩展名或扩展名与内容类型不匹配的情况下，Deno 将创建一个以 .mime 结尾的额外文件，来存储 HTTP 响应头提供的 mime 类型。如果我们下载的文件名是 a.ts，然而响应头里面是 Content-Type: text/javascript，一个包含text/javascript内容的a.ts.mime文件将会在他旁边被创建。由于.mime文件的存在，a.ts 后面将会被当做一个 JavaScript 文件被 import。
+
+## 演示
+
+``` BASH
+cd /Users/lulu/my-projects/deno-demo && code .
+```
