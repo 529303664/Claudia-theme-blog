@@ -33,7 +33,7 @@ A `secure` runtime for JavaScript and TypeScript。由Ryan Dahl（Node.js 的创
 * 异步操作 一律返回 Promise。
 * Deno 支持 Web API，尽量跟浏览器保持一致。`window`、`fetch`、`webCrypto`、`worker`, 也支持 `onload`、`onunload`、`addEventListener` 等事件操作函数。
 * 所有模块通过 URL 加载，比如`import { bar } from "https://foo.com/bar.ts"`（绝对 URL）或`import { bar } from './foo/bar.ts'`（相对 URL）。本地缓存，有个Cache总目录
-* 原生支持TypeScript。
+* 原生支持TypeScript, 内置[TypeScript编译器](https://github.com/microsoft/TypeScript)和[swc](https://swc.rs/)的Rust库组合实现。
 * 内置各种功能，无需外部工具。
 * 打包、格式清理、测试、安装、文档生成、linting、脚本编译成可执行文件等一条龙服务。
 
@@ -49,6 +49,29 @@ A `secure` runtime for JavaScript and TypeScript。由Ryan Dahl（Node.js 的创
 * 具有安全控制，显示打开权限方可使用。
 * 社区还不完善。
 
+## [CLI](https://deno.land/manual@v1.7.0/getting_started/command_line_interface)
+
+## [permission](https://deno.land/manual@v1.7.0/getting_started/permissions)
+
+## [WebAssembly](https://deno.land/manual@v1.7.0/getting_started/webassembly#webassembly-support)
+
+``` JS
+const wasmCode = new Uint8Array([
+  0, 97, 115, 109, 1, 0, 0, 0, 1, 133, 128, 128, 128, 0, 1, 96, 0, 1, 127,
+  3, 130, 128, 128, 128, 0, 1, 0, 4, 132, 128, 128, 128, 0, 1, 112, 0, 0,
+  5, 131, 128, 128, 128, 0, 1, 0, 1, 6, 129, 128, 128, 128, 0, 0, 7, 145,
+  128, 128, 128, 0, 2, 6, 109, 101, 109, 111, 114, 121, 2, 0, 4, 109, 97,
+  105, 110, 0, 0, 10, 138, 128, 128, 128, 0, 1, 132, 128, 128, 128, 0, 0,
+  65, 42, 11
+]);
+const wasmModule = new WebAssembly.Module(wasmCode);
+const wasmInstance = new WebAssembly.Instance(wasmModule);
+const main = wasmInstance.exports.main as CallableFunction
+console.log(main().toString());
+```
+
+## [第三方库](https://deno.land/x)
+
 ## Installation
 
 Shell (Mac, Linux):
@@ -61,6 +84,12 @@ PowerShell (Windows):
 
 ``` BASH
 iwr https://deno.land/x/install/install.ps1 -useb | iex
+```
+
+Using Homebrew (macOS):
+
+``` BASH
+brew install deno
 ```
 
 ### Getting Started
@@ -87,6 +116,9 @@ for await (const req of s) {
   });
 }
 ```
+
+### [例子](https://deno.land/std@0.84.0)
+
 
 ## 缓存目录
 
