@@ -8,9 +8,10 @@ date: 2021-01-19 18:40:52
 这是一篇关于deno初体验文章
 <!-- more -->
 
-## [Deno](https://deno.land/)
+## [Deno](https://deno.land/) -- 小而美的脚本运行时
+>a simple, modern and secure runtime for JavaScript and TypeScript that uses V8 and is built in Rust。
 
-A `secure` runtime for JavaScript and TypeScript。由Ryan Dahl（Node.js 的创始人之一）在2017年创建，Rust 语言开发。 `deno` 音译帝诺，恐龙(dinosaur)的简称，deno 这个名字就是来自 Node 的字母重新组合（Node = no + de），表示"拆除 Node.js"（de = destroy, no = Node.js）。
+Dahl（Node.js 的创始人之一）在2017年创建，Rust 语言开发。 `deno` 音译帝诺，恐龙(dinosaur)的简称，`deno` 这个名字就是来自 Node 的字母重新组合（Node = no + de），表示"拆除 Node.js"（de = destroy, no = Node.js）。
 
 ## 创建原由
 
@@ -23,7 +24,7 @@ A `secure` runtime for JavaScript and TypeScript。由Ryan Dahl（Node.js 的创
 跟 Node.js 一样，Deno 也是一个服务器运行时，但是支持多种语言，可以直接运行 JavaScript、TypeScript 和 WebAssembly 程序。
 它内置了 V8 引擎，用来解释 JavaScript。同时，也内置了 tsc 引擎，解释 TypeScript。它使用 Rust 语言开发，由于 Rust 原生支持 WebAssembly，所以它也能直接运行 WebAssembly。它的异步操作不使用 libuv 这个库，而是使用 Rust 语言的 Tokio 库，来实现事件循环（event loop）。”*--- 出自阮一峰大神《[Deno 运行时入门教程：Node.js 的替代品](https://www.ruanyifeng.com/blog/2020/01/deno-intro.html)》
 
-**闲言少叙，书归正传，让我们一起来看看Deno的特性吧。**
+**闲言少叙，书归正文，让我们一起来看看Deno的特性吧。**
 
 ## Feature
 
@@ -34,7 +35,6 @@ A `secure` runtime for JavaScript and TypeScript。由Ryan Dahl（Node.js 的创
 * Deno 支持 Web API，尽量跟浏览器保持一致。`window`、`fetch`、`webCrypto`、`worker`, 也支持 `onload`、`onunload`、`addEventListener` 等事件操作函数。
 * 所有模块通过 URL 加载，比如`import { bar } from "https://foo.com/bar.ts"`（绝对 URL）或`import { bar } from './foo/bar.ts'`（相对 URL）。本地缓存，有个Cache总目录
 * 原生支持TypeScript, 内置[TypeScript编译器](https://github.com/microsoft/TypeScript)和[swc](https://swc.rs/)的Rust库组合实现。
-* 内置各种功能，无需外部工具。
 * 打包、格式清理、测试、安装、文档生成、linting、脚本编译成可执行文件等一条龙服务。
 
 ## 优势
@@ -49,6 +49,7 @@ A `secure` runtime for JavaScript and TypeScript。由Ryan Dahl（Node.js 的创
 * 缺少集大成框架，满足不了企业级应用开发。
 * 社区还不完善，第三方库不够丰富。
 * 缺乏包管理工具，管理起来混乱。
+* [网络上一些怀疑的声音](https://juejin.cn/post/6917830384956899341)
 
 ### [CLI](https://deno.land/manual@v1.7.0/getting_started/command_line_interface)
 
@@ -205,4 +206,5 @@ cd /Users/lulu/my-projects/deno-demo && code .
 
 
 ## 总结
+Deno的目标不是替代Node，而是Node的一个补充完善方案。
 目前Deno还处于初步阶段，标准库，兼容性还有待改进，适合脚本，小型应用开发。想要完成一个成熟的大型项目，还需要时间的沉淀。让我们好好期待下，未来的Deno会如何发展？
