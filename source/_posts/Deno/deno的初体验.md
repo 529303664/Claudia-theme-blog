@@ -18,6 +18,7 @@ Dahl（Node.js 的创始人之一）在2017年创建，Rust 语言开发。 `den
 * Node.js Callback hell。
 * 原生支持CommonJs，对ES模块不兼容。
 * npm(你怕吗)模块管理工具，npm_modules 极其庞杂，还有Dependency Hell，版本重复问题等问题，极难管理。详情可查看[node_modules 困境](https://juejin.cn/post/6914508615969669127)
+![img](images/deno初体验-01.jpg)
 * 功能不完整，要学习很多外部工具，诸如webpack，babel，typescript、eslint、prettier......
 
 > *“由于上面这些原因，Ryan Dahl 决定放弃 Node.js，从头写一个替代品，彻底解决这些问题。deno 这个名字就是来自 Node 的字母重新组合（Node = no + de），表示"拆除 Node.js"（de = destroy, no = Node.js）。
