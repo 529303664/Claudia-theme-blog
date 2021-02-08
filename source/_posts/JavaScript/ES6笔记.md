@@ -112,3 +112,19 @@ console.log(uid); // "Symbol(uid)"
 * 本质就是调用对象的next方法 每次调用next，返回{ value: xxx, done: false }对象，当done为true表示迭代结束。
 
 ### 类
+
+### 数组
+
+* 类数组对象（具有数值型索引和length属性的对象）。
+* 定型数组，节省内存，JS数字是以64位浮点格式存储。
+* 数组缓冲区 ArrayBuffer，类似C语言的`malloc`分配内存。`DataView`数据视图，用来操作数组缓存区的数据。
+* 特定类型视图，Int8Array等。
+![img](images/ES6笔记/ES6笔记-01.png)。
+
+### Promise与异步编程
+
+### 代理(Proxy)和反射Reflection
+
+### 模块
+
+* 不管在import语句中把一个模块写了多少次，该模块将只执行一次。
