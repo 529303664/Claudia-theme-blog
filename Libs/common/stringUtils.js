@@ -1,3 +1,7 @@
+export function stringToArray(string='') {
+  return Array.from(string);
+}
+
 /**
  * string To Base64
  * @param {String} stringToEncode
