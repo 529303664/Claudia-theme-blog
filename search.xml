@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>zip命令的基本使用</title>
+      <link href="/My-Blogs/2021/02/22/Linux/shell/%E6%96%87%E4%BB%B6/zip%E5%91%BD%E4%BB%A4%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/"/>
+      <url>/My-Blogs/2021/02/22/Linux/shell/%E6%96%87%E4%BB%B6/zip%E5%91%BD%E4%BB%A4%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/</url>
+      
+        <content type="html"><![CDATA[<p>这是一篇关于zip命令的简单使用</p><a id="more"></a><h2 id="命令简介"><a href="#命令简介" class="headerlink" title="命令简介"></a>命令简介</h2><p>zip 命令可以用来压缩、打包文件。</p><pre><code class="BASH">#Debian/Ubuntu安装apt-get&nbsp;install&nbsp;zip#CentOS安装[root@centos7&nbsp;testdir]#&nbsp;zip-bash:&nbsp;zip:&nbsp;command&nbsp;not&nbsp;found[root@centos7&nbsp;testdir]#&nbsp;yum&nbsp;install&nbsp;zip&nbsp;-y</code></pre><p>zip 命令也可以用来解压缩文件，zip也是一个常用的压缩、解压应用程序，文件经它压缩后会产生一个新以.zip为扩展名的压缩包文件。</p><h2 id="语法格式"><a href="#语法格式" class="headerlink" title="语法格式"></a>语法格式</h2><pre><code class="BASH">zip&nbsp;[&nbsp;OPTIONS&nbsp;]&nbsp;[&nbsp;NAME&nbsp;..]</code></pre><h2 id="选项说明"><a href="#选项说明" class="headerlink" title="选项说明"></a>选项说明</h2><pre><code class="BASH">-A  #调整可执行的自动解压缩文件-b&lt;工作目录&gt;  #指定压缩文件的存放目录-c  #给每个被压缩的文件加上注释信息-d  #从压缩文件内删除指定的文件，也可以使用--delete参数-D  #压缩文件内不建立目录名称-f  #更新既有文件，将其它文件一并加入到压缩文件中-F  #修复已损坏的压缩文件-g  #将指定文件压缩至已存在的压缩文件中，不建立新文件-h  #打印帮助信息-i&lt;范本样式&gt;  #只压缩匹配指定条件的文件-m  #将指定文件压缩打包后直接删除原始文件-o  #将压缩文件的属性信息更改成与压缩文件中的最新文件的属性一致-q  #安静模式-r  #递归处理-t&lt;日期时间&gt;  #把压缩文件的日期设成指定的日期-T  #检查备份文件内的每个文件是否正确无误-u  #更新较新的文件到压缩文件内-v  #打印命令执行过程信息或版本信息-x&lt;范本样式&gt;  #压缩时排除符合条件的文件-z  #给压缩文件加上注释信息-&lt;压缩效率&gt;  #指定压缩效率（1~9数字）</code></pre><h2 id="应用举例"><a href="#应用举例" class="headerlink" title="应用举例"></a>应用举例</h2><p>在当前目录下创建压缩文件（自动创建以.zip的文件）</p><pre><code class="BASH">[root@centos7 testdir]# zip mingongge *  adding: cest.txt.gz (stored 0%)  adding: cuttest.txt.gz (stored 0%)  adding: dir/ (stored 0%)  adding: file (stored 0%)  adding: mingongge1.txt.gz (stored 0%)  adding: mingongge2.txt.gz (stored 0%)  adding: mingongge.txt.md5.gz (stored 0%)  adding: sort.cut.txt.gz (stored 0%)</code></pre><p>分割一个大文件</p><pre><code class="BASH">[root@centos7&nbsp;~]#&nbsp;ls&nbsp;-lhtotal&nbsp;22M-rw-------.&nbsp;&nbsp;1&nbsp;root&nbsp;root&nbsp;1.3K&nbsp;Aug&nbsp;20&nbsp;10:39&nbsp;anaconda-ks.cfg-rw-r--r--&nbsp;&nbsp;&nbsp;1&nbsp;root&nbsp;root&nbsp;&nbsp;140&nbsp;Jan&nbsp;16&nbsp;11:36&nbsp;dos_test.txtdrwxr-xr-x&nbsp;&nbsp;&nbsp;3&nbsp;root&nbsp;root&nbsp;&nbsp;&nbsp;39&nbsp;Aug&nbsp;30&nbsp;03:48&nbsp;goinception-rw-r--r--&nbsp;&nbsp;&nbsp;1&nbsp;root&nbsp;root&nbsp;&nbsp;13M&nbsp;Aug&nbsp;30&nbsp;03:42&nbsp;goInception-linux-amd64-v1.2.3.tar.gzdrwxr-sr-x&nbsp;&nbsp;11&nbsp;root&nbsp;&nbsp;&nbsp;40&nbsp;4.0K&nbsp;Dec&nbsp;24&nbsp;22:35&nbsp;httpd-2.4.46-rw-r--r--&nbsp;&nbsp;&nbsp;1&nbsp;root&nbsp;root&nbsp;9.0M&nbsp;Aug&nbsp;&nbsp;5&nbsp;07:32&nbsp;httpd-2.4.46.tar.gz-rw-r--r--&nbsp;&nbsp;&nbsp;1&nbsp;root&nbsp;root&nbsp;&nbsp;&nbsp;&nbsp;0&nbsp;Jan&nbsp;16&nbsp;11:32&nbsp;mingongge.filedrwxr-xr-x&nbsp;&nbsp;&nbsp;3&nbsp;root&nbsp;root&nbsp;&nbsp;192&nbsp;Jan&nbsp;16&nbsp;16:19&nbsp;testdir-rw-r--r--&nbsp;&nbsp;&nbsp;1&nbsp;root&nbsp;root&nbsp;&nbsp;140&nbsp;Jan&nbsp;16&nbsp;11:32&nbsp;test.txt[root@centos7&nbsp;~]#&nbsp;zip&nbsp;-s&nbsp;4M&nbsp;-r&nbsp;mingongge.zip&nbsp;httpd-2.4.46.tar.gz&nbsp;&nbsp;adding:&nbsp;httpd-2.4.46.tar.gz&nbsp;(deflated&nbsp;0%)[root@centos7&nbsp;~]#&nbsp;ls&nbsp;-lhtotal&nbsp;31M-rw-------.&nbsp;&nbsp;1&nbsp;root&nbsp;root&nbsp;1.3K&nbsp;Aug&nbsp;20&nbsp;10:39&nbsp;anaconda-ks.cfg-rw-r--r--&nbsp;&nbsp;&nbsp;1&nbsp;root&nbsp;root&nbsp;&nbsp;140&nbsp;Jan&nbsp;16&nbsp;11:36&nbsp;dos_test.txtdrwxr-xr-x&nbsp;&nbsp;&nbsp;3&nbsp;root&nbsp;root&nbsp;&nbsp;&nbsp;39&nbsp;Aug&nbsp;30&nbsp;03:48&nbsp;goinception-rw-r--r--&nbsp;&nbsp;&nbsp;1&nbsp;root&nbsp;root&nbsp;&nbsp;13M&nbsp;Aug&nbsp;30&nbsp;03:42&nbsp;goInception-linux-amd64-v1.2.3.tar.gzdrwxr-sr-x&nbsp;&nbsp;11&nbsp;root&nbsp;&nbsp;&nbsp;40&nbsp;4.0K&nbsp;Dec&nbsp;24&nbsp;22:35&nbsp;httpd-2.4.46-rw-r--r--&nbsp;&nbsp;&nbsp;1&nbsp;root&nbsp;root&nbsp;9.0M&nbsp;Aug&nbsp;&nbsp;5&nbsp;07:32&nbsp;httpd-2.4.46.tar.gz-rw-r--r--&nbsp;&nbsp;&nbsp;1&nbsp;root&nbsp;root&nbsp;&nbsp;&nbsp;&nbsp;0&nbsp;Jan&nbsp;16&nbsp;11:32&nbsp;mingongge.file-rw-r--r--&nbsp;&nbsp;&nbsp;1&nbsp;root&nbsp;root&nbsp;4.0M&nbsp;Jan&nbsp;16&nbsp;16:24&nbsp;mingongge.z01-rw-r--r--&nbsp;&nbsp;&nbsp;1&nbsp;root&nbsp;root&nbsp;4.0M&nbsp;Jan&nbsp;16&nbsp;16:24&nbsp;mingongge.z02-rw-r--r--&nbsp;&nbsp;&nbsp;1&nbsp;root&nbsp;root&nbsp;943K&nbsp;Jan&nbsp;16&nbsp;16:24&nbsp;mingongge.zipdrwxr-xr-x&nbsp;&nbsp;&nbsp;3&nbsp;root&nbsp;root&nbsp;&nbsp;192&nbsp;Jan&nbsp;16&nbsp;16:19&nbsp;testdir#从结果可以看出会拆分成三个文件即：4M大小的mingongge.z01、4M大小的mingongge.z02和一个943k的mingongge.zip文件。</code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> Linux </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Linux </tag>
+            
+            <tag> shell </tag>
+            
+            <tag> 文件处理 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>tar命令的基本使用</title>
       <link href="/My-Blogs/2021/02/20/Linux/shell/%E6%96%87%E4%BB%B6/tar%E5%91%BD%E4%BB%A4%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/"/>
       <url>/My-Blogs/2021/02/20/Linux/shell/%E6%96%87%E4%BB%B6/tar%E5%91%BD%E4%BB%A4%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/</url>
