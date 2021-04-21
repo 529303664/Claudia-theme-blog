@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>在nest中使用typeorm-model-generator自动生成实体</title>
+      <link href="/My-Blogs/2021/04/21/%E6%95%B0%E6%8D%AE%E5%BA%93/TypeOrm/%E5%9C%A8nest%E4%B8%AD%E4%BD%BF%E7%94%A8typeorm-model-generator%E8%87%AA%E5%8A%A8%E7%94%9F%E6%88%90%E5%AE%9E%E4%BD%93/"/>
+      <url>/My-Blogs/2021/04/21/%E6%95%B0%E6%8D%AE%E5%BA%93/TypeOrm/%E5%9C%A8nest%E4%B8%AD%E4%BD%BF%E7%94%A8typeorm-model-generator%E8%87%AA%E5%8A%A8%E7%94%9F%E6%88%90%E5%AE%9E%E4%BD%93/</url>
+      
+        <content type="html"><![CDATA[<p>总结一下nestjs框架使用typeorm自动生成实体类的方法。可以节省一些开发时间</p><a id="more"></a><ol><li><p><code>npm i -g typeorm-model-generator</code> 或者 <code>yarn global add typeorm-model-generator</code></p></li><li><p>修改项目中的 <code>package.json</code> 文件  </p><pre><code class="json">"scripts": {"db": "rimraf ./src/modules/entities &amp; npx typeorm-model-generator -h 121.36.70.68 -d chat -p 3306 -u root -x 123456 -e mysql -o ./src/modules/entities --noConfig true --ce pascal --cp camel"}</code></pre><ul><li><code>rm -rf entities</code>表示先删除文件夹<code>entities（window下使用 rimraf entities ）</code></li><li><code>npx typeorm-model-generator</code>如果全局安装了就不需要加npx没有全局安装就加上去</li><li><code>-h localhost -d 数据库名字 -p 端口 -u 用户名 -x 密码 -e 数据库类型</code></li><li><code>-o entities</code>表示输出到指定的文件夹</li><li><code>--noConfig true</code>表示不生成<code>ormconfig.json</code>和<code>tsconfig.json</code>文件</li><li><code>--ce pascal</code>表示将类名转换首字母是大写的驼峰命名</li><li><code>--cp camel</code>表示将数据库中的字段比如create_at转换为createAt</li><li><code>-a</code>表示会继承一个<code>BaseEntity</code>的类,根据自己需求加</li></ul></li><li><p> 运行代码 <code>npm run db</code> 或 <code>yarn db</code></p></li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> MYSQL </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> MySQL </tag>
+            
+            <tag> nestjs </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>zip命令的基本使用</title>
       <link href="/My-Blogs/2021/02/22/Linux/shell/%E6%96%87%E4%BB%B6/zip%E5%91%BD%E4%BB%A4%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/"/>
       <url>/My-Blogs/2021/02/22/Linux/shell/%E6%96%87%E4%BB%B6/zip%E5%91%BD%E4%BB%A4%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/</url>
