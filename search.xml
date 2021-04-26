@@ -4,6 +4,60 @@
   
     
     <entry>
+      <title>电商-商品设计</title>
+      <link href="/My-Blogs/2021/04/26/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL/%E7%94%B5%E5%95%86-%E5%95%86%E5%93%81%E8%AE%BE%E8%AE%A1/"/>
+      <url>/My-Blogs/2021/04/26/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL/%E7%94%B5%E5%95%86-%E5%95%86%E5%93%81%E8%AE%BE%E8%AE%A1/</url>
+      
+        <content type="html"><![CDATA[<p>电商数据库设计之商品设计。</p><a id="more"></a><p><img src="/My-Blogs/images/%E7%94%B5%E5%95%86-%E5%95%86%E5%93%81%E8%AE%BE%E8%AE%A1.png"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> MySQL </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> MySQL </tag>
+            
+            <tag> 电商 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>screen 常用命令</title>
+      <link href="/My-Blogs/2021/04/25/Linux/shell/%E7%AA%97%E5%8F%A3/screen%20%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/"/>
+      <url>/My-Blogs/2021/04/25/Linux/shell/%E7%AA%97%E5%8F%A3/screen%20%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</url>
+      
+        <content type="html"><![CDATA[<p>screen 常用命令介绍</p><a id="more"></a><h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2><pre><code class="BASH">screen -ls              # 查看所有screenscreen -S &lt;screen-name&gt; # 创建screen，并命名ctr + A, D              # 快捷键，退出当前screenscreen -r &lt;screen-name&gt; # 进入screenscreen -X quit          # 删除screen，但没有指定会话screen -X -S [session you want to kill] quit #删除screen，指定会话screen -wipe            # 清除dead screens</code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> Linux </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Linux </tag>
+            
+            <tag> shell </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>在nest中使用typeorm-model-generator自动生成实体</title>
       <link href="/My-Blogs/2021/04/21/%E6%95%B0%E6%8D%AE%E5%BA%93/TypeOrm/%E5%9C%A8nest%E4%B8%AD%E4%BD%BF%E7%94%A8typeorm-model-generator%E8%87%AA%E5%8A%A8%E7%94%9F%E6%88%90%E5%AE%9E%E4%BD%93/"/>
       <url>/My-Blogs/2021/04/21/%E6%95%B0%E6%8D%AE%E5%BA%93/TypeOrm/%E5%9C%A8nest%E4%B8%AD%E4%BD%BF%E7%94%A8typeorm-model-generator%E8%87%AA%E5%8A%A8%E7%94%9F%E6%88%90%E5%AE%9E%E4%BD%93/</url>
