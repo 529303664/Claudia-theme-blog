@@ -25,12 +25,12 @@ $server_port ： 请求到达服务器的端口号
 $request_uri ： 包含请求参数的原始URI，不包含主机名，如/foo/bar.php?arg=baz
 $uri ： 不带请求参数的当前URI，$uri不包含主机名，如/foo/bar.html
 $document_uri ： 与$uri相同</code></pre>
-<p>假设请求为<a target="_blank" rel="noopener" href="http://www.qq.com:8080/a/b/c.php%EF%BC%8C%E5%88%99">http://www.qq.com:8080/a/b/c.php，则</a></p>
+<p>假设请求为<a target="_blank" rel="noopener" href="http://www.qq.com:8080/a/b/c.php?v=1111%EF%BC%8C%E5%88%99">http://www.qq.com:8080/a/b/c.php?v=1111，则</a></p>
 <pre><code class="NGINX">$host：www.qq.com
 
 $server_port：8080
 
-$request_uri：http://www.qq.com:8080/a/b/c.php
+$request_uri：/a/b/c.php?v=111
 
 $document_uri：/a/b/c.php
 
