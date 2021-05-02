@@ -34,14 +34,14 @@ $uri ： 不带请求参数的当前URI，$uri不包含主机名，如/foo/bar.h
 $document_uri ： 与$uri相同
 ```
 
-假设请求为http://www.qq.com:8080/a/b/c.php，则
+假设请求为http://www.qq.com:8080/a/b/c.php?v=1111，则
 
 ``` NGINX
 $host：www.qq.com
 
 $server_port：8080
 
-$request_uri：http://www.qq.com:8080/a/b/c.php
+$request_uri：/a/b/c.php?v=111
 
 $document_uri：/a/b/c.php
 
