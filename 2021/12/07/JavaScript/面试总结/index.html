@@ -1,0 +1,644 @@
+<!DOCTYPE html><html class="appearance-auto" lang="zh-cn"><head><meta charset="UTF-8"><title>面试总结-JavaScript篇</title><meta name="description" content="完善自己"><meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, initial-scale=1"><link rel="icon"><link rel="stylesheet" href="/My-Blogs/style/bulma.css"><link rel="stylesheet" href="/My-Blogs/style/base.css"><link rel="stylesheet" href="/My-Blogs/style/helper.css"><script src="/My-Blogs/js/main.js"></script><link rel="stylesheet" href="/My-Blogs/style/post.css"><link rel="stylesheet" href="/My-Blogs/style/highlight-theme-light.css"><script src="/My-Blogs/jslib/highlight.pack.js"></script><meta name="generator" content="Hexo 5.2.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/My-Blogs/atom.xml" title="John Doe's blog" type="application/atom+xml">
+</head><body class="is-flex is-flex-direction-column"><header class="is-flex header-widget is-flex-shrink-0 is-align-items-center is-justify-content-space-between is-hidden-mobile"><section class="is-hidden-mobile"><h2><a href="/My-Blogs/">Lucas's blog</a></h2></section><h3 class="is-hidden-mobile"></h3><aside><h3 class="is-inline-block"><a href="/My-Blogs/">Home</a></h3><h3 class="is-inline-block"><a href="/My-Blogs/about">About</a></h3><h3 class="is-inline-block"><a href="/My-Blogs/archives">Archives</a></h3></aside></header><header class="is-flex header-widget is-flex-shrink-0 is-align-items-center is-justify-content-center is-hidden-tablet"><h3 class="is-inline-block"><a href="/My-Blogs/">Home</a></h3><h3 class="is-inline-block"><a href="/My-Blogs/about">About</a></h3><h3 class="is-inline-block"><a href="/My-Blogs/archives">Archives</a></h3></header><main><main class="container is-max-widescreen content section post-page pt-4 px-4"><div class="columns is-flex-desktop is-justify-content-center is-flex-direction-row-reverse"><div class="column is-3 is-hidden-mobile"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%B7%E7%AE%80%E8%BF%B0JavaScript%E4%B8%AD%E7%9A%84this%E3%80%82%E2%80%8B"><span class="toc-text">请简述JavaScript中的this。​</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Object-is-%E4%B8%8E%E5%8E%9F%E6%9D%A5%E7%9A%84%E6%AF%94%E8%BE%83%E6%93%8D%E4%BD%9C%E7%AC%A6-%E2%80%9C-%E2%80%9D%E3%80%81%E2%80%9C-%E2%80%9D-%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-text">Object.is() 与原来的比较操作符 “&#x3D;&#x3D;&#x3D;”、“&#x3D;&#x3D;” 的区别？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%8B%E7%BB%8D%E4%B8%80%E4%B8%8B-js-%E7%9A%84%E8%8A%82%E6%B5%81%E4%B8%8E%E9%98%B2%E6%8A%96%EF%BC%9F"><span class="toc-text">介绍一下 js 的节流与防抖？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#escape-encodeURI-encodeURIComponent-%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-text">escape,encodeURI,encodeURIComponent 有什么区别？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#js-%E7%9A%84%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-text">js 的事件循环是什么？</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86%E7%82%B9%EF%BC%9A"><span class="toc-text">相关知识点：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%9E%E7%AD%94%EF%BC%9A"><span class="toc-text">回答：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#js-%E4%B8%AD%E7%9A%84%E6%B7%B1%E6%B5%85%E6%8B%B7%E8%B4%9D%E5%AE%9E%E7%8E%B0%EF%BC%9F"><span class="toc-text">js 中的深浅拷贝实现？</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%9E%E7%AD%94"><span class="toc-text">回答</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%89%8B%E5%86%99-call%E3%80%81apply-%E5%8F%8A-bind-%E5%87%BD%E6%95%B0"><span class="toc-text">手写 call、apply 及 bind 函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%BD%E6%95%B0%E6%9F%AF%E9%87%8C%E5%8C%96%E7%9A%84%E5%AE%9E%E7%8E%B0"><span class="toc-text">函数柯里化的实现</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF-XSS-%E6%94%BB%E5%87%BB%EF%BC%9F%E5%A6%82%E4%BD%95%E9%98%B2%E8%8C%83-XSS-%E6%94%BB%E5%87%BB%EF%BC%9F"><span class="toc-text">什么是 XSS 攻击？如何防范 XSS 攻击？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF-CSP%EF%BC%9F"><span class="toc-text">什么是 CSP？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF-CSRF-%E6%94%BB%E5%87%BB%EF%BC%9F%E5%A6%82%E4%BD%95%E9%98%B2%E8%8C%83-CSRF-%E6%94%BB%E5%87%BB%EF%BC%9F"><span class="toc-text">什么是 CSRF 攻击？如何防范 CSRF 攻击？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF-Samesite-Cookie-%E5%B1%9E%E6%80%A7%EF%BC%9F"><span class="toc-text">什么是 Samesite Cookie 属性？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E7%82%B9%E5%87%BB%E5%8A%AB%E6%8C%81%EF%BC%9F%E5%A6%82%E4%BD%95%E9%98%B2%E8%8C%83%E7%82%B9%E5%87%BB%E5%8A%AB%E6%8C%81%EF%BC%9F"><span class="toc-text">什么是点击劫持？如何防范点击劫持？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF-Virtual-DOM%EF%BC%9F%E4%B8%BA%E4%BB%80%E4%B9%88-Virtual-DOM-%E6%AF%94%E5%8E%9F%E7%94%9F-DOM-%E5%BF%AB%EF%BC%9F"><span class="toc-text">什么是 Virtual DOM？为什么 Virtual DOM 比原生 DOM 快？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E6%AF%94%E8%BE%83%E4%B8%A4%E4%B8%AA-DOM-%E6%A0%91%E7%9A%84%E5%B7%AE%E5%BC%82%EF%BC%9F"><span class="toc-text">如何比较两个 DOM 树的差异？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#URL-%E5%92%8C-URI-%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-text">URL 和 URI 的区别？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#let-%E5%92%8C-const-%E7%9A%84%E6%B3%A8%E6%84%8F%E7%82%B9%EF%BC%9F"><span class="toc-text">let 和 const 的注意点？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#require-%E6%A8%A1%E5%9D%97%E5%BC%95%E5%85%A5%E7%9A%84%E6%9F%A5%E6%89%BE%E6%96%B9%E5%BC%8F%EF%BC%9F"><span class="toc-text">require 模块引入的查找方式？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%89%8B%E5%86%99%E4%B8%80%E4%B8%AA-Promise"><span class="toc-text">手写一个 Promise</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%80%E5%8F%91%E4%B8%AD%E5%B8%B8%E7%94%A8%E7%9A%84%E5%87%A0%E7%A7%8D-Content-Type-%EF%BC%9F"><span class="toc-text">开发中常用的几种 Content-Type ？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E5%B0%81%E8%A3%85%E4%B8%80%E4%B8%AA-javascript-%E7%9A%84%E7%B1%BB%E5%9E%8B%E5%88%A4%E6%96%AD%E5%87%BD%E6%95%B0%EF%BC%9F"><span class="toc-text">如何封装一个 javascript 的类型判断函数？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E5%88%A4%E6%96%AD%E4%B8%80%E4%B8%AA%E5%AF%B9%E8%B1%A1%E6%98%AF%E5%90%A6%E4%B8%BA%E7%A9%BA%E5%AF%B9%E8%B1%A1%EF%BC%9F"><span class="toc-text">如何判断一个对象是否为空对象？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%89%8B%E5%86%99%E4%B8%80%E4%B8%AA%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F%EF%BC%9F"><span class="toc-text">手写一个观察者模式？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#EventEmitter-%E5%AE%9E%E7%8E%B0"><span class="toc-text">EventEmitter 实现</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E7%A1%AE%E5%AE%9A%E9%A1%B5%E9%9D%A2%E7%9A%84%E5%8F%AF%E7%94%A8%E6%80%A7%E6%97%B6%E9%97%B4%EF%BC%8C%E4%BB%80%E4%B9%88%E6%98%AF-Performance-API%EF%BC%9F"><span class="toc-text">如何确定页面的可用性时间，什么是 Performance API？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Math-ceil-%E5%92%8C-Math-floor"><span class="toc-text">Math.ceil 和 Math.floor</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#js-for-%E5%BE%AA%E7%8E%AF%E6%B3%A8%E6%84%8F%E7%82%B9"><span class="toc-text">js for 循环注意点</span></a></li></ol></div><div class="column is-9"><header class="my-4"><a href="/My-Blogs/tags/JavaScript"><i class="tag post-item-tag">JavaScript</i></a></header><h1 class="mt-0 mb-1 is-family-serif">面试总结-JavaScript篇</h1><time class="has-text-grey" datetime="2021-12-07T17:22:55.000Z">2021-12-07</time><article class="mt-2 post-content"><p>本章节是<a target="_blank" rel="noopener" href="https://github.com/h5bp/Front-end-Developer-Interview-Questions/blob/master/src/questions/javascript-questions.md">前端开发者面试问题 - JS 部分</a>的参考答案。 欢迎提出 PR 进行建议和指正！</p>
+<a id="more"></a>
+
+<h2 id="请简述JavaScript中的this。​"><a href="#请简述JavaScript中的this。​" class="headerlink" title="请简述JavaScript中的this。​"></a>请简述JavaScript中的this。​</h2><p>JS 中的<code>this</code>是一个相对复杂的概念，不是简单几句能解释清楚的。粗略地讲，函数的调用方式决定了<code>this</code>的值。我阅读了网上很多关于<code>this</code>的文章，<a target="_blank" rel="noopener" href="https://medium.com/@arnav_aggarwal">Arnav Aggrawal</a> 写的比较清楚。this取值符合以下规则：</p>
+<ol>
+<li> 在调用函数时使用new关键字，函数内的this是一个全新的对象。</li>
+<li> 如果<code>apply</code>、<code>call</code>或<code>bind</code>方法用于调用、创建一个函数，函数内的 <code>this</code> 就是作为参数传入这些方法的对象。</li>
+<li> 当函数作为对象里的方法被调用时，函数内的this是调用该函数的对象。比如当<code>obj.method()</code>被调用时，函数内的 <code>this</code> 将绑定到obj对象。</li>
+<li> 如果调用函数不符合上述规则，那么this的值指向全局对象（<code>global object</code>）。浏览器环境下this的值指向window对象，但是在严格模式下(<code>'use strict'</code>)，<code>this</code>的值为<code>undefined</code>。</li>
+<li> 如果符合上述多个规则，则较高的规则（1 号最高，4 号最低）将决定<code>this</code>的值。</li>
+<li> 如果该函数是 ES2015 中的箭头函数，将忽略上面的所有规则，<code>this</code>被设置为它被创建时的上下文。</li>
+</ol>
+<h2 id="Object-is-与原来的比较操作符-“-”、“-”-的区别？"><a href="#Object-is-与原来的比较操作符-“-”、“-”-的区别？" class="headerlink" title="Object.is() 与原来的比较操作符 “===”、“==” 的区别？"></a>Object.is() 与原来的比较操作符 “===”、“==” 的区别？</h2><pre><code class="JS">两等号判等，会在比较时进行类型转换。
+三等号判等（判断严格），比较时不进行隐式类型转换，（类型不同则会返回false）。
+
+Object.is 在三等号判等的基础上特别处理了 NaN 、-0 和 +0 ，保证 -0 和 +0 不再相同，但 Object.is(NaN, NaN) 会返回 true.
+
+Object.is 应被认为有其特殊的用途，而不能用它认为它比其它的相等对比更宽松或严格。</code></pre>
+<h2 id="介绍一下-js-的节流与防抖？"><a href="#介绍一下-js-的节流与防抖？" class="headerlink" title="介绍一下 js 的节流与防抖？"></a>介绍一下 js 的节流与防抖？</h2><pre><code class="JS">// 函数防抖： 在事件被触发 n 秒后再执行回调，如果在这 n 秒内事件又被触发，则重新计时。
+
+// 函数节流： 规定一个单位时间，在这个单位时间内，只能有一次触发事件的回调函数执行，如果在同一个单位时间内某事件被触发多次，只有一次能生效。
+
+// 函数防抖的实现
+function debounce(fn, wait) {
+  var timer = null;
+
+  return function() {
+    var context = this,
+      args = arguments;
+
+    // 如果此时存在定时器的话，则取消之前的定时器重新记时
+    if (timer) {
+      clearTimeout(timer);
+      timer = null;
+    }
+
+    // 设置定时器，使事件间隔指定事件后执行
+    timer = setTimeout(() =&gt; {
+      fn.apply(context, args);
+    }, wait);
+  };
+}
+
+// 函数节流的实现;
+function throttle(fn, delay) {
+  var preTime = Date.now();
+
+  return function() {
+    var context = this,
+      args = arguments,
+      nowTime = Date.now();
+
+    // 如果两次时间间隔超过了指定时间，则执行函数。
+    if (nowTime - preTime &gt;= delay) {
+      preTime = Date.now();
+      return fn.apply(context, args);
+    }
+  };
+}</code></pre>
+<h2 id="escape-encodeURI-encodeURIComponent-有什么区别？"><a href="#escape-encodeURI-encodeURIComponent-有什么区别？" class="headerlink" title="escape,encodeURI,encodeURIComponent 有什么区别？"></a>escape,encodeURI,encodeURIComponent 有什么区别？</h2><pre><code class="JS">encodeURI 是对整个 URI 进行转义，将 URI 中的非法字符转换为合法字符，所以对于一些在 URI 中有特殊意义的字符不会进行转义。
+
+encodeURIComponent 是对 URI 的组成部分进行转义，所以一些特殊字符也会得到转义。
+
+escape 和 encodeURI 的作用相同，不过它们对于 unicode 编码为 0xff 之外字符的时候会有区别，escape 是直接在字符的 unicode 编码前加上 %u，而 encodeURI 首先会将字符转换为 UTF-8 的格式，再在每个字节前加上 %。</code></pre>
+<h2 id="js-的事件循环是什么？"><a href="#js-的事件循环是什么？" class="headerlink" title="js 的事件循环是什么？"></a>js 的事件循环是什么？</h2><h3 id="相关知识点："><a href="#相关知识点：" class="headerlink" title="相关知识点："></a>相关知识点：</h3><pre><code>  事件队列是一个存储着待执行任务的队列，其中的任务严格按照时间先后顺序执行，排在队头的任务将会率先执行，而排在队尾的任务会最后执行。事件队列每次仅执行一个任务，在该任务执行完毕之后，再执行下一个任务。执行栈则是一个类似于函数调用栈的运行容器，当执行栈为空时，JS 引擎便检查事件队列，如果不为空的话，事件队列便将第一个任务压入执行栈中运行。</code></pre>
+<h3 id="回答："><a href="#回答：" class="headerlink" title="回答："></a>回答：</h3><blockquote>
+<p>因为 js 是单线程运行的，在代码执行的时候，通过将不同函数的执行上下文压入执行栈中来保证代码的有序执行。在执行同步代码的时候，如果遇到了异步事件，js 引擎并不会一直等待其返回结果，而是会将这个事件挂起，继续执行执行栈中的其他任务。当异步事件执行完毕后，再将异步事件对应的回调加入到与当前执行栈中不同的另一个任务队列中等待执行。任务队列可以分为宏任务对列和微任务对列，当当前执行栈中的事件执行完毕后，js 引擎首先会判断微任务对列中是否有任务可以执行，如果有就将微任务队首的事件压入栈中执行。当微任务对列中的任务都执行完成后再去判断宏任务对列中的任务。</p>
+</blockquote>
+<blockquote>
+<p>微任务包括了 promise 的回调、node 中的 process.nextTick 、对 Dom 变化监听的 MutationObserver。</p>
+</blockquote>
+<blockquote>
+<p>宏任务包括了 script 脚本的执行、setTimeout ，setInterval ，setImmediate 一类的定时事件，还有如 I/O 操作、UI 渲染等。</p>
+</blockquote>
+<h2 id="js-中的深浅拷贝实现？"><a href="#js-中的深浅拷贝实现？" class="headerlink" title="js 中的深浅拷贝实现？"></a>js 中的深浅拷贝实现？</h2><pre><code class="JS">// 浅拷贝的实现;
+
+function shallowCopy(object) {
+  // 只拷贝对象
+  if (!object || typeof object !== "object") return;
+
+  // 根据 object 的类型判断是新建一个数组还是对象
+  let newObject = Array.isArray(object) ? [] : {};
+
+  // 遍历 object，并且判断是 object 的属性才拷贝
+  for (let key in object) {
+    if (object.hasOwnProperty(key)) {
+      newObject[key] = object[key];
+    }
+  }
+
+  return newObject;
+}
+
+// 深拷贝的实现;
+
+function deepCopy(object) {
+  if (!object || typeof object !== "object") return object;
+
+  let newObject = Array.isArray(object) ? [] : {};
+
+  for (let key in object) {
+    if (object.hasOwnProperty(key)) {
+      newObject[key] = deepCopy(object[key]);
+    }
+  }
+
+  return newObject;
+}</code></pre>
+<h3 id="回答"><a href="#回答" class="headerlink" title="回答"></a>回答</h3><blockquote>
+<p>浅拷贝指的是将一个对象的属性值复制到另一个对象，如果有的属性的值为引用类型的话，那么会将这个引用的地址复制给对象，因此两个对象会有同一个引用类型的引用。浅拷贝可以使用  Object.assign 和展开运算符来实现。深拷贝相对浅拷贝而言，如果遇到属性值为引用类型的时候，它新建一个引用类型并将对应的值复制给它，因此对象获得的一个新的引用类型而不是一个原有类型的引用。深拷贝对于一些对象可以使用 JSON 的两个函数来实现，但是由于 JSON 的对象格式比 js 的对象格式更加严格，所以如果属性值里边出现函数或者 Symbol 类型的值时，会转换失败。</p>
+</blockquote>
+<h2 id="手写-call、apply-及-bind-函数"><a href="#手写-call、apply-及-bind-函数" class="headerlink" title="手写 call、apply 及 bind 函数"></a>手写 call、apply 及 bind 函数</h2><pre><code class="JS">// call函数实现
+Function.prototype.myCall = function(context) {
+  // 判断调用对象
+  if (typeof this !== "function") {
+    console.error("type error");
+  }
+
+  // 获取参数
+  let args = [...arguments].slice(1),
+    result = null;
+
+  // 判断 context 是否传入，如果未传入则设置为 window
+  context = context || window;
+
+  // 将调用函数设为对象的方法
+  context.fn = this;
+
+  // 调用函数
+  result = context.fn(...args);
+
+  // 将属性删除
+  delete context.fn;
+
+  return result;
+};
+
+// apply 函数实现
+
+Function.prototype.myApply = function(context) {
+  // 判断调用对象是否为函数
+  if (typeof this !== "function") {
+    throw new TypeError("Error");
+  }
+
+  let result = null;
+
+  // 判断 context 是否存在，如果未传入则为 window
+  context = context || window;
+
+  // 将函数设为对象的方法
+  context.fn = this;
+
+  // 调用方法
+  if (arguments[1]) {
+    result = context.fn(...arguments[1]);
+  } else {
+    result = context.fn();
+  }
+
+  // 将属性删除
+  delete context.fn;
+
+  return result;
+};
+
+// bind 函数实现
+Function.prototype.myBind = function(context) {
+  // 判断调用对象是否为函数
+  if (typeof this !== "function") {
+    throw new TypeError("Error");
+  }
+
+  // 获取参数
+  var args = [...arguments].slice(1),
+    fn = this;
+
+  return function Fn() {
+    // 根据调用方式，传入不同绑定值
+    return fn.apply(
+      this instanceof Fn ? this : context,
+      args.concat(...arguments)
+    );
+  };
+};</code></pre>
+<h2 id="函数柯里化的实现"><a href="#函数柯里化的实现" class="headerlink" title="函数柯里化的实现"></a>函数柯里化的实现</h2><pre><code class="JS">// 函数柯里化指的是一种将使用多个参数的一个函数转换成一系列使用一个参数的函数的技术。
+
+function curry(fn, args) {
+  // 获取函数需要的参数长度
+  let length = fn.length;
+
+  args = args || [];
+
+  return function() {
+    let subArgs = args.slice(0);
+
+    // 拼接得到现有的所有参数
+    for (let i = 0; i &lt; arguments.length; i++) {
+      subArgs.push(arguments[i]);
+    }
+
+    // 判断参数的长度是否已经满足函数所需参数的长度
+    if (subArgs.length &gt;= length) {
+      // 如果满足，执行函数
+      return fn.apply(this, subArgs);
+    } else {
+      // 如果不满足，递归返回科里化的函数，等待参数的传入
+      return curry.call(this, fn, subArgs);
+    }
+  };
+}
+
+// es6 实现
+function curry(fn, ...args) {
+  return fn.length &lt;= args.length ? fn(...args) : curry.bind(null, fn, ...args);
+}</code></pre>
+<h2 id="什么是-XSS-攻击？如何防范-XSS-攻击？"><a href="#什么是-XSS-攻击？如何防范-XSS-攻击？" class="headerlink" title="什么是 XSS 攻击？如何防范 XSS 攻击？"></a>什么是 XSS 攻击？如何防范 XSS 攻击？</h2><pre><code>XSS 攻击指的是跨站脚本攻击，是一种代码注入攻击。攻击者通过在网站注入恶意脚本，使之在用户的浏览器上运行，从而盗取用户的信息如 cookie 等。
+
+XSS 的本质是因为网站没有对恶意代码进行过滤，与正常的代码混合在一起了，浏览器没有办法分辨哪些脚本是可信的，从而导致了恶意代码的执行。
+
+XSS 一般分为存储型、反射型和 DOM 型。
+
+存储型指的是恶意代码提交到了网站的数据库中，当用户请求数据的时候，服务器将其拼接为 HTML 后返回给了用户，从而导致了恶意代码的执行。
+
+反射型指的是攻击者构建了特殊的 URL，当服务器接收到请求后，从 URL 中获取数据，拼接到 HTML 后返回，从而导致了恶意代码的执行。
+
+DOM 型指的是攻击者构建了特殊的 URL，用户打开网站后，js 脚本从 URL 中获取数据，从而导致了恶意代码的执行。
+
+XSS 攻击的预防可以从两个方面入手，一个是恶意代码提交的时候，一个是浏览器执行恶意代码的时候。
+
+对于第一个方面，如果我们对存入数据库的数据都进行的转义处理，但是一个数据可能在多个地方使用，有的地方可能不需要转义，由于我们没有办法判断数据最后的使用场景，所以直接在输入端进行恶意代码的处理，其实是不太可靠的。
+
+因此我们可以从浏览器的执行来进行预防，一种是使用纯前端的方式，不用服务器端拼接后返回。另一种是对需要插入到 HTML 中的代码做好充分的转义。对于 DOM 型的攻击，主要是前端脚本的不可靠而造成的，我们对于数据获取渲染和字符串拼接的时候应该对可能出现的恶意代码情况进行判断。
+
+还有一些方式，比如使用 CSP ，CSP 的本质是建立一个白名单，告诉浏览器哪些外部资源可以加载和执行，从而防止恶意代码的注入攻击。
+
+还可以对一些敏感信息进行保护，比如 cookie 使用 http-only ，使得脚本无法获取。也可以使用验证码，避免脚本伪装成用户执行一些操作。</code></pre>
+<h2 id="什么是-CSP？"><a href="#什么是-CSP？" class="headerlink" title="什么是 CSP？"></a>什么是 CSP？</h2><pre><code class="HTML">CSP 指的是内容安全策略，它的本质是建立一个白名单，告诉浏览器哪些外部资源可以加载和执行。我们只需要配置规则，如何拦截由浏览器自己来实现。
+
+通常有两种方式来开启 CSP，一种是设置 HTTP 首部中的 Content-Security-Policy，一种是设置 meta 标签的方式 &lt;meta http-equiv="Content-Security-Policy"&gt; &lt;/meta&gt;</code></pre>
+<h2 id="什么是-CSRF-攻击？如何防范-CSRF-攻击？"><a href="#什么是-CSRF-攻击？如何防范-CSRF-攻击？" class="headerlink" title="什么是 CSRF 攻击？如何防范 CSRF 攻击？"></a>什么是 CSRF 攻击？如何防范 CSRF 攻击？</h2><pre><code>CSRF 攻击指的是跨站请求伪造攻击，攻击者诱导用户进入一个第三方网站，然后该网站向被攻击网站发送跨站请求。如果用户在被
+攻击网站中保存了登录状态，那么攻击者就可以利用这个登录状态，绕过后台的用户验证，冒充用户向服务器执行一些操作。
+
+CSRF 攻击的本质是利用了 cookie 会在同源请求中携带发送给服务器的特点，以此来实现用户的冒充。
+
+一般的 CSRF 攻击类型有三种：
+
+第一种是 GET 类型的 CSRF 攻击，比如在网站中的一个 img 标签里构建一个请求，当用户打开这个网站的时候就会自动发起提
+交。
+
+第二种是 POST 类型的 CSRF 攻击，比如说构建一个表单，然后隐藏它，当用户进入页面时，自动提交这个表单。
+
+第三种是链接类型的 CSRF 攻击，比如说在 a 标签的 href 属性里构建一个请求，然后诱导用户去点击。
+
+CSRF 可以用下面几种方法来防护：
+
+第一种是同源检测的方法，服务器根据 http 请求头中 origin 或者 referer 信息来判断请求是否为允许访问的站点，从而对请求进行过滤。当 origin 或者 referer 信息都不存在的时候，直接阻止。这种方式的缺点是有些情况下 referer 可以被伪造。还有就是我们这种方法同时把搜索引擎的链接也给屏蔽了，所以一般网站会允许搜索引擎的页面请求，但是相应的页面请求这种请求方式也可能被攻击者给利用。
+
+第二种方法是使用 CSRF Token 来进行验证，服务器向用户返回一个随机数 Token ，当网站再次发起请求时，在请求参数中加入服务器端返回的 token ，然后服务器对这个 token 进行验证。这种方法解决了使用 cookie 单一验证方式时，可能会被冒用的问题，但是这种方法存在一个缺点就是，我们需要给网站中的所有请求都添加上这个 token，操作比较繁琐。还有一个问题是一般不会只有一台网站服务器，如果我们的请求经过负载平衡转移到了其他的服务器，但是这个服务器的 session 中没有保留这个 token 的话，就没有办法验证了。这种情况我们可以通过改变 token 的构建方式来解决。
+
+第三种方式使用双重 Cookie 验证的办法，服务器在用户访问网站页面时，向请求域名注入一个Cookie，内容为随机字符串，然后当用户再次向服务器发送请求的时候，从 cookie 中取出这个字符串，添加到 URL 参数中，然后服务器通过对 cookie 中的数据和参数中的数据进行比较，来进行验证。使用这种方式是利用了攻击者只能利用 cookie，但是不能访问获取 cookie 的特点。并且这种方法比 CSRF Token 的方法更加方便，并且不涉及到分布式访问的问题。这种方法的缺点是如果网站存在 XSS 漏洞的，那么这种方式会失效。同时这种方式不能做到子域名的隔离。
+
+第四种方式是使用在设置 cookie 属性的时候设置 Samesite ，限制 cookie 不能作为被第三方使用，从而可以避免被攻击者利用。Samesite 一共有两种模式，一种是严格模式，在严格模式下 cookie 在任何情况下都不可能作为第三方 Cookie 使用，在宽松模式下，cookie 可以被请求是 GET 请求，且会发生页面跳转的请求所使用。</code></pre>
+<h2 id="什么是-Samesite-Cookie-属性？"><a href="#什么是-Samesite-Cookie-属性？" class="headerlink" title="什么是 Samesite Cookie 属性？"></a>什么是 Samesite Cookie 属性？</h2><pre><code>Samesite Cookie 表示同站 cookie，避免 cookie 被第三方所利用。
+
+将 Samesite 设为 strict ，这种称为严格模式，表示这个 cookie 在任何情况下都不可能作为第三方 cookie。
+
+将 Samesite 设为 Lax ，这种模式称为宽松模式，如果这个请求是个 GET 请求，并且这个请求改变了当前页面或者打开了新的页面，那么这个 cookie 可以作为第三方 cookie，其余情况下都不能作为第三方 cookie。
+
+使用这种方法的缺点是，因为它不支持子域，所以子域没有办法与主域共享登录信息，每次转入子域的网站，都回重新登录。还有一个问题就是它的兼容性不够好。</code></pre>
+<h2 id="什么是点击劫持？如何防范点击劫持？"><a href="#什么是点击劫持？如何防范点击劫持？" class="headerlink" title="什么是点击劫持？如何防范点击劫持？"></a>什么是点击劫持？如何防范点击劫持？</h2><pre><code>点击劫持是一种视觉欺骗的攻击手段，攻击者将需要攻击的网站通过 iframe 嵌套的方式嵌入自己的网页中，并将 iframe 设置为透明，在页面中透出一个按钮诱导用户点击。
+
+我们可以在 http 相应头中设置 X-FRAME-OPTIONS 来防御用 iframe 嵌套的点击劫持攻击。通过不同的值，可以规定页面在特
+定的一些情况才能作为 iframe 来使用。</code></pre>
+<h2 id="什么是-Virtual-DOM？为什么-Virtual-DOM-比原生-DOM-快？"><a href="#什么是-Virtual-DOM？为什么-Virtual-DOM-比原生-DOM-快？" class="headerlink" title="什么是 Virtual DOM？为什么 Virtual DOM 比原生 DOM 快？"></a>什么是 Virtual DOM？为什么 Virtual DOM 比原生 DOM 快？</h2><pre><code>我对 Virtual DOM 的理解是，
+
+首先对我们将要插入到文档中的 DOM 树结构进行分析，使用 js 对象将其表示出来，比如一个元素对象，包含 TagName、props 和 Children 这些属性。然后我们将这个 js 对象树给保存下来，最后再将 DOM 片段插入到文档中。
+
+当页面的状态发生改变，我们需要对页面的 DOM 的结构进行调整的时候，我们首先根据变更的状态，重新构建起一棵对象树，然后将这棵新的对象树和旧的对象树进行比较，记录下两棵树的的差异。
+
+最后将记录的有差异的地方应用到真正的 DOM 树中去，这样视图就更新了。
+
+我认为 Virtual DOM 这种方法对于我们需要有大量的 DOM 操作的时候，能够很好的提高我们的操作效率，通过在操作前确定需要做的最小修改，尽可能的减少 DOM 操作带来的重流和重绘的影响。其实 Virtual DOM 并不一定比我们真实的操作 DOM 要快，这种方法的目的是为了提高我们开发时的可维护性，在任意的情况下，都能保证一个尽量小的性能消耗去进行操作。</code></pre>
+<h2 id="如何比较两个-DOM-树的差异？"><a href="#如何比较两个-DOM-树的差异？" class="headerlink" title="如何比较两个 DOM 树的差异？"></a>如何比较两个 DOM 树的差异？</h2><pre><code>两个树的完全 diff 算法的时间复杂度为 O(n^3) ，但是在前端中，我们很少会跨层级的移动元素，所以我们只需要比较同一层级的元素进行比较，这样就可以将算法的时间复杂度降低为 O(n)。
+
+算法首先会对新旧两棵树进行一个深度优先的遍历，这样每个节点都会有一个序号。在深度遍历的时候，每遍历到一个节点，我们就将这个节点和新的树中的节点进行比较，如果有差异，则将这个差异记录到一个对象中。
+
+在对列表元素进行对比的时候，由于 TagName 是重复的，所以我们不能使用这个来对比。我们需要给每一个子节点加上一个 key，列表对比的时候使用 key 来进行比较，这样我们才能够复用老的 DOM 树上的节点。</code></pre>
+<h2 id="URL-和-URI-的区别？"><a href="#URL-和-URI-的区别？" class="headerlink" title="URL 和 URI 的区别？"></a>URL 和 URI 的区别？</h2><pre><code>URI: Uniform Resource Identifier      指的是统一资源标识符
+URL: Uniform Resource Location        指的是统一资源定位符
+URN: Universal Resource Name          指的是统一资源名称
+
+URI 指的是统一资源标识符，用唯一的标识来确定一个资源，它是一种抽象的定义，也就是说，不管使用什么方法来定义，只要能唯一的标识一个资源，就可以称为 URI。
+
+URL 指的是统一资源定位符，URN 指的是统一资源名称。URL 和 URN 是 URI 的子集，URL 可以理解为使用地址来标识资源，URN 可以理解为使用名称来标识资源。</code></pre>
+<h2 id="let-和-const-的注意点？"><a href="#let-和-const-的注意点？" class="headerlink" title="let 和 const 的注意点？"></a>let 和 const 的注意点？</h2><ol>
+<li> 声明的变量只在声明时的代码块内有效</li>
+<li> 不存在声明提升</li>
+<li> 存在暂时性死区，如果在变量声明前使用，会报错</li>
+<li> 不允许重复声明，重复声明会报错</li>
+</ol>
+<h2 id="require-模块引入的查找方式？"><a href="#require-模块引入的查找方式？" class="headerlink" title="require 模块引入的查找方式？"></a>require 模块引入的查找方式？</h2><pre><code>当 Node 遇到 require(X) 时，按下面的顺序处理。
+
+（1）如果 X 是内置模块（比如 require('http')）
+　　a. 返回该模块。
+　　b. 不再继续执行。
+
+（2）如果 X 以 "./" 或者 "/" 或者 "../" 开头
+　　a. 根据 X 所在的父模块，确定 X 的绝对路径。
+　　b. 将 X 当成文件，依次查找下面文件，只要其中有一个存在，就返回该文件，不再继续执行。
+    X
+    X.js
+    X.json
+    X.node
+
+　　c. 将 X 当成目录，依次查找下面文件，只要其中有一个存在，就返回该文件，不再继续执行。
+    X/package.json（main字段）
+    X/index.js
+    X/index.json
+    X/index.node
+
+（3）如果 X 不带路径
+　　a. 根据 X 所在的父模块，确定 X 可能的安装目录。
+　　b. 依次在每个目录中，将 X 当成文件名或目录名加载。
+
+（4）抛出 "not found"</code></pre>
+<h2 id="手写一个-Promise"><a href="#手写一个-Promise" class="headerlink" title="手写一个 Promise"></a>手写一个 Promise</h2><pre><code class="JS">const PENDING = "pending";
+const RESOLVED = "resolved";
+const REJECTED = "rejected";
+
+function MyPromise(fn) {
+  // 保存初始化状态
+  var self = this;
+
+  // 初始化状态
+  this.state = PENDING;
+
+  // 用于保存 resolve 或者 rejected 传入的值
+  this.value = null;
+
+  // 用于保存 resolve 的回调函数
+  this.resolvedCallbacks = [];
+
+  // 用于保存 reject 的回调函数
+  this.rejectedCallbacks = [];
+
+  // 状态转变为 resolved 方法
+  function resolve(value) {
+    // 判断传入元素是否为 Promise 值，如果是，则状态改变必须等待前一个状态改变后再进行改变
+    if (value instanceof MyPromise) {
+      return value.then(resolve, reject);
+    }
+
+    // 保证代码的执行顺序为本轮事件循环的末尾
+    setTimeout(() =&gt; {
+      // 只有状态为 pending 时才能转变，
+      if (self.state === PENDING) {
+        // 修改状态
+        self.state = RESOLVED;
+
+        // 设置传入的值
+        self.value = value;
+
+        // 执行回调函数
+        self.resolvedCallbacks.forEach(callback =&gt; {
+          callback(value);
+        });
+      }
+    }, 0);
+  }
+
+  // 状态转变为 rejected 方法
+  function reject(value) {
+    // 保证代码的执行顺序为本轮事件循环的末尾
+    setTimeout(() =&gt; {
+      // 只有状态为 pending 时才能转变
+      if (self.state === PENDING) {
+        // 修改状态
+        self.state = REJECTED;
+
+        // 设置传入的值
+        self.value = value;
+
+        // 执行回调函数
+        self.rejectedCallbacks.forEach(callback =&gt; {
+          callback(value);
+        });
+      }
+    }, 0);
+  }
+
+  // 将两个方法传入函数执行
+  try {
+    fn(resolve, reject);
+  } catch (e) {
+    // 遇到错误时，捕获错误，执行 reject 函数
+    reject(e);
+  }
+}
+
+MyPromise.prototype.then = function(onResolved, onRejected) {
+  // 首先判断两个参数是否为函数类型，因为这两个参数是可选参数
+  onResolved =
+    typeof onResolved === "function"
+      ? onResolved
+      : function(value) {
+          return value;
+        };
+
+  onRejected =
+    typeof onRejected === "function"
+      ? onRejected
+      : function(error) {
+          throw error;
+        };
+
+  // 如果是等待状态，则将函数加入对应列表中
+  if (this.state === PENDING) {
+    this.resolvedCallbacks.push(onResolved);
+    this.rejectedCallbacks.push(onRejected);
+  }
+
+  // 如果状态已经凝固，则直接执行对应状态的函数
+
+  if (this.state === RESOLVED) {
+    onResolved(this.value);
+  }
+
+  if (this.state === REJECTED) {
+    onRejected(this.value);
+  }
+};</code></pre>
+<h2 id="开发中常用的几种-Content-Type-？"><a href="#开发中常用的几种-Content-Type-？" class="headerlink" title="开发中常用的几种 Content-Type ？"></a>开发中常用的几种 Content-Type ？</h2><pre><code>（1）application/x-www-form-urlencoded
+
+浏览器的原生 form 表单，如果不设置 enctype 属性，那么最终就会以 application/x-www-form-urlencoded 方式提交数据。该种方式提交的数据放在 body 里面，数据按照 key1=val1&amp;key2=val2 的方式进行编码，key 和 val 都进行了 URL
+转码。
+
+（2）multipart/form-data
+
+该种方式也是一个常见的 POST 提交方式，通常表单上传文件时使用该种方式。
+
+（3）application/json
+
+告诉服务器消息主体是序列化后的 JSON 字符串。
+
+（4）text/xml
+
+该种方式主要用来提交 XML 格式的数据。</code></pre>
+<h2 id="如何封装一个-javascript-的类型判断函数？"><a href="#如何封装一个-javascript-的类型判断函数？" class="headerlink" title="如何封装一个 javascript 的类型判断函数？"></a>如何封装一个 javascript 的类型判断函数？</h2><pre><code class="JS">function getType(value) {
+  // 判断数据是 null 的情况
+  if (value === null) {
+    return value + "";
+  }
+
+  // 判断数据是引用类型的情况
+  if (typeof value === "object") {
+    let valueClass = Object.prototype.toString.call(value),
+      type = valueClass.split(" ")[1].split("");
+
+    type.pop();
+
+    return type.join("").toLowerCase();
+  } else {
+    // 判断数据是基本数据类型的情况和函数的情况
+    return typeof value;
+  }
+}</code></pre>
+<h2 id="如何判断一个对象是否为空对象？"><a href="#如何判断一个对象是否为空对象？" class="headerlink" title="如何判断一个对象是否为空对象？"></a>如何判断一个对象是否为空对象？</h2><pre><code class="JS">function checkNullObj(obj) {
+  return Object.keys(obj).length === 0 &amp;&amp; Object.getOwnPropertySymbols(obj).length === 0;
+}</code></pre>
+<h2 id="手写一个观察者模式？"><a href="#手写一个观察者模式？" class="headerlink" title="手写一个观察者模式？"></a>手写一个观察者模式？</h2><pre><code class="JS">var events = (function() {
+  var topics = {};
+
+  return {
+    // 注册监听函数
+    subscribe: function(topic, handler) {
+      if (!topics.hasOwnProperty(topic)) {
+        topics[topic] = [];
+      }
+      topics[topic].push(handler);
+    },
+
+    // 发布事件，触发观察者回调事件
+    publish: function(topic, info) {
+      if (topics.hasOwnProperty(topic)) {
+        topics[topic].forEach(function(handler) {
+          handler(info);
+        });
+      }
+    },
+
+    // 移除主题的一个观察者的回调事件
+    remove: function(topic, handler) {
+      if (!topics.hasOwnProperty(topic)) return;
+
+      var handlerIndex = -1;
+      topics[topic].forEach(function(item, index) {
+        if (item === handler) {
+          handlerIndex = index;
+        }
+      });
+
+      if (handlerIndex &gt;= 0) {
+        topics[topic].splice(handlerIndex, 1);
+      }
+    },
+
+    // 移除主题的所有观察者的回调事件
+    removeAll: function(topic) {
+      if (topics.hasOwnProperty(topic)) {
+        topics[topic] = [];
+      }
+    }
+  };
+})();</code></pre>
+<h2 id="EventEmitter-实现"><a href="#EventEmitter-实现" class="headerlink" title="EventEmitter 实现"></a>EventEmitter 实现</h2><pre><code class="JS">class EventEmitter {
+  constructor() {
+    this.events = {};
+  }
+
+  on(event, callback) {
+    let callbacks = this.events[event] || [];
+    callbacks.push(callback);
+    this.events[event] = callbacks;
+
+    return this;
+  }
+
+  off(event, callback) {
+    let callbacks = this.events[event];
+    this.events[event] = callbacks &amp;&amp; callbacks.filter(fn =&gt; fn !== callback);
+
+    return this;
+  }
+
+  emit(event, ...args) {
+    let callbacks = this.events[event];
+    callbacks.forEach(fn =&gt; {
+      fn(...args);
+    });
+
+    return this;
+  }
+
+  once(event, callback) {
+    let wrapFun = (...args) =&gt; {
+      callback(...args);
+
+      this.off(event, wrapFun);
+    };
+    this.on(event, wrapFun);
+
+    return this;
+  }
+}</code></pre>
+<h2 id="如何确定页面的可用性时间，什么是-Performance-API？"><a href="#如何确定页面的可用性时间，什么是-Performance-API？" class="headerlink" title="如何确定页面的可用性时间，什么是 Performance API？"></a>如何确定页面的可用性时间，什么是 Performance API？</h2><pre><code>Performance API 用于精确度量、控制、增强浏览器的性能表现。这个 API 为测量网站性能，提供以前没有办法做到的精度。
+
+使用 getTime 来计算脚本耗时的缺点，首先，getTime方法（以及 Date 对象的其他方法）都只能精确到毫秒级别（一秒的千分之一），想要得到更小的时间差别就无能为力了。其次，这种写法只能获取代码运行过程中的时间进度，无法知道一些后台事件的时间进度，比如浏览器用了多少时间从服务器加载网页。
+
+为了解决这两个不足之处，ECMAScript 5引入“高精度时间戳”这个 API，部署在 performance 对象上。它的精度可以达到1毫秒
+的千分之一（1秒的百万分之一）。
+
+navigationStart：当前浏览器窗口的前一个网页关闭，发生 unload 事件时的 Unix 毫秒时间戳。如果没有前一个网页，则等于 fetchStart 属性。
+
+loadEventEnd：返回当前网页 load 事件的回调函数运行结束时的 Unix 毫秒时间戳。如果该事件还没有发生，返回 0。</code></pre>
+<p>根据上面这些属性，可以计算出网页加载各个阶段的耗时。比如，网页加载整个过程的耗时的计算方法如下：</p>
+<pre><code class="JS">var t = performance.timing;
+var pageLoadTime = t.loadEventEnd - t.navigationStart;</code></pre>
+<p>详细资料可以参考： <a target="_blank" rel="noopener" href="http://javascript.ruanyifeng.com/bom/performance.html">《Performance API》</a></p>
+<h2 id="Math-ceil-和-Math-floor"><a href="#Math-ceil-和-Math-floor" class="headerlink" title="Math.ceil 和 Math.floor"></a>Math.ceil 和 Math.floor</h2><pre><code class="JS">Math.ceil() === 向上取整，函数返回一个大于或等于给定数字的最小整数。
+
+Math.floor() === 向下取整，函数返回一个小于或等于给定数字的最大整数。</code></pre>
+<h2 id="js-for-循环注意点"><a href="#js-for-循环注意点" class="headerlink" title="js for 循环注意点"></a>js for 循环注意点</h2><pre><code class="JS">for (var i = 0, j = 0; i &lt; 5, j &lt; 9; i++, j++) {
+  console.log(i, j);
+}
+
+// 当判断语句含有多个语句时，以最后一个判断语句的值为准，因此上面的代码会执行 10 次。
+// 当判断语句为空时，循环会一直进行。</code></pre>
+</article><section class="is-flex is-justify-content-space-between my-6"><!-- em is empty placeholder--><a class="button is-small is-default" href="/My-Blogs/2021/12/18/Git/Git%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/" title="Git常见问题">Previous</a><a class="button is-small is-default" href="/My-Blogs/2021/12/06/css/%E9%9D%A2%E8%AF%95%E6%80%BB%E7%BB%93/" title="面试总结-CSS篇">Next</a></section><article class="mt-6 comment-container"><script src="https://utteranc.es/client.js" repo="529303664/My-Blogs" issue-term="pathname" theme="github-light" async></script></article></div></div></main></main><footer class="is-flex is-flex-direction-column is-align-items-center is-flex-shrink-0 is-family-serif"><section class="sns-container"><a title="twitter" target="_blank" rel="noopener nofollow" href="//twitter.com/https://twitter.com/Lucas55207840?s=05"><i class="iconfont icon-twitter"></i></a><!-- Github--><a title="github" target="_blank" rel="noopener nofollow" href="//github.com/529303664"><i class="iconfont icon-github"></i></a><!-- Ins--><a title="instagram" target="_blank" rel="noopener nofollow" href="//www.instagram.com//"><i class="iconfont icon-ins"></i></a><!-- RSS--><a title="rss" target="_blank" rel="noopener nofollow" href="/My-Blogs/atom.xml"><i class="iconfont icon-rss"></i></a><!-- 知乎--><!-- 领英--><!-- 脸书--><a title="facebook" target="_blank" rel="noopener nofollow" href="//www.facebook.com/https://www.facebook.com/profile.php?id=100010703889793"><i class="iconfont icon-tian7_facebook"></i></a></section><p><span>Copyright ©</span><span> Lucas 2021</span></p><div class="is-flex"><p>Powered by Hexo｜</p><p class="is-flex is-justify-content-center"><a title="Hexo theme author" target="_blank" rel="noopener" href="//github.com/haojen">Theme by &nbspHaojen&nbsp</a></p><div style="margin-top: 2px"><a class="github-button" title="github-button" target="_blank" rel="noopener" href="https://github.com/haojen/hexo-theme-Claudia" data-color-scheme="no-preference: light; light: light; dark: dark;" data-show-count="true"></a></div></div></footer><script async defer src="https://buttons.github.io/buttons.js"></script><script>hljs.initHighlighting();
+
+var directory = document.querySelectorAll('.toc a')
+if (directory.length > 0) {
+    var contentTocList = []
+    var activeClassName = 'is-active'
+
+    directory.forEach(function (link) {
+        if (!link.href) return
+        var id = decodeURI(link.href).split('#')[1]
+        contentTocList.push(document.getElementById(id))
+    })
+
+    var DELAY = 150
+    var needWait = false
+    window.addEventListener('scroll', function (evt) {
+        if (needWait) {
+            return
+        }
+        needWait = true
+        var tocContainer = document.querySelector('.toc')
+        setTimeout(function () {
+            var spacing = 60
+            var activeTopicEl = null
+            var scrollTop = window.pageYOffset
+            for (var i = 0; i < contentTocList.length; i++) {
+                var currentTopic = contentTocList[i]
+
+                if (currentTopic.offsetTop > scrollTop + spacing / 2) {
+                    // jump to next loop
+                    continue
+                }
+
+                if (!activeTopicEl) {
+                    activeTopicEl = currentTopic
+                } else if (currentTopic.offsetTop + spacing >= activeTopicEl.offsetTop - spacing) {
+                    activeTopicEl = currentTopic
+                }
+
+                var beforeActiveEl = document.querySelector('.toc' + ' .' + activeClassName)
+                beforeActiveEl && beforeActiveEl.classList.remove(activeClassName)
+
+                var selectTarget = '.toc a[href="#' + encodeURI(activeTopicEl.id) + '"]'
+                var direc = document.querySelector(selectTarget)
+                direc.classList.add(activeClassName)
+
+                var tocContainerHeight = tocContainer.getBoundingClientRect().height
+                if (direc.offsetTop >= tocContainerHeight - spacing) {
+                    tocContainer.scrollTo({
+                        // top: direc.offsetTop - spacing,
+                        top: direc.offsetTop + 100 - tocContainerHeight,
+                    })
+                }
+                else {
+                    tocContainer.scrollTo({ top: 0 })
+                }
+            }
+            needWait = false
+        }, DELAY)
+
+    })
+
+}</script></body></html>
