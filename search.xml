@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>https证书自动续签</title>
+      <link href="/My-Blogs/2021/12/20/%E5%AE%89%E5%85%A8/https%E8%AF%81%E4%B9%A6%E8%87%AA%E5%8A%A8%E7%BB%AD%E7%AD%BE/"/>
+      <url>/My-Blogs/2021/12/20/%E5%AE%89%E5%85%A8/https%E8%AF%81%E4%B9%A6%E8%87%AA%E5%8A%A8%E7%BB%AD%E7%AD%BE/</url>
+      
+        <content type="html"><![CDATA[<h2 id="安装说明"><a href="#安装说明" class="headerlink" title="安装说明"></a><a href="https://github.com/acmesh-official/acme.sh/wiki/%E8%AF%B4%E6%98%8E">安装说明</a></h2><h2 id="续签代码"><a href="#续签代码" class="headerlink" title="续签代码"></a>续签代码</h2><pre><code class="BASH">acme.sh --install-cert -d eth2app.com -d test.eth2app.com -d api.eth2app.com -d h5.eth2app.com  -d h5admin.eth2app.com -d rpc.eth2app.com  --key-file       /etc/nginx/ssl/eth2app.com/key.pem  --fullchain-file /etc/nginx/ssl/eth2app.com/cert.pemacme.sh --issue --dns dns_gd -d eth2app.com -d test.eth2app.com -d api.eth2app.com -d h5.eth2app.com -d h5admin.eth2app.com -d rpc.eth2app.com</code></pre><h2 id="DNS-API"><a href="#DNS-API" class="headerlink" title="DNS API"></a><a href="https://github.com/acmesh-official/acme.sh/wiki/dnsapi">DNS API</a></h2><a id="more"></a>]]></content>
+      
+      
+      <categories>
+          
+          <category> 安全 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 安全 </tag>
+            
+            <tag> 证书 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Git常见问题</title>
       <link href="/My-Blogs/2021/12/18/Git/Git%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/"/>
       <url>/My-Blogs/2021/12/18/Git/Git%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/</url>
