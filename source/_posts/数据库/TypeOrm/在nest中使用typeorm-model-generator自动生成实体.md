@@ -1,7 +1,7 @@
 ---
 title: 在nest中使用typeorm-model-generator自动生成实体
 tags: [MySQL, nestjs]
-categories: [MYSQL]
+categories: [MySQL]
 version: 1
 date: 2021-04-21 12:35:23
 ---
